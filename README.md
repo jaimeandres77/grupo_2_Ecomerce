@@ -14,3 +14,7 @@ Se trata de un website sobre la venta de videojuegos de diferentes plataformas (
 - https://www.colombiagamer.com.co/ -→ Representa la estructura basica del la pagina (carrito, datos, etc, productos).
 
 - https://gameshopvideojuegos.com/ --> En esta página podemos ver la posible separación por secciones y categorias que podría tener nuestra app web. 
+
+## Wireframes
+
+-Wireframes del formulario de registro y del formulario de login https://www.figma.com/file/tqaICJq7KCr8df6yukjqhZ/login?node-id=0%3A1
