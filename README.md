@@ -17,5 +17,5 @@ Se trata de un website sobre la venta de videojuegos de diferentes plataformas (
 
 ## Wireframes
 
--Wireframes del formulario de registro y del formulario de login https://www.figma.com/file/tqaICJq7KCr8df6yukjqhZ/login?node-id=0%3A1
--Wireframes del HomePage https://www.figma.com/file/U03naswxirOsKJRIz6Ka7C/WireFramesProyecto?node-id=0%3A1
+- Wireframes del formulario de registro y del formulario de login https://www.figma.com/file/tqaICJq7KCr8df6yukjqhZ/login?node-id=0%3A1
+- Wireframes del HomePage https://www.figma.com/file/U03naswxirOsKJRIz6Ka7C/WireFramesProyecto?node-id=0%3A1
