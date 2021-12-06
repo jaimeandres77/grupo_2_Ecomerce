@@ -1,0 +1,47 @@
+:root {
+    /* Colores */
+    --purpura: #682D63;
+    --azul: #414288;
+    --verde: #00635D;
+    --blanco-principal: #FFFAFF;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    /* Tamaños de Fuentes */
+    --text-sm: 1.2em;
+    --text-sm: 1.6em;
+    --text-lg: 1.8em;
+    --title-md: 2.4em;
+    /* Familias de Fuentes */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS COMUNES */
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--blanco-principal);
+}
+
+/* h1,h2,h3{
+    font-family: ;
+} */
+
+h1{
+    font-size: 3.2em;
+}
+
+h2{
+    font-size: 2.4em;
+}
+
+h3{
+    font-size: 1.872em;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "grupo_2_ecomerce",
+  "version": "1.0.0",
+  "description": "Proyecto Integrador Grupo 2 DigitalHouse",
+  "main": "app.js",
+  "scripts": {
+    "start" : "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaimeandres77/grupo_2_Ecomerce.git"
+  },
+  "author": "Fabian Forero, Sergio Castro, Jaime Artunduaga, Jhoan Penuela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaimeandres77/grupo_2_Ecomerce/issues"
+  },
+  "homepage": "https://github.com/jaimeandres77/grupo_2_Ecomerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
