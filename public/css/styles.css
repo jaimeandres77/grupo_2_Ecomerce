@@ -1,6 +1,9 @@
+@import 'header.css';
+
 :root {
     /* Colores */
     --purpura: #682D63;
+    --purpura-oscuro: #4c2349;
     --azul: #414288;
     --verde: #00635D;
     --blanco-principal: #FFFAFF;
@@ -8,7 +11,7 @@
     --negro: #000000;
     /* Tamaños de Fuentes */
     --text-sm: 1.2em;
-    --text-sm: 1.6em;
+    --text-md: 1.6em;
     --text-lg: 1.8em;
     --title-md: 2.4em;
     /* Familias de Fuentes */
@@ -28,6 +31,8 @@ html{
 
 body{
     background-color: var(--blanco-principal);
+    min-height: 100vh;
+    height: 100%;
 }
 
 /* h1,h2,h3{
@@ -45,3 +50,101 @@ h2{
 h3{
     font-size: 1.872em;
 }
+
+/* HEADER */
+
+/* header{
+    position: relative;
+    background-color: var(--purpura);
+    box-shadow: 0 0 10px #000000;
+    padding: 10px 15px;
+} */
+
+/* .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* .header .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+} */
+
+/* .header .logo img{
+    width: 50px;
+    color: var(--blanco);
+} */
+
+/* .header .logo span{
+    display: none;
+    color: var(--blanco);
+    font-size: var(--title-md);
+} */
+
+/* header .form{
+    display: flex;
+    margin: 10px 0;
+    border-radius: 10px;
+    overflow: hidden;
+} */
+
+/* header .form input{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: var(--text-md);
+} */
+
+/* header .form button{
+    padding: 10px;
+} */
+
+/* header .form button:hover{
+    cursor: pointer;
+} */
+
+/* .header button{
+    position: absolute;
+    padding: 10px;
+    font-size: 2.4em;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    margin: 0 1rem;
+    right: 0;
+} */
+
+/* .header button:hover{
+    background-color: var(--purpura-oscuro);
+} */
+
+/* .header button i{
+    color: var(--blanco);
+    cursor: pointer;
+} */
+
+/* #nav__checkbox:checked ~ body{
+    background-color: #000000;
+} */
+
+/* header nav li{
+    text-align: center;
+    font-size: var(--text-md);
+    list-style-type: none;
+} */
+
+/* header nav li a{
+    display: block;
+    padding: 12px;
+    color: var(--blanco);
+    text-decoration: none;
+    text-transform: uppercase;
+} */
+
+/* header nav li a:hover{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: var(--purpura-oscuro);
+} */
