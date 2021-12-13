@@ -1,0 +1,188 @@
+:root {
+    /* Colores */
+    --purpura: #682D63;
+    --azul: #414288;
+    --verde: #00635D;
+    --blanco-principal: #FFFAFF;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    /* Tamaños de Fuentes */
+    --text-sm: 1.2em;
+    --text-sm: 1.6em;
+    --text-lg: 1.8em;
+    --title-md: 2.4em;
+    /* Familias de Fuentes */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS COMUNES */
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--blanco-principal);
+    font-family:'Open Sans Condensed', sans-serif;
+}
+
+/* section button .fb_btn{
+    background:#3B5998;
+}
+
+section button .google_btn{
+    background: #dd4b39;
+}
+
+section {
+width: 400px;
+height: 440px;
+background: var(--purpura);
+margin: auto;
+margin-top: 180px;
+box-shadow: 7px 13px 37px var(--negro);
+padding: 20px 30px;
+border-top: 4px solid var(--azul);
+color: var(--blanco);
+font-size: var(--text-lg);
+}
+
+section h5 .acceder{
+    text-align: center;
+    margin: 0;
+    display: block;
+}
+.controls{
+    width: 100%;
+    border: 1px solid var(--azul);
+    margin-bottom: 15px;
+    padding: 11px 10px;
+    background: var(--blanco);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.check_box{
+    margin: 5px 10px 5px 0;
+}
+
+span{
+    color: var(--blanco);
+    font-size: 14px;
+    position: absolute;
+}
+
+.buttons{
+    width: 100%;
+    height: 40px;
+    background: var(--azul);
+    color: var(--blanco);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin-bottom: 16px;
+}
+
+section p {
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+section a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 14px;
+} */
+/* h1,h2,h3{
+    font-family: ;
+} */
+
+h1{
+    font-size: 3.2em;
+}
+
+h2{
+    font-size: 2.4em;
+}
+
+h3{
+    font-size: 1.872em;
+}
+
+/* .btn{
+    display: inline-block;
+    padding: 10px;
+} */
+
+.mb-2{
+    margin-bottom: 8px;
+}
+
+.container-center-xy{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+    max-width: 500px;
+    background-color: var(--purpura);
+    padding: 30px;
+}
+
+section button{
+    border: none;
+    background-color: transparent;
+}
+
+section button .fb_btn{
+    display: inline-block;
+    border-radius: 15px;
+    padding: 10px;
+    background:#3B5998;
+    color: var(--blanco);
+}
+
+section button .google_btn{
+    border-radius: 15px;
+    display: inline-block;
+    padding: 10px;
+    background: #dd4b39;
+    color: var(--blanco);
+}
+
+section form input.form-control{
+    width: 100%;
+    padding: 6px 12px;
+}
+
+section form label.form-label{
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blanco);
+}
+
+section form a{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 14px;
+}
+
+section form .btn-ingresar{
+    padding: 10px;
+    background-color: var(--azul);
+    width: 100%;
+    color: var(--blanco);
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
