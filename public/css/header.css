@@ -11,25 +11,33 @@ header .nav{
     border-bottom: 1px solid var(--purpura-oscuro);
 }
 
+header .nav .menu__logo{
+    width 100%;
+    display: flex;
+    justify-content: center;
+}
+
 header .nav .menu__logo img{
     height: 30px;
 }
 header .nav .menu__logo svg{
-    height: 35px;
+    max-height: 45px;
     fill: var(--blanco);
 }
 
 header .nav__toggle{
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 15px;
+    left: 25px;
     cursor: pointer;
 }
 
 header .nav__toggle i{
-    color: var(--blanco);
-    padding: 10px;
     font-size: var(--text-md);
+    background-color: var(--blanco);
+    color: var(--negro);
+    padding: 10px;
+    border-radius: 50%;
 }
 
 header .nav__toggle .close{
@@ -54,11 +62,6 @@ header ul.nav__menu li{
     border-radius: 10px;
 }
 
-header ul.nav__menu li:first-child{
-    margin-right: auto;
-    display: block;
-}
-
 header ul.nav__menu li a{
     display: block;
     padding: 10px 0;
@@ -74,6 +77,44 @@ header ul.nav__menu li a:hover{
     background-color: var(--purpura-oscuro);
 }
 
+header ul.nav__menu .nav__icon{
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    gap: 10px;
+}
+header ul.nav__menu .nav__icon li{
+    position: relative;
+    display: block;
+}
+
+header ul.nav__menu .nav__icon li{
+    border-radius: 0px;
+}
+
+header ul.nav__menu .nav__icon li .shopping a i{
+    padding: 10px;
+    background-color: var(--verde);
+    border-radius: 50%;
+}
+
+header ul.nav__menu .nav__icon .shopping i span{
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    background-color: var(--azul);
+    padding: 5px;
+    border-radius: 50%;
+    font-size: var(--text-sm);
+}
+
+header ul.nav__menu .nav__icon li.user a i{
+    padding: 10px;
+    background-color: var(--blanco);
+    color: var(--negro);
+    border-radius: 50%;
+}
+
 header ul.nav__menu li .nav__form{
     display: flex;
     align-items: center;
@@ -83,7 +124,7 @@ header ul.nav__menu li .nav__form{
 
 header ul.nav__menu li .nav__form input{
     width: 100%;
-    padding: 10px 15px;
+    padding: 6px 12px;
     border: none;
     border-radius: 12px;
 }
@@ -116,7 +157,7 @@ header .nav #nav__checkbox:checked ~ label.nav__toggle .menu{
         margin: 0 auto;
     }
     header .nav .menu__logo svg{
-        height: 45px;
+        height: 55px;
     }
     header .nav label.nav__toggle{
         display: none;
@@ -125,19 +166,24 @@ header .nav #nav__checkbox:checked ~ label.nav__toggle .menu{
         flex-direction: row;
         justify-content: flex-end;
         column-gap: 10px;
+        column-gap: 10px;
+        column-gap: 10px;
+    }
+    header ul.nav__menu .nav__icon{
+        position: static;
+        gap: 0;
+    }
+    header ul.nav__menu .nav__icon .shopping a{
+        padding: 10px 0;
     }
     header .nav .nav__menu li a{
         padding: 10px;
-        gap: 1;
         border: none;
     }
     header ul.nav__menu li{
         width: auto;
         display: flex !important;
         align-items: center;
-    }
-    header ul.nav__menu li .nav__form input{
-        padding: 5px 15px;
     }
 }
 /* 
