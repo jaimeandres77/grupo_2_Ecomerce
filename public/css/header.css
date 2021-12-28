@@ -1,4 +1,4 @@
-/* HEADER */
+/* ****************** HEADER ****************** */
 header{
     position: relative;
     padding: 10px 15px;
@@ -127,6 +127,7 @@ header ul.nav__menu li .nav__form input{
     padding: 6px 12px;
     border: none;
     border-radius: 12px;
+    font-size: var(--text-md);
 }
 
 header ul.nav__menu li .nav__form button{
@@ -149,7 +150,39 @@ header .nav #nav__checkbox:checked ~ label.nav__toggle .menu{
     display: none;
 }
 
+/* ****************** SECTION FORM SEARCH ****************** */
+section.form-search{
+    padding: 10px;
+    background-color: var(--azul);
+    box-shadow: 0 0 5px var(--negro);
+}
+
+section.form-search .nav__form{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+section.form-search .nav__form input{
+    width: 100%;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: var(--text-md);
+}
+
+section.form-search .nav__form button{
+    position: absolute;
+    right: 5px;
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+}
+
 @media screen and (min-width: 576px) {
+    /* ****************** HEADER ****************** */
     header .nav{
         display: flex;
         justify-content: space-between;
@@ -184,6 +217,10 @@ header .nav #nav__checkbox:checked ~ label.nav__toggle .menu{
         width: auto;
         display: flex !important;
         align-items: center;
+    }
+    /* ****************** SECTION FORM SEARCH ****************** */
+    section.form-search .nav__form input{
+        max-width: 300px;
     }
 }
 /* 

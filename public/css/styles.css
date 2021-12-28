@@ -1,5 +1,3 @@
-@import 'header.css';
-
 :root {
     /* Colores */
     --purpura: #682D63;
@@ -49,4 +47,21 @@ h3{
 
 .d-flex{
     display: flex;
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 576px) {
+    .container{
+        width: 93.75%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container{
+        width: 96.77%;
+    }
 }
