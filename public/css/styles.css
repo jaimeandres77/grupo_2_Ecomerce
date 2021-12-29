@@ -83,7 +83,7 @@ header .main-header button{
     
 }
 .logo-container img{
-    width: 65% ;
+    width: 100% ;
 }
 .containerUserShop{
     width: 30%;
@@ -105,7 +105,6 @@ header .main-header button{
 nav ul{
     display: none;
     justify-content: space-around;
-    margin-top: 20px;
     font-size: var(--text-sm);
 }
 header ul li {
@@ -137,8 +136,8 @@ header ul li a {
     color: var(--purpura);
     border: none;
     margin: 8px 0px 8px 0px;
-    padding: 6px;
-    border-radius: 6px 0px 0px 6px;
+    padding: 5px;
+    border-radius: 2px 0px 0px 2px;
     box-shadow: 2px 2px 2px rgb(59, 59, 59);
 }
 .form-section button{
@@ -189,45 +188,77 @@ main section h2{
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 1% 3%;
 }
 
 .article-container article{
-    width: 45%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
+    background-color: var(--azul);
     box-shadow: 2px 2px 5px rgb(37, 37, 37);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.article-container article:hover img{
+    opacity: 0.8;
+    transition: all 0.5s;
 }
 
 .article-img-container{
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 40%;
 }
 article img{
     width: 100%;
 }
 .article-info-container{
-    background-color: var(--azul);
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
-    width: 100%;
+    padding: 2% 6%;
+    width: 60%;
     color: white;
+    position: relative;
 }
-
-.article-info-container h3{
-    font-size: 12px;
+.article-info-container button{
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    padding: 8px 4px 8px 10px;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+    bottom: 32%;
+    right: 0px;
+    color: white;
+    background-color: var(--verde);
+    box-shadow: 3px 3px 2px rgb(59, 59, 59);
+    cursor: pointer;
+}
+.article-subInfo-container{
+    margin-top: 16%;
+}
+.price-article{
+    font-size: var(--text-lg);
+    font-weight: 800;
+}
+.article-info-container h3 , h6{
+    font-size: var(--text-sm);
 }
 
 .article-info-container h4{
-    font-size: 10px;
-    margin-top: 8px;
+    font-size: var(--text-sm);
+    margin-top: 30%;
+    color: rgba(119, 136, 153, 0.9);
 }
 
-.price-article{
-    font-weight: 800;
+.article-info-container h6{
+    color: var(--verde);
+    margin-top: 10px;
 }
 
 .article-container-categories{
@@ -290,9 +321,173 @@ footer{
 
 .copyright{
     color: white;
-    font-size: 15px;
+    font-size: var(--text-sm);
     padding-top: 10px;
 }
 
+
+/* ---------------------------RESPONSIVE DESIGN----------------------------------------------------- */
+
+@media screen and (min-width:361px){
+    
+    .article-container article{
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-img-container{
+        width: 100%;
+    }
+    article img{
+        width: 100%;
+    }
+
+    .article-info-container{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5%;
+        width: 100%;
+        position: relative;
+    }
+
+    .article-info-container button{
+        padding: 8px 4px 8px 10px;
+        bottom: 34%;
+    }
+}
+/* ----------------------------------------------------Responsive 2nd screenSize ------------------------------------  */
+@media screen and (min-width:769px){
+    .article-container article{
+        width: 24%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-header{
+        display: flex;
+        justify-content: space-around;
+        padding: 5px 0px ;
+        width: 100%;
+    }
+    
+    header .main-header button{
+        width: 50px;
+        height: 35px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 2px rgb(59, 59, 59);
+    }
+    
+    .hamburger-menu-container{
+        width: 30%;
+        display: none;
+    }
+    .logo-container{
+        width: 20%;
+        order: -2;
+    }
+    .logo-container img{
+        width: 70% ;
+    }
+    nav{
+        width: 40%;
+        order: -2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        
+    }
+    nav ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        font-size: var(--text-sm);
+    }
+    header ul li {
+        list-style-type: none;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+    }
+    header ul li i{
+        font-size: 14px;
+
+    }    
+    header nav ul li a {
+        text-decoration: none;
+        color: var(--blanco-principal);
+    }
+    .containerUserShop{
+        width: 15%;
+        justify-content: flex-end;
+    }
+    .shoppingCar-btn{
+        gap: 2px;
+    }
+    .shoppingCar-btn h4{
+        display: block;
+    }
+    
+    .form-section form{
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .form-section input{
+        width: 50%;
+        margin: 8px 0px 8px 0px;
+        padding: 5px 0px 5px 6px;
+        border-radius: 6px 0px 0px 6px;
+    }
+    .form-section button{        
+        width: 6%;
+        padding: 6px 0px;
+        margin-right: 4%;
+    }
+
+    footer{
+        background-color: var(--azul);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2%;
+    }
+    
+    .footer-img-container{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+    }
+    .footer-img-container img{
+        width: 90%;
+    }
+    
+    .footer-lists{
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .footer-lists ul{
+        list-style: none;
+        font-size: var(--text-lg); 
+        line-height: 30px;
+    }
+    
+    .copyright{
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 15px;
+    }
+}
 
 
