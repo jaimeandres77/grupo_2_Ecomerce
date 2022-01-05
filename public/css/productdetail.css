@@ -115,3 +115,28 @@ main.product-detail > .detail .valoration i:hover{
 main.product-detail > .comment{
     margin-bottom: 10px;
 }
+
+@media screen and (min-width: 576px) {
+    main.product-detail > .product{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    main.product-detail > .product picture.img{
+        width: 50%;
+    }
+    main.product-detail > .product article{
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    main.product-detail > .product{
+        justify-content: space-between;
+    }
+    main.product-detail > .product picture.img{
+        width: 50%;
+    }
+    main.product-detail > .product article{
+        width: 40%;
+    }
+}
