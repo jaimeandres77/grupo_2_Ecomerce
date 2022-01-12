@@ -1,0 +1,137 @@
+:root {
+    /* Colores */
+    --purpura: #682D63;
+    --azul: #414288;
+    --verde: #00635D;
+    --blanco-principal: #FFFAFF;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    /* Tamaños de Fuentes */
+    --text-sm: 1.2em;
+    --text-sm: 1.6em;
+    --text-lg: 1.8em;
+    --title-md: 2.4em;
+    /* Familias de Fuentes */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS COMUNES */
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--blanco-principal);
+    font-family:'Open Sans Condensed', sans-serif;
+}
+
+/* h1,h2,h3{
+    font-family: ;
+} */
+
+h1{
+    font-size: 3.2em;
+}
+
+h2{
+    font-size: 2.4em;
+    color: var(--blanco);
+    text-align: center;
+}
+
+h3{
+    font-size: 1.872em;
+}
+
+/* .btn{
+    display: inline-block;
+    padding: 10px;
+} */
+
+.mb-2{
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.container-center-xy{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+    max-width: 500px;
+    background-color: var(--purpura);
+    padding: 30px;
+    box-shadow: 7px 13px 37px var(--negro);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+section button{
+    border: none;
+    background-color: transparent;
+}
+
+section button .fb_btn{
+    display: inline-block;
+    border-radius: 15px;
+    padding: 10px;
+    background:#3B5998;
+    color: var(--blanco);
+}
+
+section button .google_btn{
+    border-radius: 15px;
+    display: inline-block;
+    padding: 10px;
+    background: #dd4b39;
+    color: var(--blanco);
+}
+
+section form input.form-control{
+    width: 100%;
+    padding: 6px 12px;
+}
+
+section form label.form-label{
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blanco);
+}
+
+section form a{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 14px;
+}
+
+section form .btn-ingresar{
+    padding: 10px;
+    background-color: var(--azul);
+    width: 100%;
+    color: var(--blanco);
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+section form .btn-ingresar:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
