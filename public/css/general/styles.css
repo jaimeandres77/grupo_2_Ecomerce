@@ -1,0 +1,82 @@
+:root {
+    /* Colores */
+    --purpura: #682D63;
+    --purpura-oscuro: #4c2349;
+    --azul: #414288;
+    --verde: #00635D;
+    --blanco-principal: #F9F9F9;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    --verde: #18cc00;
+    /* Tamaños de Fuentes */
+    --text-sm: 1.2em;
+    --text-md: 1.6em;
+    --text-lg: 1.8em;
+    --title-md: 2.4em;
+    /* Familias de Fuentes */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ESTILOS COMUNES */
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--blanco-principal);
+}
+
+h1{
+    font-size: 3.2em;
+}
+
+h2{
+    font-size: 2.4em;
+}
+
+h3{
+    font-size: 1.872em;
+}
+
+/* GENERAL */
+.container{
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.d-flex{
+    display: flex;
+}
+
+
+@media screen and (min-width: 576px) {
+    .container{
+        width: 93.75%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container{
+        width: 96.77%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container{
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .container{
+        width: 94.2857143;
+    }
+}

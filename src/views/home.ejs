@@ -6,49 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/home.css">
     <!--ICONOS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-        <div class="main-header">
-            <div class="hamburger-menu-container">
-                <button class="hamburger-menu-btn"><i class="fas fa-bars"></i></i></button>
-            </div>
-            <picture class="logo-container">
-                <img src="/img/mainLogo.png" alt="logo">
-            </picture>
-            <div class="containerUserShop">
-                <button class="shoppingCar-btn">
-                    <h4>$0</h4><i class="fas fa-shopping-cart"></i></i>
-                </button>
-                <button class="userInfo-btn"><i class="fas fa-user"></i></button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="">Ofertas</a><i class="fas fa-chevron-down"></i></li>
-                    <li><a href="">Tiendas Oficiales</a><i class="fas fa-chevron-down"></i></li>
-                    <li><a href="">Vender</a><i class="fas fa-chevron-down"></i></li>
-                    <li><a href="">Ayuda</a><i class="fas fa-chevron-down"></i></li>
-                </ul>
-            </nav>
-        </div>
-        <section class="form-section">
-            <form action="">
-                <input type="text" placeholder="Busca los productos...">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </section>
-    </header>
-    <!--FIN HEADER-->
+    <%- include('partials/header') %> 
+    
     <section class="banner">
         <img src="https://gameshopvideojuegos.com/wp-content/uploads/2021/08/Banner-web-768x234.png" alt="banner">
     </section>
 
     <main>
-
         <section>
             <h2>Los más vendidos</h2>
             <div class="article-container">
@@ -68,8 +38,7 @@
                 </article>
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/s29Db6ZBVLneuD0t66qnYRamvGDP3p8chLz-3IomxcU_350x200_1x-0.jpeg"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/s29Db6ZBVLneuD0t66qnYRamvGDP3p8chLz-3IomxcU_350x200_1x-0.jpeg" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Grand Theft Auto V RockStar</h3>
@@ -97,8 +66,7 @@
                 </article>
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/DOdRq7lZsQiMY2SmrRWlq3zaj_Y0ybguIf5CLwU28eQ_350x200_1x-0.jpeg"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/DOdRq7lZsQiMY2SmrRWlq3zaj_Y0ybguIf5CLwU28eQ_350x200_1x-0.jpeg" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Trial Rising(Xbox One) Xbox Live</h3>
@@ -118,8 +86,7 @@
             <div class="article-container">
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/uwxYfGoEGO6-5an7Pp7ArHipE1moW-DnAeiexPKY0Xw_350x200_1x-0.jpeg"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/uwxYfGoEGO6-5an7Pp7ArHipE1moW-DnAeiexPKY0Xw_350x200_1x-0.jpeg" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Dying Light 2 Stay Human Steam</h3>
@@ -129,8 +96,7 @@
                 </article>
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/TvrcNgjXeQn0cH4QmJVpJWvDHPAYDJzAxITa2p-CgIk_350x200_1x-0.jpeg"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/TvrcNgjXeQn0cH4QmJVpJWvDHPAYDJzAxITa2p-CgIk_350x200_1x-0.jpeg" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Expeditions: Rome (PC) Steam</h3>
@@ -140,8 +106,7 @@
                 </article>
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/LkfZvOubCEzreZAqS1pQxWPrEKxXqDS5lI2zsuynnwI_350x200_1x-0.png"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/LkfZvOubCEzreZAqS1pQxWPrEKxXqDS5lI2zsuynnwI_350x200_1x-0.png" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Tom Clancy's Rainbow Six: Extraction</h3>
@@ -151,8 +116,7 @@
                 </article>
                 <article>
                     <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/VxJkoxKF5VhPzOyrAWwJa4yO2kSdnufHDRwrMUT3hsQ_350x200_1x-0.jpeg"
-                            alt="">
+                        <img src="https://cdn-products.eneba.com/resized-products/VxJkoxKF5VhPzOyrAWwJa4yO2kSdnufHDRwrMUT3hsQ_350x200_1x-0.jpeg" alt="">
                     </div>
                     <div class="article-info-container">
                         <h3>Trial Rising(Xbox One) Xbox Live</h3>
@@ -193,37 +157,7 @@
     <section class="banner2">
         <img src="https://www.npd.com/wp-content/uploads/2021/05/video-games-banner-1440x480.jpeg" alt="banner">
     </section>
-
-    <footer>
-
-        <div class="footer-img-container">
-            <img src="/img/mainLogo.png" alt="">
-        </div>
-        <div class="footer-lists">
-            <ul>
-                <li> <a href="">Soporte</a></li>
-
-                <li> <a href=""> Politica de privacidad </a></li>
-
-                <li> <a href=""> Acerca de nosotros </a></li>
-
-                <li> <a href=""> Mapa del Sitio </a></li>
-            </ul>
-
-            <ul>
-                <li> <a href="#">Instagram <i class="fab fa-instagram"></i></a> </li>
-
-                <li> <a href="#">Twitter <i class="fab fa-twitter"></i></a> </li>
-
-                <li> <a href="#">Facebook <i class="fab fa-facebook-square"></i></a> </li>
-
-                <li> <a href="#">Youtube <i class="fab fa-youtube"></i></a> </li>
-            </ul>
-        </div>
-
-        <h3 class="copyright">© 2021 GamersProShop</h3>
-
-    </footer>
+    <%- include('partials/footer') %> 
 </body>
 
 </html>

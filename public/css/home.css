@@ -1,0 +1,170 @@
+@import url('./general/styles.css');
+@import url('./general/header.css');
+@import url('./general/footer.css');
+
+/* BANNER */
+.banner img{
+    width: 100%;
+    box-shadow: 3px 5px 4px rgb(59, 59, 59);
+}
+
+.banner2 img{
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 3px 5px 4px rgb(59, 59, 59);
+}
+
+/*--------MAIN------*/
+main{
+    width:100%;
+    margin: 0px auto;
+}
+
+main section h2{
+    color: var(--negro);
+    text-align: center;
+    padding: 12px 0px ;
+    font-weight: bold;
+}
+
+.article-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 1% 3%;
+}
+
+.article-container article{
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    background-color: var(--azul);
+    box-shadow: 2px 2px 5px rgb(37, 37, 37);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.article-container article:hover img{
+    opacity: 0.8;
+    transition: all 0.5s;
+}
+
+.article-img-container{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+article img{
+    width: 100%;
+}
+.article-info-container{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2% 6%;
+    width: 60%;
+    color: white;
+    position: relative;
+}
+.article-info-container button{
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    padding: 8px 4px 8px 10px;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+    bottom: 32%;
+    right: 0px;
+    color: white;
+    background-color: var(--verde);
+    box-shadow: 3px 3px 2px rgb(59, 59, 59);
+    cursor: pointer;
+}
+.article-subInfo-container{
+    margin-top: 16%;
+}
+.price-article{
+    font-size: var(--text-lg);
+    font-weight: 800;
+}
+.article-info-container h3 , h6{
+    font-size: var(--text-sm);
+}
+
+.article-info-container h4{
+    font-size: var(--text-sm);
+    margin-top: 30%;
+    color: rgba(119, 136, 153, 0.9);
+}
+
+.article-info-container h6{
+    color: var(--verde);
+    margin-top: 10px;
+}
+
+.article-container-categories{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+}
+.article-container-categories article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    position: relative;
+    padding: 20px;
+    border-radius: 1px;
+    background-color: var(--azul);
+    box-shadow: 2px 2px 5px rgb(37, 37, 37);
+}
+
+/* ---------------------------RESPONSIVE DESIGN----------------------------------------------------- */
+
+@media screen and (min-width:361px){
+    
+    .article-container article{
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .article-img-container{
+        width: 100%;
+    }
+    article img{
+        width: 100%;
+    }
+
+    .article-info-container{
+    
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 5%;
+        width: 100%;
+        position: relative;
+    }
+
+    .article-info-container button{
+        padding: 8px 4px 8px 10px;
+        bottom: 34%;
+    }
+}
+
+/* ----------------------------------------------------Responsive 2nd screenSize ------------------------------------  */
+@media screen and (min-width:769px){
+    .article-container article{
+        width: 24%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

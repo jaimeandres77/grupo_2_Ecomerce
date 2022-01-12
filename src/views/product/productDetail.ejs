@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Producto</title>
+    <link rel="stylesheet" href="/css/productdetail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <%- include('../partials/header') %> 
+    <main class="container product-detail">
+        <section class="ubication">... ► JUEGOS ► PC ► WARCRAFT</section>
+        <section class="categories">
+            <button type="button">
+                <i class="fas fa-bars">Filtrar ▼</i>
+            </button>
+            <ul>
+                <li><a href="#">Item1</a></li>
+                <li><a href="#">Item2</a></li>
+                <li><a href="#">Item3</a></li>
+                <li><a href="#">Item4</a></li>
+            </ul>
+        </section>
+        <section class="product">
+            <picture class="img">
+                <img src="/img/img-warcraft.jpg" alt="productoA">
+            </picture>
+            <article>
+                <h1>WARCRAFT - PC</h1>
+                <div class="price">
+                    <p><span>$</span>???????</p>
+                </div>
+                <div class="description">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque suscipit, ipsum vel maxime deserunt recusandae, sit optio modi quaerat error eius ab sequi. Dolores illum cum hic quidem. Quam, officiis.</p>
+                </div>
+                <div class="count">
+                    <button type="button">+</button>
+                    <input type="number" name="" id="" value="1" min="1" max="5" placeholder="1">
+                    <button type="button">-</button>
+                </div>
+                <div class="send">
+                    <button type="button">AGREGAR AL CARRITO</button>
+                </div>
+            </article>
+        </section>
+        <section class="detail">
+            <article class="description">
+                <h2>DESCRIPCIÓN</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis eius aliquam praesentium veniam laborum pariatur vitae corrupti voluptas rem suscipit voluptatem ut dicta atque, architecto blanditiis fuga similique facilis voluptatibus distinctio maxime illo officiis asperiores modi! Odio sapiente fuga perferendis? Blanditiis repellendus numquam quae necessitatibus temporibus magni, obcaecati facilis voluptatibus quod molestiae commodi? Corrupti consequuntur placeat odio molestias enim. Incidunt, praesentium nulla architecto voluptates distinctio quibusdam maiores, facilis, odio accusantium aliquam enim culpa? Magnam architecto consequatur asperiores necessitatibus voluptatum, sed odit natus quos minima repudiandae culpa iusto est corrupti possimus aliquid, ea libero, ad dolor in. Magni temporibus inventore adipisci.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam voluptatibus fugit nesciunt tempora dicta nihil vero autem, a voluptatum eius.</p>
+            </article>
+            <article class="valoration">
+                <h2>VALORACIÓN</h2>
+                <div>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half"></i>
+                    <i class="far fa-star"></i>
+                </div>
+            </article>
+            <article class="comment">
+                <h2>COMENTARIOS</h2>
+                ... formulario
+            </article>
+        </section>
+    </main>
+    <%- include('./../partials/footer') %>
+</body>
+</html>

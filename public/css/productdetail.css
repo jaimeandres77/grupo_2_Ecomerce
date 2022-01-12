@@ -1,5 +1,6 @@
-@import './styles.css';
-@import './header.css';
+@import './general/styles.css';
+@import './general/header.css';
+@import './general/footer.css ';
 
 main.product-detail{
     font-size: var(--text-sm);

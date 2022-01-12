@@ -3,12 +3,12 @@ header{
     position: relative;
     padding: 10px 15px;
     background-color: var(--purpura);
+    overflow: hidden;
 }
 
 header .nav{
     width: 100%;
     display: block;
-    border-bottom: 1px solid var(--purpura-oscuro);
 }
 
 header .nav .menu__logo{
@@ -18,10 +18,10 @@ header .nav .menu__logo{
 }
 
 header .nav .menu__logo img{
-    height: 30px;
+    height: 40px;
 }
 header .nav .menu__logo svg{
-    max-height: 45px;
+    max-height: 40px;
     fill: var(--blanco);
 }
 
@@ -65,7 +65,6 @@ header ul.nav__menu li{
 header ul.nav__menu li a{
     display: block;
     padding: 10px 0;
-    border-bottom: 1px solid var(--purpura-oscuro);
     border-radius: 5px;
     color: var(--blanco);
     text-decoration: none;
@@ -90,6 +89,10 @@ header ul.nav__menu .nav__icon li{
 
 header ul.nav__menu .nav__icon li{
     border-radius: 0px;
+}
+
+header ul.nav__menu .nav__icon li .shopping .price{
+    display: none;
 }
 
 header ul.nav__menu .nav__icon li .shopping a i{
@@ -206,8 +209,16 @@ section.form-search .nav__form button{
         position: static;
         gap: 0;
     }
+    header ul.nav__menu .nav__icon li .shopping .price{
+        display: inline-block;
+        color: var(--verde);
+        font-weight: bold;
+    }
     header ul.nav__menu .nav__icon .shopping a{
-        padding: 10px 0;
+        padding: 2px 0;
+    }
+    header ul.nav__menu .nav__icon .shopping i span{
+        display: none;
     }
     header .nav .nav__menu li a{
         padding: 10px;
@@ -225,6 +236,8 @@ section.form-search .nav__form button{
 }
 /* 
     576 -> 540 -> 93.75%
+    768 -> 720 -> 93.75%
     992 -> 960 -> 96.77%
     1200 -> 1140 -> 95%
+    1200 -> 1140 -> 94.2857143%
 */
