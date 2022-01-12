@@ -1,6 +1,7 @@
 :root {
     /* Colores */
     --purpura: #682D63;
+    --purpura-oscuro: #4c2349;
     --azul: #414288;
     --verde: #00635D;
     --blanco-principal: #FFFAFF;
@@ -9,7 +10,7 @@
     --verde: #18cc00;
     /* Tamaños de Fuentes */
     --text-sm: 1.2em;
-    --text-sm: 1.6em;
+    --text-md: 1.6em;
     --text-lg: 1.8em;
     --title-md: 2.4em;
     /* Familias de Fuentes */
@@ -31,10 +32,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: var(--purpura);
 }
-
-/* h1,h2,h3{
-    font-family: ;
-} */
 
 h1{
     font-size: 3.2em;
