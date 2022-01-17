@@ -8,3 +8,4 @@
 ## Principales Conclusiones del Sprint2:
 
 1. Comunicarnos con mas frecuencia para informarnos de los avances y problemas que se puedan encontrar en el desarrollo.
+2. Por la poca comunicación del grupo de dejaron mucho temas al aire que se deben reforzar para en un futuro realizarlos de una manera mas efectiva.
