@@ -1,3 +1,7 @@
+@import url('./general/styles.css');
+@import url('./general/header.css');
+@import url('./general/footer.css'); 
+
 :root {
     /* Colores */
     --purpura: #682D63;
@@ -13,98 +17,112 @@
     --title-md: 2.4em;
     /* Familias de Fuentes */
 }
+/* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+section main .form-register{
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  font-size: var(--text-md);
+  border-radius: 10px;
+  background-color: var(--purpura);
+  color:var(--blanco);
+  box-shadow: 7px 13px 37px var(--negro);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
-/* ESTILOS COMUNES */
-
-html{
-    font-size: 62.5%;
+section main .form-register div.campo{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-body{
-    background-color: var(--blanco-principal);
-    font-family:'Open Sans Condensed', sans-serif;
+section main .form-register label{
+  margin-bottom: 5px;
 }
 
-section p {
-    text-align: center;
+main .form-register .campo input{
+  padding: 6px 12px;
 }
 
-.form_register--nombre{ 
-    font-size: var(--text-sm);
-    justify-content: center;
-    text-align: center;
+main .form-register .button{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.registrar{
-    width: 100%;
-    height: 35px;
-    background: var(--azul);
-    color: var(--blanco);
-    font-weight: bold;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    margin-bottom: 16px;  
-    margin-top: 16px;  
+section main .form-register .button button{
+  width: 100%;
+  padding: 12px 15px;
+  background-color: var(--azul);
+  color: var(--blanco);
+  border-radius: 5px;
+  align-items: center;
+  text-transform: uppercase;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;   
+    transition-duration: 0.4s;
 }
 
-.registrar:hover{
+section main .form-register .button button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
+  
+@media screen and (min-width: 769px){
+  header div.top-header{
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 10px;
+  }
+  main section div.products article{
+    width: 22%;
+  }
+  /* section main .form-register .button button */
+  /* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
 
-
-
-
-/* h1,h2,h3{
-    font-family: ;
-} */
-
-h1{
-    font-size: 3.2em;
-}
-
-h2{
-    font-size: 2.4em;
-}
-
-h3{
-    font-size: 1.872em;
-}
-
-section {
-    max-width: 450px;
-    background: var(--purpura);
-    margin: auto;
-    margin-top: 180px;
-    box-shadow: 7px 13px 37px var(--negro);
-    padding: 20px 30px;
-    border-top: 4px solid var(--azul);
-    color: var(--blanco);
-    font-size: var(--text-sm);
-    text-align: center;
-    }
-
-.controls{
+  section main .form-register{
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 700px;
+  }
+ section main .form-register div.campo{
+    width: 45%;
+    margin: 10px 2.5%;
+  }
+ section main .form-register div.block{
     width: 100%;
+  }
+  section main .form-register .button{
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 16px 0px;
+  }
+ section main .form-register .button button{
+    width: auto;
+    padding: 16px 20px;
+  }
 
-    box-shadow: 1px solid var(--azul);
-    margin-bottom: 15px;
-    padding: 8px;
-    background: var(--blanco);
-    font-size: 14px;
-    font-weight: bold;
-    }
+  /* ---------------------------- MAIN FORM-PARAGRAPH ---------------------------- */
+
+.section main div .p-info{
+  margin: auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 0px 20px  12px ;
+
+}
+
+.section main div .p-info a {
+  text-decoration: none;
+  color: var(--blanco);
+}
+  
+}

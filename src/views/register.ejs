@@ -9,21 +9,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
-        <form action="" method="post">
+    <!-- header -->
+    <%- include ("partials/header")  %> 
+    <section class="section">
+        <main>
             <div class="form_register">
-                <h2 class="form_register--nombre">REGISTRARSE</h2> 
+                    <form class="form-register"  action="" method="post">
+                        <div class="campo">
+                            <label for="fullname"><b>Nombre y Apellido</b></label>
+                            <input type="text" id="fullname" placeholder="Nombre y Apellido" />
+                        </div>
+                        <div class="campo">
+                            <label for="username"><b>Nombre de Usuario</b></label>
+                            <input type="text" id="username" placeholder="Nombre de usuario" />
+                        </div>
+                        <div class="campo">
+                            <label for="date"><b>Fecha de Nacimiento</b></label>
+                            <input type="date" id="date" placeholder="Nombre y Apellido" />
+                        </div>
+                        <div class="campo">
+                            <label for="domicilio"><b>Domicilio</b></label>
+                            <input type="text" id="domicilio" placeholder="Domicilio" />
+                        </div>
+                        <div class="campo">
+                            <label for="perfil" style="display: block;"><b>Perfil de usuario</b></label>
+                            <div>
+                                <input type="radio" name="perfil" id="perfil" />Hombre
+                                <input type="radio" name="perfil" id="perfil" />Mujer
+                            </div>
+                        </div>
+                        <div class="campo">
+                            <h4>Intereses</h4>
+                            <label for="accion">
+                                <input type="checkbox" name="categories" id="accion" />Acción
+                            </label>
+                            <label for="De rol">
+                                <input type="checkbox" name="categories" id="De_rol" />De rol
+                            </label>
+                            <label for="Estrategia">
+                                <input type="checkbox" name="categories" id="Estrategia" />Estrategía
+                            </label>
+                            <label for="Aventura_Y_Casual">
+                                <input type="checkbox" name="categories" id="Aventura" />Aventura y Casual
+                            </label>
+                            <label for="simulacion">
+                                <input type="checkbox" name="categories" id="simulacion" />Simulación
+                            </label>
+                            <label for="Deportes_Y_Carreras">
+                                <input type="checkbox" name="categories" id="Deportes_Y_Carreras" />Deportes y Carreras
+                            </label>
+                        </div>
+                        <div class="campo block">
+                            <label for="photo"><b>Elegí tu foto de usuario</b></label>
+                            <input type="file">
+                        </div>
+                        <div class="campo">
+                            <label for="password">Contraseña <b></b> </label>
+                            <input type="password" id="password" placeholder="Contraseña">
+                        </div>
+                        <div class="campo">
+                            <label for="password_repeat">Repetir Contraseña <b></b> </label>
+                            <input type="password" id="password_repeat" placeholder="Repetir Contraseña">
+                        </div>
+                        <div class="campo">
+                            <label for="form__register--email">Dirección de correo electrónico *</label>
+                            <input class="controls" type="email" name="form__register--email" id="correo" placeholder="example@email.com">
+                        </div>
+                       
+                        <div>
+                        <p class="p-info">Se enviará una contraseña a tu dirección de correo electrónico.</p>
+
+                        <p class="p-info">Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.</p>
+                        </div>
+                        <p class="p-info"><a href="#">¿Ya tengo una cuenta?</a></p>
+
+                        <div class="button">
+                            <button type="submit">Enviar</button>
+                            <button type="reset">Borrar</button>
+                        </div>
+                    </div>
+                </main>
                 
-                <label for="form__register--email">Dirección de correo electrónico *</label>
-                <input class="controls" type="email" name="form__register--email" id="correo">
-            </div>
-            <p class="p_enviar">Se enviará una contraseña a tu dirección de correo electrónico.</p>
-            <br>
-            <p class="p_datos">Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.</p>
+            
         </form>
     
-        <button class="registrar" type="submit" class="Enviar">REGISTRARSE</button>
     </section>
     <!-- hola -->
+    <%- include ("partials/footer")  %>
 </body>
 </html>
