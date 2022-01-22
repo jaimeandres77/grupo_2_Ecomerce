@@ -11,3 +11,7 @@
 2. Por la poca comunicación del grupo de dejaron mucho temas al aire que se deben reforzar para en un futuro realizarlos de una manera mas efectiva.
 3. necesitamos lograr un trabajo en equipo más coordinado, ya que podríamos aprovechar más los conocimientos de los compañeros.
 4. Programar por lo menos una reunion a la semana, para actualizar a todos los integrantes del grupo de los cambios realizados en el proyecto.
+
+## Principales Conclusiones del Sprint3:
+
+1. Planificar de mejor manera como se va a resolver los ejercicios y disponer de tiempo para poder desarrollarlos, en el caso de dudas comunicarnos con el profesor o un compañero que pueda entenderlo mejor y nos ayude.
