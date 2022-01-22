@@ -10,3 +10,4 @@
 1. Comunicarnos con mas frecuencia para informarnos de los avances y problemas que se puedan encontrar en el desarrollo.
 2. Por la poca comunicación del grupo de dejaron mucho temas al aire que se deben reforzar para en un futuro realizarlos de una manera mas efectiva.
 3. necesitamos lograr un trabajo en equipo más coordinado, ya que podríamos aprovechar más los conocimientos de los compañeros.
+4. Programar por lo menos una reunion a la semana, para actualizar a todos los integrantes del grupo de los cambios realizados en el proyecto.
