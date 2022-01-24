@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/general/styles.css">
+    <link rel="stylesheet" href="/css/general/header.css">
+    <link rel="stylesheet" href="/css/general/footer.css">
+    <link rel="stylesheet" href="/css/createProduct.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/header') %> 
+    <main>
+        <div class="form-container">
+            <h1>Formulario de edición de Producto</h1>
+            <form>
+                <div class="formContent-container">
+                    <label for="nombreProducto">Nombre Producto:</label>
+                    <input type="text" id="nombreProducto" name="nombreProducto">
+                </div>
+                <div class="formContent-container">
+                    <label for="categoriaProducto">Categoría:</label>
+                    <select name="categoria">
+                        <option value="value1">Categoría 1</option>
+                        <option value="value2" selected>Categoría 2</option>
+                        <option value="value3">Categoría 3</option>
+                    </select>
+                </div>
+                <div class="formContent-containerMed">
+                    <label for="precioProducto">Precio:</label>
+                    <input type="text" id="precioProducto" name="precioProducto">
+                </div>
+                <div class="formContent-container">
+                    <label for="clasifProducto">ClasificaciónESRB:</label>
+                    <select name="clasifProducto">
+                        <option value="value1">Clasificación 1</option>
+                        <option value="value2">Clasificación 2</option>
+                        <option value="value3" selected>Clasificación 3</option>
+                    </select>
+                </div>
+                <div class="formContent-containerArea">
+                    <label for="clasifProducto">Descripción:</label>
+                    <textarea name="descripcion" id="textArea" cols="25" rows="6"></textarea>
+                </div>
+                <div class="formContent-containerMed">
+                    <label for="skuProducto">Sku:</label>
+                    <input type="text" id="skuProducto" name="skuProducto">
+                </div>
+                <div class="formContent-containerFile">
+                    <label for="archivoProduct">Imágen producto:</label>
+                    <input type="file" id="archivoProduct" name="archivoProduct">
+                </div>
+                <div class="formContent-containerBotons">
+                    <input class="submit" type="submit" value="Editar Producto">
+                    <input class="reset" type="reset" value="Limpiar Campos">
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <%- include('./../partials/footer') %>
+</body>
+</html>

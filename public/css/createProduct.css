@@ -1,0 +1,138 @@
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+    width: 90%;
+    max-width: 500px;
+    background-color: rgb(212, 212, 212);
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 1.8em;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+form select{
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+    background-color: white;
+}
+
+.formContent-container{
+    width: 100%;
+    display: flex;
+    padding: 5px 0px;
+}
+
+.formContent-container label,.formContent-containerMed label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    font-size: 12px;
+}
+
+.formContent-container input{
+    width: 60%;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+}
+
+
+.formContent-containerMed{
+    width: 100%;
+    display: flex;
+    padding: 5px 0px;
+}
+
+.formContent-containerMed input{
+    width: 30%;
+    height: 25px;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+}
+
+
+.formContent-containerArea{
+    width: 100%;
+    display: flex;
+    padding: 10px 0px;
+}
+
+.formContent-containerArea label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 40%;
+    font-size: 12px;
+}
+
+.formContent-containerArea textarea{
+    width: 60%;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formContent-containerFile{
+    width: 100%;
+    display: flex;
+    padding: 15px 0px;
+}
+
+.formContent-containerFile label{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 40%;
+    font-size: 12px;
+}
+
+.formContent-containerFile input{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 60%;
+    font-size: 12px;
+}
+
+.formContent-containerBotons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px 10px 0px;
+}
+.formContent-containerBotons .submit{
+    width: 60%;
+    height: 30px;
+    color: white;
+    border-radius: 4px;
+    border: 1px solid #414288;
+    box-shadow: 2px 2px 1px rgb(110, 110, 110);
+    background-color: #414288;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.formContent-containerBotons .reset{
+    width: 60%;
+    height: 30px;
+    color: black;
+    border-radius: 4px;
+    border: 1px solid #a6a7ff;
+    box-shadow: 2px 2px 1px rgb(110, 110, 110);
+    background-color: #c5c6ff;
+    cursor: pointer;
+}

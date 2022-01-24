@@ -10,9 +10,10 @@ footer{
 
 .footer-img-container{
     width: 100%;
+    padding: 10px 0px;
 }
 .footer-img-container img{
-    width: 40%;
+    width: 50%;
 }
 
 .footer-lists{
@@ -24,7 +25,7 @@ footer{
 
 .footer-lists ul{
     list-style: none;
-    font-size: 14px; 
+    font-size: 12px; 
     line-height: 20px;
 }
 
@@ -54,12 +55,12 @@ footer{
     }
     
     .footer-img-container{
-        width: 20%;
+        width: 25%;
         display: flex;
         justify-content: center;
     }
     .footer-img-container img{
-        width: 90%;
+        width: 80%;
     }
     
     .footer-lists{
@@ -79,6 +80,5 @@ footer{
     .copyright{
         display: flex;
         align-items: flex-end;
-        margin-bottom: 15px;
     }
 }
