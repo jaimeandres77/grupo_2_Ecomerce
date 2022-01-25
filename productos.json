@@ -1,0 +1,172 @@
+[
+    {
+        "id": 1,
+        "nombre": "Dark Soul III Deluxe Edition",
+        "precio": 108000,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["Acción","Aventura","De rol"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 10,
+        "sku": "A202105081432",
+        "imagen": "ds3.jpg",
+        "ventas": 2,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 2,
+        "nombre": "Grand theft auto v",
+        "precio": 63750,
+        "descuento": 15,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["accion","simulación"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 20,
+        "sku": "A202105081433",
+        "imagen": "gta.jpg",
+        "ventas": 5,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 3,
+        "nombre": " Naruto shippuden Ultimate ninja storm 3",
+        "precio": 85750,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["Xbox", "Playstation"],
+            "genero": ["acción","Aventura"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 4,
+        "sku": "A202105081434",
+        "imagen": "nart3.jpg",
+        "ventas": 1,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 4,
+        "nombre": "Trials rising",
+        "precio": 99950,
+        "descuento": 5,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["Deportes y carreras","Aventura"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 8,
+        "sku": "A202105081434",
+        "imagen": "Trial rising.jpg",
+        "ventas": 6,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 5,
+        "nombre": "Dying Light 2",
+        "precio": 453550,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["accion","Aventura","estrategia"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 15,
+        "sku": "A202105081435",
+        "imagen": "Dying Light 2.jpg",
+        "ventas": 0,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 6,
+        "nombre": "Expeditions: Rome",
+        "precio": 170550,
+        "descuento": 5,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC"],
+            "genero": ["accion","estrategia"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 4,
+        "sku": "A202105081436",
+        "imagen": "Expeditions: Rome.jpg",
+        "ventas": 1,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 7,
+        "nombre": "Dying Light 2",
+        "precio": 453550,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["accion","Aventura","estrategia"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 15,
+        "sku": "A202105081437",
+        "imagen": "Dying Light 2.jpg",
+        "ventas": 0,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 8,
+        "nombre": "Tomclancys Rainbowsix Extraction",
+        "precio": 265550,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["accion","estrategia", "simulación"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 12,
+        "sku": "A202105081438",
+        "imagen": "Rainbowsix Extraction.jpg",
+        "ventas": 6,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    },
+
+    {
+        "id": 5,
+        "nombre": "Dying Light 2",
+        "precio": 453550,
+        "descuento": 0,
+        "descripcion": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet porro explicabo reiciendis laborum, sed perspiciatis voluptatum ut! Et, dolore cum.",
+        "categorias": {
+            "plataforma": ["PC","Xbox","Playstation"],
+            "genero": ["accion","Aventura","estrategia"],
+            "estado": ["en-oferta"]
+        },
+        "stock": 15,
+        "sku": "A202105081435",
+        "imagen": "Dying Light 2.jpg",
+        "ventas": 0,
+        "fechaCreacion": "2021/01/22",
+        "fechaUltimaModificacion": "2021/01/22"
+    }
+]

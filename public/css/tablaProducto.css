@@ -1,0 +1,111 @@
+@import url('./general/styles.css');
+@import url('./general/header.css');
+@import url('./general/footer.css');
+
+:root {
+    /* Colores */
+    --purpura: #682D63;
+    --azul: #414288;
+    --verde: #00635D;
+    --blanco-principal: #FFFAFF;
+    --blanco: #FFFFFF;
+    --negro: #000000;
+    /* Tamaños de Fuentes */
+    --text-sm: 1.2em;
+    --text-sm: 1.6em;
+    --text-lg: 1.8em;
+    --title-md: 2.4em;
+    /* Familias de Fuentes */
+}
+h1{
+    padding-top: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.button_edit{
+    margin-left: 35px;
+}
+
+body div .create button {
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    background-color: var(--azul);
+    color: var(--blanco);
+    padding: 8px;
+    border-radius: 8px 0 5px 0;
+    font-size: var(--title-md);
+    cursor: pointer;
+}
+
+.container{
+    /* font-size: var(--text-sm); */
+    font-family: Arial, Helvetica, sans-serif;
+    margin:auto;
+    color: var(--azul);
+    text-align: center;
+    justify-content: center;
+
+    border-radius:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+    
+}
+
+.table_container{
+    font-size: var(--text-sm);
+    width: 100%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+.container th{
+    background-color:var(--azul);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    color:var(--blanco);
+    padding: 5px;
+    text-align: center;
+}
+.container tr td{
+    color: var(--negro);
+    border: 0.5px solid;
+    padding: 5px 5px 5px 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.container tr td a button{
+    font-size: var(--title-sm); 
+    background-color: var(--azul);
+    cursor: pointer;
+    color: var(--blanco);
+    padding: 8px;
+    border: none;
+    border-radius: 8px 0 5px 0;
+    -webkit-border-radius: 8px 0 5px 0;
+    -moz-border-radius: 8px 0 5px 0;
+    -ms-border-radius: 8px 0 5px 0;
+    -o-border-radius: 8px 0 5px 0;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.container tr td a button:hover{
+    box-shadow: var(--negro);
+}
