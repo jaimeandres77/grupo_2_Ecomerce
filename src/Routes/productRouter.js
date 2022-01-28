@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../Controller/productController');
 
-router.get('/detail',productController.detail);
+router.get('/detail/:id',productController.detail);
 
 // Registro del producto
 router.get('/create',productController.create);
