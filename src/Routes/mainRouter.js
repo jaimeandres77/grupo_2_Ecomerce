@@ -8,6 +8,6 @@ router.get('/register', mainController.register);
 
 router.get('/login', mainController.login);
 
-
+router.get('/shopcar', mainController.shopcar);
 
 module.exports= router;

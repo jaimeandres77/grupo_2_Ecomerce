@@ -8,5 +8,7 @@ module.exports={
     login: (req, res) => {
         res.render('login');
     },
-    
+    shopcar: (req, res) => {
+        res.render('shopcar');
+    },
 }
