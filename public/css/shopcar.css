@@ -52,6 +52,10 @@ h3{
     display: flex;
 }
 
+header{
+    background-color: var(--purpura)
+}
+
 li{
     list-style: none;
 }
