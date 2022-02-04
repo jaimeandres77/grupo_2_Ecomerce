@@ -17,4 +17,10 @@ app.set('views', 'src/views');
 app.use('/', mainRouter);
 app.use('/product', productRouter);
 
+app.use((req,res,next)=>{
+    res.status(404).render('not-found')
+})
+
 app.listen(port,() => console.log(`Servidor corriendo en el puerto ${port}`));
+
+

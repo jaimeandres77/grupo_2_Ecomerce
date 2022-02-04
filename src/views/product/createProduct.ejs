@@ -17,10 +17,10 @@
     <main>
         <div class="form-container">
             <h1>Formulario de creación de Producto</h1>
-            <form>
+            <form method="POST" action="/product/create" enctype="multipart/form-data">
                 <div class="formContent-container">
-                    <label for="nombreProducto">Nombre Producto:</label>
-                    <input type="text" id="nombreProducto" name="nombreProducto">
+                    <label for="nombre">Nombre Producto:</label>
+                    <input type="text" id="nombre" name="nombre">
                 </div>
                 <div class="formContent-container">
                     <label for="categoriaProducto">Categoría:</label>
@@ -31,8 +31,8 @@
                     </select>
                 </div>
                 <div class="formContent-containerMed">
-                    <label for="precioProducto">Precio:</label>
-                    <input type="text" id="precioProducto" name="precioProducto">
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio" name="precio">
                 </div>
                 <div class="formContent-container">
                     <label for="clasifProducto">ClasificaciónESRB:</label>
@@ -43,16 +43,16 @@
                     </select>
                 </div>
                 <div class="formContent-containerArea">
-                    <label for="clasifProducto">Descripción:</label>
-                    <textarea name="descripcion" id="textArea" cols="25" rows="6"></textarea>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" id="descripcion" cols="25" rows="6"></textarea>
                 </div>
                 <div class="formContent-containerMed">
-                    <label for="skuProducto">Sku:</label>
-                    <input type="text" id="skuProducto" name="skuProducto">
+                    <label for="sku">Sku:</label>
+                    <input type="text" id="sku" name="sku">
                 </div>
                 <div class="formContent-containerFile">
-                    <label for="archivoProduct">Imágen producto:</label>
-                    <input type="file" id="archivoProduct" name="archivoProduct">
+                    <label for="imagen">Imágen producto:</label>
+                    <input type="file" id="imagen" name="imagen">
                 </div>
                 <div class="formContent-containerBotons">
                     <input class="submit" type="submit" value="Crear Producto">
