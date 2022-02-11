@@ -17,13 +17,13 @@
     <main>
         <div class="form-container">
             <h1>Formulario de edición de Producto</h1>
-            <form>
-                <div class="formContent-container">
-                    <label for="nombreProducto">Nombre Producto:</label>
-                    <input type="text" id="nombreProducto" name="nombreProducto">
+            <form method="POST" action="/product?_method=PUT">
+                 <div class="formContent-container">
+                    <label for="nombre">Nombre Producto:</label>
+                    <input type="text" id="nombre" name="nombre" value="<%= product.nombre %>">
                 </div>
                 <div class="formContent-container">
-                    <label for="categoriaProducto">Categoría:</label>
+                    <label for="categoria">Categoría:</label>
                     <select name="categoria">
                         <option value="value1">Categoría 1</option>
                         <option value="value2" selected>Categoría 2</option>
@@ -31,8 +31,8 @@
                     </select>
                 </div>
                 <div class="formContent-containerMed">
-                    <label for="precioProducto">Precio:</label>
-                    <input type="text" id="precioProducto" name="precioProducto">
+                    <label for="precio">Precio:</label>
+                    <input type="text" id="precio" name="precio" value="<%= product.precio %>">
                 </div>
                 <div class="formContent-container">
                     <label for="clasifProducto">ClasificaciónESRB:</label>
@@ -43,16 +43,16 @@
                     </select>
                 </div>
                 <div class="formContent-containerArea">
-                    <label for="clasifProducto">Descripción:</label>
-                    <textarea name="descripcion" id="textArea" cols="25" rows="6"></textarea>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea name="descripcion" id="textArea" cols="25" rows="6"><%= product.descripcion %></textarea>
                 </div>
                 <div class="formContent-containerMed">
-                    <label for="skuProducto">Sku:</label>
-                    <input type="text" id="skuProducto" name="skuProducto">
+                    <label for="sku">Sku:</label>
+                    <input type="text" id="sku" name="sku" value="<%= product.sku %>">
                 </div>
                 <div class="formContent-containerFile">
-                    <label for="archivoProduct">Imágen producto:</label>
-                    <input type="file" id="archivoProduct" name="archivoProduct">
+                    <label for="imagen">Imágen producto:</label>
+                    <input type="file" id="imagen" name="imagen">
                 </div>
                 <div class="formContent-containerBotons">
                     <input class="submit" type="submit" value="Editar Producto">
