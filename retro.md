@@ -16,3 +16,4 @@
 
 1. Planificar de mejor manera como se va a resolver los ejercicios y disponer de tiempo para poder desarrollarlos, en el caso de dudas comunicarnos con el profesor o un compañero que pueda entenderlo mejor y nos ayude.
 2. Hay que comunicar a los compañeros o al profe si se nos presentan problemas con el desarrollo de la aplicación para que las actividades de otros sprints no se vayan acumulando.
+3. Para la realización de este sprint se presentarion varios problemas para reunirnos y acordar soluciones pero apesar de eso se ha logrado acordar un dia a la semana para poder revisar el codigo del proyecto, esperamos poder mejorar y tal vez agregar un dia mas para reunirnos.
