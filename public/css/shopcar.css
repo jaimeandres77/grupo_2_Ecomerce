@@ -1,100 +1,88 @@
 @import url('./general/styles.css');
-@import url('./general/header.css');
 @import url('./general/footer.css');
 
-:root {
-    /* Colores */
-    --purpura: #682D63;
-    --azul: #414288;
-    --verde: #00635D;
-    --blanco-principal: #FFFAFF;
-    --blanco: #FFFFFF;
-    --negro: #000000;
-    /* Tamaños de Fuentes */
-    --text-sm: 1.2em;
-    --text-sm: 1.6em;
-    --text-lg: 1.8em;
-    --title-md: 2.4em;
-    /* Familias de Fuentes */
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ESTILOS COMUNES */
-
-html{
-    font-size: 62.5%;
-}
-
-h1{
-    font-size: 3.2em;
-}
-
-h2{
-    font-size: 2.4em;
-    color: var(--blanco);
-    text-align: center;
-}
-
-h3{
-    font-size: 1.872em;
-}
-
-.logo{
-    width:155px;
-}
-
-.listanav{
+.carrito{
     display: flex;
+    flex-wrap: wrap;
 }
 
-header{
-    background-color: var(--purpura)
+.carrito .list{
+    width: 100%;
 }
 
-li{
-    list-style: none;
+.carrito .resumen{
+    width: 100%;
 }
-nav {
+
+article.product{
     display: flex;
-    justify-content: space-around;
-}
-.contenedorprd{
-    background-color: rgba(104, 45, 99, 0.6);
+    flex-wrap: wrap;
+    flex-direction: row;
     padding: 10px;
+    margin-bottom: 10px;
+    max-width: 400px;
+}
+
+article.product picture.product_image{
+    width: 25%;
+}
+
+article.product picture.product_image img{
+    width: 100%;
+}
+
+article.product .product__description{
+    width: 75%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-}
-
-
-.contenedor{
-    background-color: rgba(104, 45, 99, 0.8);
+    justify-content: center;
+    gap: 10px;
     padding: 10px;
+}
+
+article.product .product__title{
     display: flex;
-    position: sticky;
+    flex-wrap: wrap;
+}
+article.product .product__title h2{
+    width: 85%;
+    display: flex;
+    align-items: center;
+}
+article.product .product__title i.fa-trash{
+    width: 15%;
+    font-size: 20px;
+    padding: 10px;
 }
 
-
-.titulo{
-    color: white;
-    background-color: rgba(104, 45, 99, 0.6);
-    margin:0;
+article.product .product__footer{
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media screen and (min-width:375px){
-    h1{
-        font-size: 2em;
+.product_footer .product_count{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product_footer .product_count button{
+    width: 20%;
+}
+
+.product_footer .product_count input{
+    width: 40%;
+}
+.product__footer .product_price{
+    width: 40%;
+}
+
+@media screen and (min-width: 500px) {
+    .carrito .list{
+        width: 80%;
     }
-    .logo{
-        width:100px;
+    .carrito .resumen{
+        width: 20%;
     }
-}
-@media screen and (min-width:769px){
-
 }

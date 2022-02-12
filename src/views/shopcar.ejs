@@ -15,65 +15,65 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="/"><img class="logo" src="/img/mainLogo.png" alt= "logo"></a>
-            <ul class="listanav">
-                <li><a href="/shopCar">
-                        <strong>1</strong>
-                        <span>Carro</span>
-                    </a>
-                </li>
-                <li><a href="">
-                        <strong>2</strong>
-                        <span>Pago</span>
-                    </a>
-                </li>
-                <li><a href="">
-                        <strong>3</strong>
-                        <span>Obtener producto</span>
-                    </a>
-                </li>               
-            </ul>
-            <button type="button">
-                <span>
-                    <img src="https://cdn.eneba.com/flags/lang/v2/colombia.svg" alt="Colombia" height="16">
-                </span>
-                <span>
-                    <span>Colombia</span>
-                    <span>(Español Latinoamericano)</span>
-                </span>
-                <span>COP</span>                       
-            </button>
-        </nav>
+        Hola Mundo
     </header>
-        
-        <h1 class="titulo">Mi cesta</h1>
-    <section class="contenedorprd">  
-        <ul>
-            <li><a href="#">Acá va el producto 1</a></li>
-            <li><a href="#">Acá va el producto 2</a></li>
-            <li><a href="#">Acá va el producto 3</a></li>
-            <li><a href="#">Acá va el producto 4</a></li>
-        </ul>
-    </section>
-    <section class="contenedor">
-        <div>
-            <h1>Resumen</h1>
-            <article>
-                1 producto     $$
-            </article>
+    <main>
+        <div class="container carrito">
+            <section class="list">
+                <article class="product">
+                    <picture class="product_image">
+                        <img src="/img/img-warcraft.jpg" alt="">
+                    </picture>
+                    <div class="product__description">
+                        <div class="product__title">
+                            <h2>Lorem, ipsum dolor.</h2>
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </div>
+                        <div class="product__text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex voluptas quod molestias porro! Eos, repellendus.
+                        </div>
+                        <div class="product__footer">
+                            <div class="product__count">
+                                <button type="button">-</button>
+                                <input type="number">
+                                <button type="button">+</button>
+                            </div>
+                            <div class="product_price">
+                                <p>$ 50000</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="product">
+                    <picture class="product_image">
+                        <img src="/img/img-warcraft.jpg" alt="">
+                    </picture>
+                    <div class="product__description">
+                        <div class="product__title">
+                            <h2>Lorem, ipsum dolor.</h2>
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </div>
+                        <div class="product__text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex voluptas quod molestias porro! Eos, repellendus.
+                        </div>
+                        <div class="product__footer">
+                            <div class="product__count">
+                                <button type="button">-</button>
+                                <input type="number">
+                                <button type="button">+</button>
+                            </div>
+                            <div class="product_price">
+                                <p>$ 50000</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="resumen">
+                asdasdasdas
+            </section>
         </div>
-        <div>
-            <article>
-                Total      $$$
-            </article>
-            <button>
-                Ir a pago
-            </button>
-        </div>
-    </section>
-<!--     <footer class="contenedor">
-        Lee nuestras opiniones
-    </footer> -->
+    </main>
+    <%- include('./partials/footer') %>
 </body>
 </html>
