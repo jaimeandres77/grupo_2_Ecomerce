@@ -30,6 +30,8 @@ router.post('/create', upload.single('imagen'),validateCreateForm, productContro
 
 router.get('/edit/:id', productController.edit);
 
-router.put('/',productController.editUpdate);
+router.patch('/edit/:id',productController.editUpdate);
+
+router.delete('',productController.destroy);
 
 module.exports = router;

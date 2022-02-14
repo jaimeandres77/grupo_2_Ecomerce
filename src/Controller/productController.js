@@ -41,6 +41,28 @@ module.exports = {
         res.render('product/editProduct',{product});
     },
     editUpdate: (req,res) =>{
-        
+        const id = req.params.id;
+        const productToEdit = products.find(product => product.id === id);
+
+        productToEdit = {
+            id:productToEdit.id,
+            ...req.body,
+            imagen: productToEdit.imagen,
+        };
+
+        let newProducts = products.map(product =>{
+            product.id == productToEdit.id ? product= {...productToEdit} : product;
+        })
+
+        fs.writeFileSync(productsFilePath,JSON.stringify(newProducts, null, ' '));
+        res.redirect('/');
+    },
+
+    destroy: (req,res) =>{
+        const id = req.params.id;
+        const finalProducts = products.filter(product => product.id !== id);
+
+        fs.writeFileSync(productsFilePath,JSON.stringify(finalProducts, null, ' '));
+        res.redirect('/');
     }
 }

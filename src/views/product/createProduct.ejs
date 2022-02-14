@@ -21,10 +21,10 @@
                 <div class="formContent-container">
                     <label for="nombre">Nombre Producto:</label>
                     <input type="text" id="nombre" name="nombre" value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>" >
-                    <% if(locals.errors && errors.nombre){ %>
-                        <div style="color: red;"><%= errors.nombre.msg %></div>
-                    <% } %>
                 </div>
+                <% if(locals.errors && errors.nombre){ %>
+                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.nombre.msg %></div>
+                <% } %>
                 <div class="formContent-container">
                     <label for="categoriaProducto">Categoría:</label>
                     <select name="categoria">
@@ -35,8 +35,11 @@
                 </div>
                 <div class="formContent-containerMed">
                     <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" >
+                    <input type="text" id="precio" name="precio" value="<%= locals.oldData && oldData.precio ? oldData.precio : null %>" >
                 </div>
+                <% if(locals.errors && errors.precio){ %>
+                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.precio.msg %></div>
+                <% } %>
                 <div class="formContent-container">
                     <label for="clasifProducto">ClasificaciónESRB:</label>
                     <select name="clasifProducto">
@@ -51,8 +54,11 @@
                 </div>
                 <div class="formContent-containerMed">
                     <label for="sku">Sku:</label>
-                    <input type="text" id="sku" name="sku" >
+                    <input type="text" id="sku" name="sku" value="<%= locals.oldData && oldData.precio ? oldData.precio : null %>" >
                 </div>
+                <% if(locals.errors && errors.sku){ %>
+                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.sku.msg %></div>
+                <% } %>
                 <div class="formContent-containerFile">
                     <label for="imagen">Imágen producto:</label>
                     <input type="file" id="imagen" name="imagen">
