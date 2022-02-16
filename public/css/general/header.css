@@ -97,7 +97,7 @@ header ul.nav__menu .nav__icon li .shopping .price{
 
 header ul.nav__menu .nav__icon li .shopping a i{
     padding: 10px;
-    background-color: var(--verde);
+    background-color: var(--verde-claro);
     border-radius: 50%;
 }
 
@@ -211,7 +211,7 @@ section.form-search .nav__form button{
     }
     header ul.nav__menu .nav__icon li .shopping .price{
         display: inline-block;
-        color: var(--verde);
+        color: var(--verde-claro);
         font-weight: bold;
     }
     header ul.nav__menu .nav__icon .shopping a{

@@ -1,0 +1,148 @@
+[
+ {
+  "id": 1,
+  "fullname": "Fabian Forero",
+  "username": "Fabian425",
+  "date": "2000-08-20",
+  "domicilio": "One",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "estrategia"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "fabian.400@outlook.com",
+  "country": "Colombia"
+ },
+ {
+  "id": 2,
+  "fullname": "fullName",
+  "username": "email@mail.com",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "estrategia"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "email@mail.com",
+  "country": "Colombia"
+ },
+ {
+  "id": 3,
+  "fullname": "fullName",
+  "username": "email@mail.com",
+  "date": "2022-12-31",
+  "domicilio": "One",
+  "perfil": "hombre",
+  "categories": "accion",
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "email@mail.com",
+  "country": "Colombia"
+ },
+ {
+  "id": 4,
+  "fullname": "fullName",
+  "username": "ffafadas",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "rol"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "email@mail.com",
+  "country": "Colombia"
+ },
+ {
+  "id": 5,
+  "fullname": "Producto PATATA",
+  "username": "12355456",
+  "date": "2020-01-26",
+  "domicilio": "asdasdasd",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "rol",
+   "estrategia",
+   "aventura",
+   "simulacion",
+   "deportesYCarreras"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "asdas@mail.com",
+  "country": "Bolivia"
+ },
+ {
+  "id": 6,
+  "fullname": "Johan Peñuela ",
+  "username": "JOHAPEÑH",
+  "date": "2022-02-08",
+  "domicilio": "6",
+  "perfil": "hombre",
+  "categories": [
+   "estrategia",
+   "simulacion",
+   "deportesYCarreras"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "johanpenuelah@gmail.com",
+  "country": "Colombia"
+ },
+ {
+  "id": 7,
+  "fullname": "Nicolas Acosta",
+  "username": "Nico123",
+  "date": "2022-02-01",
+  "domicilio": "7",
+  "perfil": "hombre",
+  "categories": [
+   "aventura",
+   "simulacion"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "123@mail.com",
+  "country": "Ecuador"
+ },
+ {
+  "id": 8,
+  "fullname": "Adriana Ruiz",
+  "username": "AdrianaR",
+  "date": "2006-02-16",
+  "domicilio": "8",
+  "perfil": "mujer",
+  "categories": [
+   "rol",
+   "aventura"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "1234@mail.com",
+  "country": "Argentina"
+ },
+ {
+  "id": 9,
+  "fullname": "Yicela Medina",
+  "username": "Yicel85",
+  "date": "2000-03-14",
+  "domicilio": "9",
+  "perfil": "mujer",
+  "categories": [
+   "aventura",
+   "simulacion"
+  ],
+  "password": "1234",
+  "password_repeat": "1234",
+  "email": "12345@mail.com",
+  "country": "Perú"
+ }
+]
