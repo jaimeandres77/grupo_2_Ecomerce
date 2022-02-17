@@ -22,7 +22,7 @@
   },
   "stock": 10,
   "sku": "A202105081432",
-  "imagen": "ds3.jpg",
+  "imagen": "default-product.png",
   "ventas": 2,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -49,7 +49,7 @@
   },
   "stock": 20,
   "sku": "A202105081433",
-  "imagen": "gta.jpg",
+  "imagen": "default-product.png",
   "ventas": 5,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -75,7 +75,7 @@
   },
   "stock": 4,
   "sku": "A202105081434",
-  "imagen": "nart3.jpg",
+  "imagen": "default-product.png",
   "ventas": 1,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -102,7 +102,7 @@
   },
   "stock": 8,
   "sku": "A202105081434",
-  "imagen": "Trial rising.jpg",
+  "imagen": "default-product.png",
   "ventas": 6,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -130,7 +130,7 @@
   },
   "stock": 15,
   "sku": "A202105081435",
-  "imagen": "Dying Light 2.jpg",
+  "imagen": "default-product.png",
   "ventas": 0,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -155,7 +155,7 @@
   },
   "stock": 4,
   "sku": "A202105081436",
-  "imagen": "Expeditions: Rome.jpg",
+  "imagen": "default-product.png",
   "ventas": 1,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -183,7 +183,7 @@
   },
   "stock": 15,
   "sku": "A202105081437",
-  "imagen": "Dying Light 2.jpg",
+  "imagen": "default-product.png",
   "ventas": 0,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -211,7 +211,7 @@
   },
   "stock": 12,
   "sku": "A202105081438",
-  "imagen": "Rainbowsix Extraction.jpg",
+  "imagen": "default-product.png",
   "ventas": 6,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
@@ -239,53 +239,9 @@
   },
   "stock": 15,
   "sku": "A202105081435",
-  "imagen": "Dying Light 2.jpg",
+  "imagen": "default-product.png",
   "ventas": 0,
   "fechaCreacion": "2021/01/22",
   "fechaUltimaModificacion": "2021/01/22"
- },
- {
-  "id": 10,
-  "nombre": "Prueba 2",
-  "categoria": "value2",
-  "precio": "23.000",
-  "clasifProducto": "value3",
-  "descripcion": "Prueba2",
-  "sku": "ddfdsfs123",
-  "descuento": 0,
-  "stock": 0,
-  "ventas": 0,
-  "fechaCreacion": "2022-02-04",
-  "fechaUltimaModificacion": "2022-02-04"
- },
- {
-  "id": 11,
-  "nombre": "Resident Evil",
-  "categoria": "value2",
-  "precio": "15000",
-  "clasifProducto": "value3",
-  "descripcion": "Prueba 3",
-  "sku": "SDFSDF123",
-  "imagen": "1643985752603_product.png",
-  "descuento": 0,
-  "stock": 0,
-  "ventas": 0,
-  "fechaCreacion": "2022-02-04",
-  "fechaUltimaModificacion": "2022-02-04"
- },
- {
-  "id": 12,
-  "nombre": "Resident Evil",
-  "categoria": "value2",
-  "precio": "23000",
-  "clasifProducto": "value3",
-  "descripcion": "Prueba 4",
-  "sku": "SDFSDF123",
-  "imagen": "1643985878119_product.jpg",
-  "descuento": 0,
-  "stock": 0,
-  "ventas": 0,
-  "fechaCreacion": "2022-02-04",
-  "fechaUltimaModificacion": "2022-02-04"
  }
 ]

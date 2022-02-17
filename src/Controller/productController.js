@@ -7,7 +7,9 @@ const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
 
 module.exports = {
     detail: (req,res) => {
-        res.render('product/productDetail');
+        const id = parseInt(req.params.id);
+        const product = products.find(product => product.id === id);
+        res.render('product/productDetail',{product});
     },
     create: (req,res) =>{
         res.render('product/createProduct');
@@ -19,7 +21,7 @@ module.exports = {
             return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body});
         }
         const id = products[products.length - 1].id + 1 || 1;
-        const imagen = req.file?.filename !== undefined ? req.file.filename : 'defaultProduct.jpg';
+        const imagen = req.file?.filename !== undefined ? req.file.filename : 'default-product.png';
         const newProduct = {
             id: id,
             ... req.body,

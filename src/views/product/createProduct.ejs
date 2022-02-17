@@ -50,7 +50,7 @@
                 </div>
                 <div class="formContent-containerArea">
                     <label for="descripcion">Descripción:</label>
-                    <textarea name="descripcion" id="descripcion" cols="25" rows="6" minlength="20" ></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="25" rows="6" minlength="10" ><%= locals.oldData && oldData.descripcion ? oldData.descripcion : '' %></textarea>
                 </div>
                 <div class="formContent-containerMed">
                     <label for="sku">Sku:</label>
@@ -63,6 +63,9 @@
                     <label for="imagen">Imágen producto:</label>
                     <input type="file" id="imagen" name="imagen">
                 </div>
+                <% if(locals.errors && errors.imagen){ %>
+                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.imagen.msg %></div>
+                <% } %>
                 <div class="formContent-containerBotons">
                     <input class="submit" type="submit" value="Crear Producto">
                     <input class="reset" type="reset" value="Limpiar Campos">
