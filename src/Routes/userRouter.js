@@ -16,5 +16,7 @@ router.post('/register', multer.single('avatar'),validation,userController.proce
 //Formulario de login
 router.get('/login', userController.login);
 
+// Procesar de login
+router.post('/login', multer.single('avatar'),validation,userController.loginProcess);
 
 module.exports= router;
