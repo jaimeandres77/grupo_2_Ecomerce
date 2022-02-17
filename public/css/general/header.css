@@ -18,6 +18,7 @@ header .nav .menu__logo{
 }
 
 header .nav .menu__logo img{
+    padding-top: 5px;
     height: 40px;
 }
 header .nav .menu__logo svg{
