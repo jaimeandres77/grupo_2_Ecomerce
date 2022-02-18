@@ -27,15 +27,18 @@
                     </a>
                 </button>
             </div>
-            <form action="/user/login" method="">
+            <form action="/user/login" method="POST">
                 <h2>ACCEDER</h2>
+                <% if(locals.errors && errors.email){ %>
+                    <p style="color:#f90808;background-color:#ed191942;border-radius:8px;text-align:center; font-size: 16px; padding: 5px;"><%= errors.email.msg %></p>
+                <% } %>
                 <div class="mb-2">
-                    <label class="form-label" for="usuario">Nombre de usuario o correo electronico</label>
-                    <input class="form-control" type="text" id="usuario" placeholder="usuario">
+                    <label class="form-label" for="email">Nombre de usuario o correo electronico</label>
+                    <input class="form-control" type="text" name="email" id="email" placeholder="usuario" value="<%= locals.oldData && oldData.email ? oldData.email : '' %>">
                 </div>
                 <div class="mb-2">
                     <label class="form-label" for="contrasena">Contraseña</label>
-                    <input class="form-control" type="password" id="contrasena" placeholder="contraseña">
+                    <input class="form-control" type="password" name="password" id="password" placeholder="contraseña">
                 </div>
                 <div class="mb-2">
                     <a href="#">Recordar contraseña</a>
@@ -44,34 +47,8 @@
                     <button class="btn-ingresar" type="submit">Ingresar</button>
                 </div>
             </form>
-        </div> 
+        </div>
     </section>
-    
-    <!-- <section>
-        <button>
-            <a href="#" class="fb_btn btn">
-                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook</a>
-            </button>
-            <button>
-                <a href="#" class="google_btn btn"><i class="fa fa-google fa-fw">
-                </i> Login with Google+
-            </a>
-            </button>
-                <h5 class="acceder"> ACCEDER</h5> 
-            <BR></BR>
-
-            <label for="usuario">Nombre de usuario o correo electronico *</label>
-            <input class="controls" type="text" name="usuario" value="" placeholder="usuario">
-
-            <label for="usuario">contraseña *</label>
-            <input class="controls" type="password" name="contrasena" value="" placeholder="contraseña">
-
-            <input type="checkbox" class="check_box" name="recuérdame" id="recuérdame"><span>Recordar contraseña</span>
-
-            <input class="buttons" type="submit" name="" value="Ingresar" placeholder=""> 
-            <p><a href="#">¿Olvidaste la contraseña?</a> </p>
-        </section> -->
-        <!-- git push -u origin " -->
 
     <%- include ("../partials/footer")  %>
 </body>

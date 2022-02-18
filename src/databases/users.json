@@ -45,5 +45,21 @@
   "email": "prueba3@mail.com",
   "country": "Bolivia",
   "image": "1645056363695_img.jfif"
+ },
+ {
+  "id": 4,
+  "fullname": "fullName",
+  "username": "ffafadas",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "mujer",
+  "categories": [
+   "accion",
+   "simulacion"
+  ],
+  "password": "$2a$10$RaGXM9dWgSGj05KN2oZAj.Fc1Sl97Wd//b82XcYarEym67pvIwLmK",
+  "email": "prueba4@mail.com",
+  "country": "Colombia",
+  "image": "1645138481388_img.jfif"
  }
 ]
