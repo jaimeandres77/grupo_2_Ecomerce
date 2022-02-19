@@ -3,6 +3,7 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
+const cookies = require('cookie-parser');
 /* Rutas */
 const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
@@ -14,6 +15,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static('public'));
 // middleware para recibir la informacion del formulario
