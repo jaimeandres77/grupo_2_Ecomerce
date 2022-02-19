@@ -2,10 +2,19 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session');
+/* Rutas */
 const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
 const userRouter = require('./Routes/userRouter');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
+app.use(session({
+    secret: "Shh, it's a secret",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(userLoggedMiddleware);
 app.use(express.static('public'));
 // middleware para recibir la informacion del formulario
 app.use(express.urlencoded({extended: false}));

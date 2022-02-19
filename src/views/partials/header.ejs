@@ -13,9 +13,13 @@
         </ul>
         <ul class="nav__menu">
             <li style="display:none;"></li>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Login</a></li>
-            <div class="d-flex nav__icon">
+            <li><a href="/">Inicio</a></li>
+            <% if (!locals.isLogged) { %>
+                <li><a href="/user/login">Login</a></li>
+            <% } else { %>
+                <li><a href="/user/profile"><%= user.username %></a></li>
+            <% } %>
+                <div class="d-flex nav__icon">
                 <li>
                     <div class="shopping">
                         <a href="#">

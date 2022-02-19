@@ -14,7 +14,7 @@
   "password": "$2a$10$Qe0UFjVJCOlrj1dMA6bcAuUrBBRdFXLo.W6faCxa3r8THrf6ly8nW",
   "email": "prueba1@mail.com",
   "country": "Brasil",
-  "image": "1645054934631_img.jfif"
+  "image": "1645038253809_img.png"
  },
  {
   "id": 2,
@@ -31,7 +31,7 @@
   "password": "$2a$10$x6uZbpYgbHkdUp79Zn.YyecWUy2ni2QjYPo1W4eytLC.21z3cj29y",
   "email": "prueba2@mail.com",
   "country": "Brasil",
-  "image": "1645055248752_img.jfif"
+  "image": "1645038253809_img.png"
  },
  {
   "id": 3,
@@ -44,7 +44,7 @@
   "password": "$2a$10$7wXr5SZjk96GF/VgD9KmzOajSAGl7/aOIHRM.lni95gpVAPhWd1me",
   "email": "prueba3@mail.com",
   "country": "Bolivia",
-  "image": "1645056363695_img.jfif"
+  "image": "1645038253809_img.png"
  },
  {
   "id": 4,
@@ -60,6 +60,6 @@
   "password": "$2a$10$RaGXM9dWgSGj05KN2oZAj.Fc1Sl97Wd//b82XcYarEym67pvIwLmK",
   "email": "prueba4@mail.com",
   "country": "Colombia",
-  "image": "1645138481388_img.jfif"
+  "image": "1645038253809_img.png"
  }
 ]

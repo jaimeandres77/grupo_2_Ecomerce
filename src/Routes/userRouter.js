@@ -6,17 +6,23 @@ const userController = require ("../Controller/userController");
 /* Middleware */
 const validation = require('../middlewares/validationMiddleware');
 const multer = require('../middlewares/multerRegisterMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 // Formulario registro
-router.get('/register', userController.register);
+router.get('/register',guestMiddleware, userController.register);
 
 // Procesar el registro
 router.post('/register', multer.single('avatar'),validation,userController.processRegister);
 
 //Formulario de login
-router.get('/login', userController.login);
+router.get('/login',guestMiddleware, userController.login);
 
 // Procesar de login
 router.post('/login', multer.single('avatar'),validation,userController.loginProcess);
+
+router.get('/profile',authMiddleware,userController.profile);
+
+router.get('/logout', userController.logout)
 
 module.exports= router;

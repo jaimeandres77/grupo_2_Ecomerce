@@ -38,11 +38,22 @@ module.exports = {
   },
   loginProcess: (req,res) => {
     const userToLogin = User.findByField('email',req.body.email);
-    const isOkThePassword = req.body.password !== undefined ? bcrypt.compareSync(req.body.password,userToLogin.password) : false;
-    if(userToLogin && isOkThePassword){
-      res.send('Ok');
+    if(userToLogin){
+      const isOkThePassword = req.body.password !== undefined ? bcrypt.compareSync(req.body.password,userToLogin.password) : false;
+      if(isOkThePassword){
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        return res.redirect('/user/profile');
+      }
     }
-    res.render('user/login',{errors: {email: {msg: 'No se encuentra este email en nuestra Base de Datos o la contraseña es incorrecta'}}, oldData: req.body});
+    return res.render('user/login',{errors: {email: {msg: 'No se encuentra este email en nuestra Base de Datos o la contraseña es incorrecta'}}, oldData: req.body});
+  },
+  profile: (req,res) => {
+    res.render('user/profile',{user: req.session.userLogged});
+  },
+  logout: (req,res) => {
+    req.session.destroy();
+    return res.redirect('/user/login');
   }
 }
 
