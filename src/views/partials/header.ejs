@@ -14,7 +14,9 @@
         <ul class="nav__menu">
             <li style="display:none;"></li>
             <li><a href="#">Inicio</a></li>
-            <li><a href="#">Login</a></li>
+            <% if (!locals.isLogged) { %>
+                <li><a href="/user/login">Login</a></li>
+            <% } %>
             <div class="d-flex nav__icon">
                 <li>
                     <div class="shopping">
@@ -26,9 +28,20 @@
                         </a>
                     </div>
                 </li>
-                <li class="user">
-                    <a href="#"><i class="fas fa-user"></i></a>
-                </li>
+                <% if (locals.isLogged) { %>
+                    <li class="user">
+                        <a href="#" style="display: flex;justify-content: center;align-items: center;gap: 5px;">
+                            <% if (user.image !== 'default-user.svg') { %>
+                                <picture class="avatar">
+                                    <img src="/img/Avatars/<%= user.image %>" alt="avatar" class="avatar__img">
+                                </picture>
+                            <% } else { %>
+                                <i class="fas fa-user"></i>
+                            <% } %>
+                            <%= user.username %>
+                        </a>
+                    </li>
+                <% } %>
             </div>
         </ul>
     </nav>

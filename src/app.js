@@ -1,12 +1,23 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
+// Rutas
 const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
+const userRouter = require('./Routes/userRouter');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 const port = process.env.PORT || 3000;
 
+app.use(session({
+    secret: "Shh, it's a secret",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(cookies());
+app.use(userLoggedMiddleware);
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -16,6 +27,7 @@ app.set('views', 'src/views');
 
 app.use('/', mainRouter);
 app.use('/product', productRouter);
+app.use('/user',userRouter);
 
 app.use((req,res,next)=>{
     res.status(404).render('not-found')

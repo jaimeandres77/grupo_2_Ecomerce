@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <%- include ("../partials/header")  %>
+    <section class="container-center-xy">
+        <div class="contenedor">
+            <div class="mb-2">
+                <button>
+                    <a href="#" class="fb_btn btn">
+                        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                    </a>
+                </button>
+                <button>
+                    <a href="#" class="google_btn btn">
+                        <i class="fa fa-google fa-fw"></i> Login with Google+
+                    </a>
+                </button>
+            </div>
+            <form action="/user/login" method="POST">
+                <h2>ACCEDER</h2>
+                <% if(locals.errors && errors.email){ %>
+                    <p style="color:#f90808;background-color:#ed191942;border-radius:8px;text-align:center; font-size: 16px; padding: 5px;"><%= errors.email.msg %></p>
+                <% } %>
+                <div class="mb-2">
+                    <label class="form-label" for="email">Nombre de usuario o correo electronico</label>
+                    <input class="form-control" type="text" name="email" id="email" placeholder="usuario" value="<%= locals.oldData && oldData.email ? oldData.email : '' %>">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="contrasena">Contraseña</label>
+                    <input class="form-control" type="password" name="password" id="password" placeholder="contraseña">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="recordar">
+                        <input type="checkbox" name="recordar" id="recordar"> Recordar mi usuario
+                    </label>
+                </div>
+                <div class="mb-2">
+                    <a href="#">Recordar contraseña</a>
+                </div>
+                <div class="mb-2">
+                    <button class="btn-ingresar" type="submit">Ingresar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <%- include ("../partials/footer")  %>
+</body>
+
+</html>
