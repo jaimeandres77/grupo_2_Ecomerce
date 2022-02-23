@@ -1,22 +1,3 @@
-@import url('./general/styles.css');
-@import url('./general/header.css');
-@import url('./general/footer.css'); 
-
-:root {
-    /* Colores */
-    --purpura: #682D63;
-    --azul: #414288;
-    --verde: #00635D;
-    --blanco-principal: #FFFAFF;
-    --blanco: #FFFFFF;
-    --negro: #000000;
-    /* Tamaños de Fuentes */
-    --text-sm: 1.2em;
-    --text-sm: 1.6em;
-    --text-lg: 1.8em;
-    --title-md: 2.4em;
-    /* Familias de Fuentes */
-}
 /* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
 
 section main .form-register{

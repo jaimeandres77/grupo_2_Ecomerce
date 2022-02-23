@@ -8,12 +8,14 @@
         </label>
         <ul class="nav__menu" style="margin-bottom: 10px;">
             <li class="menu__logo">
-                <img src="/img/mainLogo.png" alt="">
+                <a href="/" style="padding: 0;">
+                    <img src="/img/mainLogo.png" alt="">
+                </a>
             </li>
         </ul>
         <ul class="nav__menu">
             <li style="display:none;"></li>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="/">Inicio</a></li>
             <% if (!locals.isLogged) { %>
                 <li><a href="/user/login">Login</a></li>
             <% } %>

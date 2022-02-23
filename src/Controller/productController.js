@@ -17,7 +17,6 @@ module.exports = {
     createSend: (req,res) =>{
         const errors = validationResult(req);
         if(errors.errors.length > 0){
-            console.log({oldData: req.body});
             return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body});
         }
         const id = products[products.length - 1].id + 1 || 1;
@@ -39,7 +38,6 @@ module.exports = {
     edit: (req,res) =>{
         const id = parseInt(req.params.id);
         const product = products.find(product => product.id === id);
-        console.log(product);
         res.render('product/editProduct',{product});
     },
     editUpdate: (req,res) =>{
