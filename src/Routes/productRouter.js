@@ -7,6 +7,8 @@ const productController = require('../Controller/productController');
 
 router.get('/detail/:id',productController.detail);
 
+router.get("/show",productController.show);
+
 router.get('/create',productController.create);
 
 router.post('/create', multer.single('imagen'),validation, productController.createSend);

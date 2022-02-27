@@ -11,6 +11,14 @@ module.exports = {
         const product = products.find(product => product.id === id);
         res.render('product/productDetail',{product});
     },
+
+    show: (req,res) => {
+
+        res.render("product/show",{
+            products: products
+        });
+    },
+
     create: (req,res) =>{
         res.render('product/createProduct');
     },

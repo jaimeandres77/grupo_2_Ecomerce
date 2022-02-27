@@ -1,4 +1,10 @@
 /* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
+@import url('./general/styles.css');
+@import url('./general/header.css');
+@import url('./general/footer.css'); 
+
+
+/* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
 
 section main .form-register{
   display: flex;
@@ -6,26 +12,37 @@ section main .form-register{
   margin: 20px auto;
   font-size: var(--text-md);
   border-radius: 10px;
-  background-color: var(--purpura);
+  background-color: var(--azul);
   color:var(--blanco);
   box-shadow: 7px 13px 37px var(--negro);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  padding-bottom: 4px;
+}
+section main .form-register h1 {
+  margin: auto;
+  font-size: var(--title-md);
+  text-align: center;
+  justify-content: center;
 }
 
 section main .form-register div.campo{
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  padding: 15px;
 }
 
 section main .form-register label{
-  margin-bottom: 5px;
+  margin-bottom: 2px;
+  padding: 5px;
 }
 
-main .form-register .campo input{
+main .form-register .campo input,
+main .form-register .campo select
+{
   padding: 6px 12px;
 }
 
@@ -37,26 +54,29 @@ main .form-register .button{
 }
 
 section main .form-register .button button{
+  font-family: Geneva, Tahoma, sans-serif;
   width: 100%;
   padding: 12px 15px;
-  background-color: var(--azul);
+  background-color: #6e6e70;
   color: var(--blanco);
-  border-radius: 5px;
+  border-radius: 10px 10px 7px 10px;
   align-items: center;
   text-transform: uppercase;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
-    0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),    0 2px 2px 0 rgba(0, 0, 0, 0.14),    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  /*Safari*/transition-duration: 0.4s;
+  -webkit-border-radius: 10px 10px 7px 10px;
+  -moz-border-radius: 10px 10px 7px 10px;
+  -ms-border-radius: 10px 10px 7px 10px;
+  -o-border-radius: 10px 10px 7px 10px;
 }
 
 section main .form-register .button button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
   
-@media screen and (min-width: 769px){
+@media screen and (min-width: 360px){
   header div.top-header{
     flex-wrap: nowrap;
     align-items: center;
@@ -65,10 +85,12 @@ section main .form-register .button button:hover{
   main section div.products article{
     width: 22%;
   }
+  
   /* section main .form-register .button button */
   /* ---------------------------- MAIN FORM-REGISTER ---------------------------- */
 
   section main .form-register{
+    
     flex-direction: row;
     flex-wrap: wrap;
     max-width: 700px;
@@ -105,5 +127,11 @@ section main .form-register .button button:hover{
   text-decoration: none;
   color: var(--blanco);
 }
-  
+.section main div .p-info a :hover {
+  color: #00FF00; 
+  border-bottom: 1px solid;
+}
+div .text_register{
+  display: grid;
+}
 }
