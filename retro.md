@@ -23,3 +23,4 @@
 
 1. Mayor comunicación con el grupo al momento de realizar la parte correspondiente del codigo.
 2. Buscar la forma de coordinación de horarios para poder avanzar en cosas en conjunto.
+3. Apesar del poco tiempo de comunicacion se ha logrado consolidar cada parte del proyecto,eso denota el trabajo individual que podria ser mucho mejor al tener mas comunicación.
