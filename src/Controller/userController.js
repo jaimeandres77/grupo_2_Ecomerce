@@ -28,7 +28,7 @@ module.exports = {
     const newUser = {
       ...req.body,
       password: bcrypt.hashSync(req.body.password, 10),
-      image: req.file.filename,
+      image: req.file?.filename || 'default-user.svg',
     }
     User.create(newUser);
     return res.redirect('/user/login');

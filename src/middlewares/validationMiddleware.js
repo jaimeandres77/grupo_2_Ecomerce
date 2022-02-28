@@ -15,9 +15,7 @@ const validationMiddleware = [
     body("country").notEmpty().withMessage('selecciona un país'),
     body('avatar').custom((value, {req}) => {
         let file = req.file;
-        if(!file) {
-            throw new Error('Tienes que subir una imagen');
-        }else{
+        if(file) {
             let acceptedExtensions = ['.jpg', '.png', '.gif','.jfif'];
             let fileExtension = path.extname(file.originalname);
             if (!acceptedExtensions.includes(fileExtension)){

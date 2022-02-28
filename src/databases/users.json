@@ -32,5 +32,21 @@
   "email": "prueba2@mail.com",
   "country": "Brasil",
   "image": "1645317438319_img.jpg"
+ },
+ {
+  "id": 3,
+  "fullname": "prueba3",
+  "username": "prueba3",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "estrategia"
+  ],
+  "password": "$2a$10$0MReXWVF0vCcaLJuEkJuU.rZ9HUbza6tOIYNEFTorOVGWNH3PrneK",
+  "email": "prueba3@mail.com",
+  "country": "Colombia",
+  "image": "default-user.svg"
  }
 ]
