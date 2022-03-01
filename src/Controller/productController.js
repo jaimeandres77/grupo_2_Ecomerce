@@ -11,13 +11,20 @@ module.exports = {
         const product = products.find(product => product.id === id);
         res.render('product/productDetail',{product});
     },
+
+    show: (req,res) => {
+
+        res.render("product/show",{
+            products: products
+        });
+    },
+
     create: (req,res) =>{
         res.render('product/createProduct');
     },
     createSend: (req,res) =>{
         const errors = validationResult(req);
         if(errors.errors.length > 0){
-            console.log({oldData: req.body});
             return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body});
         }
         const id = products[products.length - 1].id + 1 || 1;
@@ -39,32 +46,40 @@ module.exports = {
     edit: (req,res) =>{
         const id = parseInt(req.params.id);
         const product = products.find(product => product.id === id);
-        console.log(product);
         res.render('product/editProduct',{product});
     },
     editUpdate: (req,res) =>{
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
         const productToEdit = products.find(product => product.id === id);
 
-        productToEdit = {
-            id:productToEdit.id,
+        const product = {
+            id,
             ...req.body,
             imagen: productToEdit.imagen,
         };
 
-        let newProducts = products.map(product =>{
-            product.id == productToEdit.id ? product= {...productToEdit} : product;
-        })
+        const newProducts = products.map(producto => {
+            if(producto.id === id){
+                return product;
+            }
+            return producto;
+        });
 
         fs.writeFileSync(productsFilePath,JSON.stringify(newProducts, null, ' '));
-        res.redirect('/');
+        res.redirect('/product/show');
+    },
+
+    delete: (req,res) => {
+        const id = parseInt(req.params.id);
+        const product = products.find(product => product.id === id);
+        console.log(product);
+        res.render('product/deleteProduct',{product});
     },
 
     destroy: (req,res) =>{
-        const id = req.params.id;
+        const id = parseInt(req.params.id);
         const finalProducts = products.filter(product => product.id !== id);
-
         fs.writeFileSync(productsFilePath,JSON.stringify(finalProducts, null, ' '));
-        res.redirect('/');
+        res.redirect('/product/show');
     }
 }

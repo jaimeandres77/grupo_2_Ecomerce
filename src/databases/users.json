@@ -1,0 +1,53 @@
+[
+ {
+  "id": 1,
+  "fullname": "Prueba1",
+  "username": "prueba1",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "mujer",
+  "categories": [
+   "accion",
+   "estrategia",
+   "simulacion"
+  ],
+  "password": "$2a$10$Qe0UFjVJCOlrj1dMA6bcAuUrBBRdFXLo.W6faCxa3r8THrf6ly8nW",
+  "email": "prueba1@mail.com",
+  "country": "Brasil",
+  "image": "1645317438319_img.jpg"
+ },
+ {
+  "id": 2,
+  "fullname": "Prueba2",
+  "username": "prueba2",
+  "date": "2022-01-01",
+  "domicilio": "One",
+  "perfil": "mujer",
+  "categories": [
+   "accion",
+   "estrategia",
+   "simulacion"
+  ],
+  "password": "$2a$10$x6uZbpYgbHkdUp79Zn.YyecWUy2ni2QjYPo1W4eytLC.21z3cj29y",
+  "email": "prueba2@mail.com",
+  "country": "Brasil",
+  "image": "1645317438319_img.jpg"
+ },
+ {
+  "id": 3,
+  "fullname": "Johan Mauricio Peñuela Hidalgo",
+  "username": "JOHAPEÑH",
+  "date": "1992-11-25",
+  "domicilio": "Carrera 105 n 70",
+  "perfil": "hombre",
+  "categories": [
+   "accion",
+   "rol",
+   "estrategia"
+  ],
+  "password": "$2a$10$Zt1mJQHrIipOT1RcfeYgreBSo6NLflnp/hjegyeNv/RuhC3cUdy9m",
+  "email": "johanpenuelah@gmail.com",
+  "country": "Colombia",
+  "image": "1645747966851_img.png"
+ }
+]

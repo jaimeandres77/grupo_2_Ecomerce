@@ -1,244 +1,196 @@
-/* ****************** HEADER ****************** */
-header.header{
-    position: relative;
-    padding: 10px 15px;
+.nav{
     background-color: var(--purpura);
-    overflow: hidden;
-}
-
-header.header .nav{
-    width: 100%;
-    display: block;
-}
-
-header.header .nav .menu__logo{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-header.header .nav .menu__logo img{
-    padding-top: 5px;
-    height: 40px;
-}
-header.header .nav .menu__logo svg{
-    max-height: 40px;
-    fill: var(--blanco);
-}
-
-header.header .nav__toggle{
-    position: absolute;
-    top: 15px;
-    left: 25px;
-    cursor: pointer;
-}
-
-header.header .nav__toggle i{
-    font-size: var(--text-md);
-    background-color: var(--blanco);
-    color: var(--negro);
-    padding: 10px;
-    border-radius: 50%;
-}
-
-header.header .nav__toggle .close{
-    display: none;
-}
-
-header.header .nav__checkbox{
-    display: none;
-}
-
-header.header ul.nav__menu{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    text-align: center;
-}
-
-header.header ul.nav__menu li{
-    list-style-type: none;
-    display: none;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-header.header ul.nav__menu li a{
-    display: block;
-    padding: 10px 0;
-    border-radius: 5px;
-    color: var(--blanco);
-    text-decoration: none;
     text-transform: uppercase;
-    font-size: 1.4em;
-}
-
-header.header ul.nav__menu li a:hover{
-    background-color: var(--purpura-oscuro);
-}
-
-header.header ul.nav__menu .nav__icon{
-    position: absolute;
-    top: 5px;
-    right: 30px;
-    gap: 10px;
-}
-header.header ul.nav__menu .nav__icon li{
-    position: relative;
-    display: block;
-}
-
-header.header ul.nav__menu .nav__icon li{
-    border-radius: 0px;
-}
-
-header.header ul.nav__menu .nav__icon li .shopping .price{
-    display: none;
-}
-
-header.header ul.nav__menu .nav__icon li .shopping a i{
-    padding: 10px;
-    background-color: var(--verde);
-    border-radius: 50%;
-}
-
-header.header ul.nav__menu .nav__icon .shopping i span{
-    position: absolute;
-    top: 0px;
-    right: -5px;
-    background-color: var(--azul);
-    padding: 5px;
-    border-radius: 50%;
-    font-size: var(--text-sm);
-}
-
-header.header ul.nav__menu .nav__icon li.user a i{
-    padding: 10px;
-    background-color: var(--blanco);
-    color: var(--negro);
-    border-radius: 50%;
-}
-
-header.header ul.nav__menu li .nav__form{
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: relative;
-}
-
-header.header ul.nav__menu li .nav__form input{
-    width: 100%;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 12px;
-    font-size: var(--text-md);
-}
-
-header.header ul.nav__menu li .nav__form button{
-    position: absolute;
-    right: 5px;
-    padding: 5px;
-    border: none;
-    background-color: transparent;
-}
-
-header.header .nav #nav__checkbox:checked ~ ul.nav__menu li{
-    display: block;
-}
-
-header.header .nav #nav__checkbox:checked ~ label.nav__toggle .close{
-    display: block;
-}
-
-header.header .nav #nav__checkbox:checked ~ label.nav__toggle .menu{
-    display: none;
-}
-
-/* ****************** SECTION FORM SEARCH ****************** */
-section.form-search{
-    padding: 10px;
-    background-color: var(--azul);
+    color: #fff;
+    height: 70px;
+    font-size: inherit;
     box-shadow: 0 0 5px var(--negro);
 }
 
-section.form-search .nav__form{
+.nav__container{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 1.4em;
+}
+
+.nav__logo{
+    display: flex;
+    align-items: center;
+    height: 70%;
+}
+
+.nav__logo a{
+    height: 100%;
+}
+
+.nav__links{
+    height: 100%;
+    transition: transform .5s;
+    display: flex;
+}
+
+.nav__item{
+    list-style: none;
+    position: relative;
+    height: 100%;
+    --clip: polygon(0 0,100% 0, 100% 0, 0 0);
+    --transform : rotate(-90deg);
+}
+.nav__item:hover{
+    --clip: polygon(0 0,100% 0, 100% 100%, 0% 100%);
+    --transform : rotate(0);
+}
+
+.nav__link{
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 0 10px;
+    display: flex;
     align-items: center;
     height: 100%;
-    position: relative;
 }
 
-section.form-search .nav__form input{
+.nav__avatar{
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 5px;
+    background-color: var(--negro);
+}
+
+.nav__avatar img{
     width: 100%;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 12px;
-    font-size: var(--text-md);
 }
 
-section.form-search .nav__form button{
+.nav__link:hover{
+    background-color: var(--purpura-oscuro);
+}
+
+.nav__arrow{
+    transform: var(--transform);
+    transition: transform .3s;
+    display: block;
+    margin-left: 5px;
+}
+
+.nav__nesting{
+    list-style: none;
+    transition: clip-path .3s;
+    clip-path: var(--clip);
     position: absolute;
-    right: 5px;
-    padding: 5px;
-    border: none;
-    background-color: transparent;
+    right: 0;
+    bottom: 0;
+    width: max-content;
+    transform: translateY(100%);
+    background-color: var(--purpura);
 }
 
-@media screen and (min-width: 576px) {
-    /* ****************** HEADER ****************** */
-    header.header .nav{
+.nav__link--inside{
+    padding: 10px 30px;
+}
+
+.nav__shopping{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 100%;
+    color: var(--verde);
+    font-weight: bold;
+}
+
+.nav__shopping i{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.nav__hamburguer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: none;
+}
+
+.nav__hamburguer--img{
+    display: block;
+    width: 36px;
+}
+
+.fa-bars{
+    display: block;
+    color: var(--blanco);
+    width: 36px;
+    font-size: 26px;
+}
+
+@media (max-width: 576px) {
+    .nav__hamburguer{
         display: flex;
-        justify-content: space-between;
-        width: 93.75%;
-        margin: 0 auto;
     }
-    header.header .nav .menu__logo svg{
-        height: 55px;
+    .nav__item{
+        --clip: 0;
+        overflow: hidden;
     }
-    header.header .nav label.nav__toggle{
-        display: none;
+    .nav__item--active{
+        --transform: rotate(0);
+        --background: var(--purpura-oscuro)
     }
-    header.header .nav .nav__menu{
-        flex-direction: row;
-        justify-content: flex-end;
-        column-gap: 10px;
-        column-gap: 10px;
-        column-gap: 10px;
+    .nav__item--show{
+        background-color: var(--background);
     }
-    header.header ul.nav__menu .nav__icon{
-        position: static;
-        gap: 0;
+    .nav__links{
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        top: 70px;
+        bottom: 0;
+        right: 0;
+        background-color: var(--azul);
+        overflow-y: auto;
+        display: grid;
+        grid-auto-rows: max-content;
+        transform: translateX(100%);
     }
-    header.header ul.nav__menu .nav__icon li .shopping .price{
-        display: inline-block;
-        color: var(--verde);
-        font-weight: bold;
+    .nav__links--show{
+        transform: unset;
+        width: 100%;
     }
-    header.header ul.nav__menu .nav__icon .shopping a{
-        padding: 2px 0;
+    .nav__link{
+        padding: 25px 0;
+        padding-left: 30px;
+        height: auto;
     }
-    header.header ul.nav__menu .nav__icon .shopping i span{
-        display: none;
+    .nav__arrow{
+        margin-left: auto;
+        margin-right: 20px;
     }
-    header.header .nav .nav__menu li a{
-        padding: 10px;
-        border: none;
+    .nav__nesting{
+        display: grid;
+        position: unset;
+        width: 100%;
+        transform: translateY(0);
+        height: 0;
+        transition: height .3s;
     }
-    header.header ul.nav__menu li{
-        width: auto;
-        display: flex !important;
-        align-items: center;
-    }
-    /* ****************** SECTION FORM SEARCH ****************** */
-    section.form-search .nav__form input{
-        max-width: 300px;
+    .nav__link--inside{
+        width: 90%;
+        margin-left: auto;
+        border-left: 1px solid var(--blanco);
     }
 }
-/*
-    576 -> 540 -> 93.75%
-    768 -> 720 -> 93.75%
-    992 -> 960 -> 96.77%
-    1200 -> 1140 -> 95%
-    1200 -> 1140 -> 94.2857143%
-*/

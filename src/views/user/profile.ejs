@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head/meta') %>
+    <title>Perfil de Usuario</title>
+    <%- include('../partials/head/css') %>
+</head>
+<body>
+    <%- include('../partials/header'); %>
+    Hola <%= user.username %>
+    <div>
+        <img src="/img/Avatars/<%= user.image %>" width="100px" alt="Imagen Perfil">
+    </div>
+    <%= user.email %>
+    <div><a href="/user/logout">Cerrar Sesion</a></div>
+</body>
+</html>
