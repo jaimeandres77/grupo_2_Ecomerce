@@ -35,18 +35,19 @@
  },
  {
   "id": 3,
-  "fullname": "prueba3",
-  "username": "prueba3",
-  "date": "2022-01-01",
-  "domicilio": "One",
+  "fullname": "Johan Mauricio Peñuela Hidalgo",
+  "username": "JOHAPEÑH",
+  "date": "1992-11-25",
+  "domicilio": "Carrera 105 n 70",
   "perfil": "hombre",
   "categories": [
    "accion",
+   "rol",
    "estrategia"
   ],
-  "password": "$2a$10$0MReXWVF0vCcaLJuEkJuU.rZ9HUbza6tOIYNEFTorOVGWNH3PrneK",
-  "email": "prueba3@mail.com",
+  "password": "$2a$10$Zt1mJQHrIipOT1RcfeYgreBSo6NLflnp/hjegyeNv/RuhC3cUdy9m",
+  "email": "johanpenuelah@gmail.com",
   "country": "Colombia",
-  "image": "default-user.svg"
+  "image": "1645747966851_img.png"
  }
 ]
