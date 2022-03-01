@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/tablaProducto.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-    <title>Productos</title>
+  <%- include('../partials/head/meta') %>
+  <title>Productos</title>
+  <%- include('../partials/head/css') %>
+  <link rel="stylesheet" href="/css/tablaProducto.css">
 </head>
+
 <body>
-    <!-- header -->
-    <%- include ("../partials/header")  %>
+  <!-- header -->
+  <%- include ("../partials/header") %>
     <!-- header end -->
-
-   
-
-
     <h1>Listado de productos</h1>
     <div class="button_edit">
       <button type="submit"><a href="product/create" class="create">Crear</a></button>
     </div>
     <div class="container">
-        <table class="table_container">
-            <tr>
-              <th>Id</th>
-              <th>imagen</th>
-              <th>Nombre del producto</th>
-              <th><i class="far fa-edit"></i></th>
-              <th><i class="far fa-trash-alt"></i></th>
-            </tr>
+      <table class="table_container">
+        <tr>
+          <th>Id</th>
+          <th>imagen</th>
+          <th>Nombre del producto</th>
+          <th><i class="far fa-edit"></i></th>
+          <th><i class="far fa-trash-alt"></i></th>
+        </tr>
 
-            <% products.forEach(function(product) { %>
-              <tr>
-                <td> <%= product.id %> </td>
-                <td><img src=" <%= product.imagen %>" alt="producto"></td>
-                <td> <%= product.nombre %></td>
-                <td><button type="submit"><a href="#">Editar</a></button></td>
-                <td><button type="submit"><a href="#">Eliminar</a></button></td>
-              </tr>
+        <% products.forEach(function(product) { %>
+          <tr>
+            <td>
+              <%= product.id %>
+            </td>
+            <td><img src=" <%= product.imagen %>" alt="producto"></td>
+            <td>
+              <%= product.nombre %>
+            </td>
+            <td>
+              <button type="submit">
+                <a href="/product/edit/<%= product.id %>">Editar</a>
+              </button>
+            </td>
+            <td>
+              <button type="submit">
+                <a href="/product/delete/<%= product.id %>">Eliminar</a>
+              </button>
+            </td>
+          </tr>
           <% }); %>
-            
-          </table>
+
+      </table>
 
     </div>
-    
+
     <!-- footer -->
-    <%- include('../partials/footer') %> 
-    <!-- footer end -->
-        
-    
+    <%- include('../partials/footer') %>
+      <!-- footer end -->
+
+
 </body>
+
 </html>

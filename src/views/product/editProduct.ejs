@@ -11,7 +11,7 @@
     <main>
         <div class="form-container">
             <h1>Formulario de edición de Producto</h1>
-            <form method="POST" action="/product?_method=PATCH">
+            <form method="POST" action="/product/edit/<%= product.id %>?_method=PATCH">
                  <div class="formContent-container">
                     <label for="nombre">Nombre Producto:</label>
                     <input type="text" id="nombre" name="nombre" value="<%= product.nombre %>">

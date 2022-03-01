@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head/meta') %>
+    <title>¿Confirmar eliminacion? </title>
+    <%- include('../partials/head/css') %>
+    <link rel="stylesheet" href="/css/deleteProduct.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="container">
+            <h2>Eliminar <%= product.nombre %> </h2>
+            <p>¿Seguro desea eliminar el Producto <%= product.nombre %> ?</p>
+            <div class="button">
+                <form action="/product/delete/<%= product.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn--danger">Eliminar <%= product.nombre %> </button>
+                </form>
+                <a class="btn btn--link" href="/product/show">Listado de Productos</a>
+            </div>
+        </section>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

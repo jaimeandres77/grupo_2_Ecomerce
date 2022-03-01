@@ -17,6 +17,8 @@ router.get('/edit/:id', productController.edit);
 
 router.patch('/edit/:id',productController.editUpdate);
 
-router.delete('',productController.destroy);
+router.get('/delete/:id',productController.delete);
+
+router.delete('/delete/:id',productController.destroy);
 
 module.exports = router;
