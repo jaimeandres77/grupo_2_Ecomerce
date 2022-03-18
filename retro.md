@@ -29,3 +29,4 @@
 ## Principales Conclusiones del Sprint5:
 
 1. Se mejoro en la comunicación pero falta mejorar en el cumplimiento de entregas.
+2. hacer trabajos en conjunto cada vez se hace más necesario para hacer avances coordinados.
