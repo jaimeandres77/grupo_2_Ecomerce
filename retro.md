@@ -24,9 +24,11 @@
 1. Mayor comunicación con el grupo al momento de realizar la parte correspondiente del codigo.
 2. Buscar la forma de coordinación de horarios para poder avanzar en cosas en conjunto.
 3. Apesar del poco tiempo de comunicacion se ha logrado consolidar cada parte del proyecto,eso denota el trabajo individual que podria ser mucho mejor al tener mas comunicación.
+4. Se estan concretando los objetivos apesar de los contratiempos de cada integrante del grupo, ya se esta implementando las reuniones cada semana para revisar avances y problemas que se esten presentando en el proceso.
 
 
 ## Principales Conclusiones del Sprint5:
 
 1. Se mejoro en la comunicación pero falta mejorar en el cumplimiento de entregas.
 2. hacer trabajos en conjunto cada vez se hace más necesario para hacer avances coordinados.
+3. La parte de definición de tareas cada vez se esta volviendo mas rutinaria y nos ponemos de acuerdo mucho mas rapido.
