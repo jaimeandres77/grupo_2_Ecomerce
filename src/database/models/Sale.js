@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports=(sequelize,dataType) => {
     const alias= "Sales";
     const cols = {
@@ -12,7 +10,7 @@ module.exports=(sequelize,dataType) => {
             type: dataType.INTEGER
         },
         date: {
-            type: dataType.DATETIME
+            type: dataType.DATE
         },
         totalPrice: {
             type: dataType.DOUBLE

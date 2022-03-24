@@ -2,30 +2,41 @@ const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 
+const db = require('../database/models');
+
 const productsFilePath = path.resolve(__dirname,'../databases/productos.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
 
 module.exports = {
-    detail: (req,res) => {
+    detail: async (req,res) => {
         const id = parseInt(req.params.id);
-        const product = products.find(product => product.id === id);
-        res.render('product/productDetail',{product});
+        const game = await db.Games.findByPk(id,{include: ['genres','platforms']});
+        res.render('product/productDetail',{game});
     },
 
-    show: (req,res) => {
-
-        res.render("product/show",{
-            products: products
-        });
+    show: async (req,res) => {
+        try {
+            const games = await db.Games.findAll({
+                attributes: ['id','name','price','image'],
+                include: ['genres','platforms']
+            });
+            res.render("product/show",{games});
+        } catch (error) {
+            console.log(error);
+        }
     },
 
-    create: (req,res) =>{
-        res.render('product/createProduct');
+    create: async (req,res) =>{
+        const genres = await db.Genres.findAll();
+        const platforms = await db.Platforms.findAll();
+        res.render('product/createProduct',{genres,platforms});
     },
-    createSend: (req,res) =>{
+    createSend: async (req,res) =>{
         const errors = validationResult(req);
         if(errors.errors.length > 0){
-            return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body});
+            const genres = await db.Genres.findAll();
+            const platforms = await db.Platforms.findAll();
+            return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body,genres,platforms});
         }
         const id = products[products.length - 1].id + 1 || 1;
         const imagen = req.file?.filename !== undefined ? req.file.filename : 'default-product.png';

@@ -3,7 +3,12 @@
     --purpura: #682D63;
     --purpura-oscuro: #4c2349;
     --azul: #414288;
+    --azul-oscuro: #38396c;
     --verde: #00635D;
+    --amarillo: #F0C808;
+    --amarillo-oscuro: #F6AE2D;
+    --rojo: #D33F49;
+    --rojo-oscuro: #bd2c3a;
     --blanco-principal: #F9F9F9;
     --blanco: #FFFFFF;
     --negro: #000000;
@@ -47,7 +52,7 @@ h3{
 
 /* GENERAL */
 .container{
-    width: 100%;
+    width: 98%;
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -59,6 +64,73 @@ h3{
 .flex-xy-center{
     justify-content: center;
     align-items: center;
+}
+
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background-color: var(--purpura);
+    color: var(--blanco);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-primary:hover{
+    background-color: var(--purpura-oscuro);
+}
+
+.btn-secondary{
+    background-color: var(--azul);
+    color: var(--blanco);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-secondary:hover{
+    background-color: var(--azul-oscuro);
+}
+
+.btn-link{
+    color: var(--azul);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-link:hover{
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+.btn-danger{
+    background-color: var(--rojo);
+    color: var(--blanco);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-danger:hover{
+    background-color: var(--rojo-oscuro);
+}
+
+.btn-warning{
+    background-color: var(--amarillo);
+    color: var(--negro);
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn-warning:hover{
+    background-color: var(--amarillo-oscuro);
+}
+
+.btn-block{
+    width: 100%;
 }
 
 @media screen and (min-width: 576px) {

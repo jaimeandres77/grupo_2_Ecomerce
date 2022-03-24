@@ -2,10 +2,12 @@ const {body,check} = require('express-validator');
 const path = require('path');
 
 const validateCreateForm = [
-    body('nombre').not().isEmpty().withMessage('Debes rellenar el campo del Nombre del producto'),
-    body('precio').not().isEmpty().withMessage('Debes asignarle un precio al producto'),
-    body('sku').not().isEmpty().withMessage('Debes asignarle un sku al producto'),
-    body('imagen').custom((value,{req}) => {
+    body('name').not().isEmpty().withMessage('Debes rellenar el campo del Nombre del juego'),
+    body('sku').not().isEmpty().withMessage('Debes asignarle un sku al juego'),
+    body('price').not().isEmpty().withMessage('Debes asignarle un precio al juego'),
+    body('discount').not().isEmpty().withMessage('Debes asignarle un descuento al juego al juego'),
+    body('stock').not().isEmpty().withMessage('Debes asignarle una canidad de unidades al juego'),
+    body('image').custom((value,{req}) => {
         const file = req.file;
         if(!file){
             return true;

@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports=(sequelize,dataType) => {
     const alias= "Users";
     const cols = {

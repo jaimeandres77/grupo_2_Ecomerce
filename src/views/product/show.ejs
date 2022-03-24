@@ -3,9 +3,9 @@
 
 <head>
   <%- include('../partials/head/meta') %>
-  <title>Productos</title>
-  <%- include('../partials/head/css') %>
-  <link rel="stylesheet" href="/css/tablaProducto.css">
+    <title>Productos</title>
+    <%- include('../partials/head/css') %>
+      <link rel="stylesheet" href="/css/tablaProducto.css">
 </head>
 
 <body>
@@ -14,43 +14,43 @@
     <!-- header end -->
     <h1>Listado de productos</h1>
     <div class="button_edit">
-      <button type="submit"><a href="product/create" class="create">Crear</a></button>
+      <button type="type"><a href="/product/create" class="create">Crear</a></button>
     </div>
-    <div class="container">
-      <table class="table_container">
-        <tr>
-          <th>Id</th>
-          <th>imagen</th>
-          <th>Nombre del producto</th>
-          <th><i class="far fa-edit"></i></th>
-          <th><i class="far fa-trash-alt"></i></th>
-        </tr>
-
-        <% products.forEach(function(product) { %>
+    <% if (locals.games && games.length > 0) { %>
+      <div class="container">
+        <table class="table_container">
           <tr>
-            <td>
-              <%= product.id %>
-            </td>
-            <td><img src=" <%= product.imagen %>" alt="producto"></td>
-            <td>
-              <%= product.nombre %>
-            </td>
-            <td>
-              <button type="submit">
-                <a href="/product/edit/<%= product.id %>">Editar</a>
-              </button>
-            </td>
-            <td>
-              <button type="submit">
-                <a href="/product/delete/<%= product.id %>">Eliminar</a>
-              </button>
-            </td>
+            <th>Id</th>
+            <th>Nombre del producto</th>
+            <th><i class="far fa-edit"></i></th>
+            <th><i class="far fa-trash-alt"></i></th>
           </tr>
-          <% }); %>
-
-      </table>
-
-    </div>
+          <% games.forEach((game,index) => { %>
+            <tr>
+              <td>
+                <%= index + 1 %>
+              </td>
+              <!-- <td><img src="/img/games/<%= game.image %>" alt="<%= game.name %>"></td> -->
+              <td>
+                <a href="/product/detail/<%= game.id %>"><%= game.name %></a>
+              </td>
+              <td>
+                <button type="submit">
+                  <a href="/product/edit/<%= game.id %>">Editar</a>
+                </button>
+              </td>
+              <td>
+                <button type="submit">
+                  <a href="/product/delete/<%= game.id %>">Eliminar</a>
+                </button>
+              </td>
+            </tr>
+            <% }); %>
+        </table>
+      </div>
+    <% } else { %>
+      <h2>No hay juegos registrados, ingresa un nuevo juego</h1>
+    <% } %>
 
     <!-- footer -->
     <%- include('../partials/footer') %>

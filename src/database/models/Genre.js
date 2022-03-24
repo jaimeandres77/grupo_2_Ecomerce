@@ -1,10 +1,8 @@
-const { sequelize } = require(".");
-
-module.exports=(sequelize,dataType) =>{
-    const alias= "Genres"
+module.exports = (sequelize, dataType) => {
+    const alias = "Genres"
     const cols = {
         id: {
-            tipe: dataType.INTEGER,
+            type: dataType.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -12,13 +10,24 @@ module.exports=(sequelize,dataType) =>{
             type: dataType.STRING
         },
         description: {
-            tupe: dataType.TEXT
+            type: dataType.TEXT
         },
     }
     const config = {
         tableName: "genre",
-        timestamp: false
+        timestamps: false
     }
-    const user= sequelize.define (alias,cols,config);
-    return user;
+    const Genre = sequelize.define(alias, cols, config);
+
+    Genre.associate = (models) => {
+        Genre.belongsToMany(models.Games, {
+            as: 'games',
+            through: 'games_genres',
+            foreignKey: 'genreId',
+            otherKey: 'gameId',
+            timestamps: false
+        });
+    }
+
+    return Genre;
 }
