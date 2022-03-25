@@ -72,6 +72,29 @@ form .alert-danger ul{
 form .campo p{
     width: 100%;
 }
+form .campo label{
+    display: flex;
+    column-gap: 5px;
+}
+
+form .campo .label-100{
+    width: 100%;
+}
+
+form .campo textarea{
+    width: 100%;
+    padding: 7px 14px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    border: none;
+    border: 1px solid var(--azul);
+}
+
+form .campo textarea:focus{
+    border: none;
+    outline: none;
+    box-shadow: 0 0 5px var(--purpura);
+}
 
 form .button{
     width: 100%;

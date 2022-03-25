@@ -9,48 +9,72 @@
 <body>
     <%- include('../partials/header') %> 
     <main>
-        <div class="form-container">
-            <h1>Formulario de edición de Producto</h1>
-            <form method="POST" action="/product/edit/<%= product.id %>?_method=PATCH">
-                 <div class="formContent-container">
-                    <label for="nombre">Nombre Producto:</label>
-                    <input type="text" id="nombre" name="nombre" value="<%= product.nombre %>">
+        <div class="container form__game">
+            <form action="/product/create" method="POST" enctype="multipart/form-data">
+                <h1 class="">Registro de Juego</h1>
+                <% if (locals.errors) { %>
+                    <div class="alert alert-danger">
+                        <ul>
+                        <% Object.values(errors).forEach((error,index) => { %>
+                            <li><%= index + 1 %>. <%= error.msg %></li>
+                        <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+                <div class="campo-50">
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData && oldData.name ? oldData.name : '' %>">
                 </div>
-                <div class="formContent-container">
-                    <label for="categoria">Categoría:</label>
-                    <select name="categoria">
-                        <option value="value1">Categoría 1</option>
-                        <option value="value2" selected>Categoría 2</option>
-                        <option value="value3">Categoría 3</option>
-                    </select>
+                <div class="campo-50">
+                    <label for="sku">SKU:</label>
+                    <input type="text" name="sku" id="sku" placeholder="SKU" value="<%= locals.oldData && oldData.sku ? oldData.sku : '' %>">
                 </div>
-                <div class="formContent-containerMed">
-                    <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" value="<%= product.precio %>">
+                <div class="campo-50">
+                    <label for="price">Precio:</label>
+                    <input type="number" name="price" id="price" placeholder="50000" value="<%= locals.oldData && oldData.price ? oldData.price : '' %>">
                 </div>
-                <div class="formContent-container">
-                    <label for="clasifProducto">ClasificaciónESRB:</label>
-                    <select name="clasifProducto">
-                        <option value="value1">Clasificación 1</option>
-                        <option value="value2">Clasificación 2</option>
-                        <option value="value3" selected>Clasificación 3</option>
-                    </select>
+                <div class="campo-50">
+                    <label for="discount">Descuento:</label>
+                    <input type="number" name="discount" id="discount" placeholder="0 - 100" value="<%= locals.oldData && oldData.discount ? oldData.discount : '' %>">
                 </div>
-                <div class="formContent-containerArea">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea name="descripcion" id="textArea" cols="25" rows="6"><%= product.descripcion %></textarea>
+                <div class="campo-50">
+                    <label for="stock">Stock:</label>
+                    <input type="number" name="stock" id="stock" placeholder="0" value="<%= locals.oldData && oldData.stock ? oldData.stock : '' %>">
                 </div>
-                <div class="formContent-containerMed">
-                    <label for="sku">Sku:</label>
-                    <input type="text" id="sku" name="sku" value="<%= product.sku %>">
+                <div class="campo-50">
+                    <label for="image">Imagen:</label>
+                    <input type="file" name="image" id="image">
                 </div>
-                <div class="formContent-containerFile">
-                    <label for="imagen">Imágen producto:</label>
-                    <input type="file" id="imagen" name="imagen">
+                <div class="campo">
+                    <label for="description" class="label-100">Descripción</label>
+                    <textarea name="description" id="description" cols="30" rows="5"></textarea>
                 </div>
-                <div class="formContent-containerBotons">
-                    <input class="submit" type="submit" value="Editar Producto">
-                    <input class="reset" type="reset" value="Limpiar Campos">
+                <div class="campo">
+                    <p>Plataformas:</p>
+                    <% if (locals.platforms && platforms.length > 0) { %>
+                        <% platforms.forEach(platform => { %>
+                            <label for="<%= platform.name %>">
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= locals.oldData && oldData.platform && oldData.platform.includes(platform.name) ? 'checked' : '' %>><%= platform.name %>
+                            </label>
+                        <% }) %>
+                    <% } else { %>
+                        No hay plataformas registradas.
+                    <% } %>
+                </div>
+                <div class="campo">
+                    <p>Generos:</p>
+                    <% if (locals.genres && genres.length > 0) { %>
+                        <% genres.forEach(genre => { %>
+                            <label for="<%= genre.name %>">
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= locals.oldData && oldData.genre && oldData.genre.includes(genre.name) ? 'checked' : '' %>><%= genre.name %>
+                            </label>
+                        <% }) %>
+                    <% } else { %>
+                        No hay generos registrados.
+                    <% } %>
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-primary">Registrar Juego</button>
                 </div>
             </form>
         </div>

@@ -46,10 +46,16 @@
                     <input type="file" name="image" id="image">
                 </div>
                 <div class="campo">
+                    <label for="description" class="label-100">Descripción</label>
+                    <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                </div>
+                <div class="campo">
                     <p>Plataformas:</p>
                     <% if (locals.platforms && platforms.length > 0) { %>
                         <% platforms.forEach(platform => { %>
-                            <label for="<%= platform.name %>"><input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.name %>" <%= locals.oldData && oldData.platform && oldData.platform.includes(platform.name) ? 'checked' : '' %>><%= platform.name %></label>
+                            <label for="<%= platform.name %>">
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= locals.oldData && oldData.platform && oldData.platform.includes(platform.name) ? 'checked' : '' %>><%= platform.name %>
+                            </label>
                         <% }) %>
                     <% } else { %>
                         No hay plataformas registradas.
@@ -59,7 +65,9 @@
                     <p>Generos:</p>
                     <% if (locals.genres && genres.length > 0) { %>
                         <% genres.forEach(genre => { %>
-                            <label for="<%= genre.name %>"><input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.name %>" <%= locals.oldData && oldData.genre && oldData.genre.includes(genre.name) ? 'checked' : '' %>><%= genre.name %></label>
+                            <label for="<%= genre.name %>">
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= locals.oldData && oldData.genre && oldData.genre.includes(genre.name) ? 'checked' : '' %>><%= genre.name %>
+                            </label>
                         <% }) %>
                     <% } else { %>
                         No hay generos registrados.

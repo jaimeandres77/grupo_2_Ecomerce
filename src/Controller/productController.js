@@ -4,62 +4,84 @@ const { validationResult } = require('express-validator');
 
 const db = require('../database/models');
 
-const productsFilePath = path.resolve(__dirname,'../databases/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
+const productsFilePath = path.resolve(__dirname, '../databases/productos.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 module.exports = {
-    detail: async (req,res) => {
+    detail: async (req, res) => {
         const id = parseInt(req.params.id);
-        const game = await db.Games.findByPk(id,{include: ['genres','platforms']});
-        res.render('product/productDetail',{game});
+        const game = await db.Games.findByPk(id, { include: ['genres', 'platforms'] });
+        res.render('product/productDetail', { game });
     },
 
-    show: async (req,res) => {
+    show: async (req, res) => {
         try {
+            const page = parseInt(req.query.page);
+            const inicio = isNaN(page) || page === 1 ? 0 : (page - 1) * 10;
+            const count = await db.Games.count();
             const games = await db.Games.findAll({
-                attributes: ['id','name','price','image'],
-                include: ['genres','platforms']
+                attributes: ['id', 'name', 'price', 'image'],
+                order: [['name', 'ASC']],
+                include: ['genres', 'platforms'],
+                limit: 10,
+                offset: inicio
             });
-            res.render("product/show",{games});
+            res.render("product/show", { games, count });
         } catch (error) {
             console.log(error);
         }
     },
 
-    create: async (req,res) =>{
-        const genres = await db.Genres.findAll();
-        const platforms = await db.Platforms.findAll();
-        res.render('product/createProduct',{genres,platforms});
-    },
-    createSend: async (req,res) =>{
-        const errors = validationResult(req);
-        if(errors.errors.length > 0){
+    create: async (req, res) => {
+        try {
             const genres = await db.Genres.findAll();
             const platforms = await db.Platforms.findAll();
-            return res.render('product/createProduct',{errors: errors.mapped(), oldData: req.body,genres,platforms});
+            res.render('product/createProduct', { genres, platforms });
+        } catch (error) {
+            console.log(error);
+            res.status(500);
         }
-        const id = products[products.length - 1].id + 1 || 1;
-        const imagen = req.file?.filename !== undefined ? req.file.filename : 'default-product.png';
-        const newProduct = {
-            id: id,
-            ... req.body,
-            imagen: imagen,
-            descuento: 0,
-            stock: 0,
-            ventas: 0,
-            fechaCreacion: '2022-02-04',
-            fechaUltimaModificacion: '2022-02-04'
-        };
-        products.push(newProduct);
-        fs.writeFileSync(path.resolve(__dirname,'../databases/productos.json'),JSON.stringify(products,null,' '));
-        res.redirect('/product/create');
     },
-    edit: (req,res) =>{
-        const id = parseInt(req.params.id);
-        const product = products.find(product => product.id === id);
-        res.render('product/editProduct',{product});
+    createSend: async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            if (errors.errors.length > 0) {
+                const genres = await db.Genres.findAll();
+                const platforms = await db.Platforms.findAll();
+                return res.render('product/createProduct', { errors: errors.mapped(), oldData: req.body, genres, platforms });
+            }
+            const { name, sku, price, discount, stock, description, genre, platform } = req.body;
+            const game = await db.Games.create({
+                name,
+                sku,
+                price,
+                discount,
+                stock,
+                description,
+                status: 1,
+                image: req.file?.filename || 'default-product.png'
+            });
+            const relationGenres = await game.setGenres(genre);
+            const relationPlatforms = await game.setPlatforms(platform);
+            res.redirect('/product/create');
+        } catch (error) {
+            console.log(error);
+            res.status(500);
+        }
     },
-    editUpdate: (req,res) =>{
+    edit: async (req, res) => {
+        try {
+            const id = parseInt(req.params.id);
+            const game = db.Games.findByPk(id, { include: ['genres', 'platforms'] });
+            const genres = await db.Genres.findAll();
+            const platforms = await db.Platforms.findAll();
+        res.render('product/editProduct', { game, genres, platforms });
+        } catch (error) {
+            console.log(error);
+            res.status(500);
+        }
+    },
+    editUpdate: (req, res) => {
         const id = parseInt(req.params.id);
         const productToEdit = products.find(product => product.id === id);
 
@@ -70,27 +92,27 @@ module.exports = {
         };
 
         const newProducts = products.map(producto => {
-            if(producto.id === id){
+            if (producto.id === id) {
                 return product;
             }
             return producto;
         });
 
-        fs.writeFileSync(productsFilePath,JSON.stringify(newProducts, null, ' '));
+        fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
         res.redirect('/product/show');
     },
 
-    delete: (req,res) => {
+    delete: (req, res) => {
         const id = parseInt(req.params.id);
         const product = products.find(product => product.id === id);
         console.log(product);
-        res.render('product/deleteProduct',{product});
+        res.render('product/deleteProduct', { product });
     },
 
-    destroy: (req,res) =>{
+    destroy: (req, res) => {
         const id = parseInt(req.params.id);
         const finalProducts = products.filter(product => product.id !== id);
-        fs.writeFileSync(productsFilePath,JSON.stringify(finalProducts, null, ' '));
+        fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
         res.redirect('/product/show');
     }
 }
