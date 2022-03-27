@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports=(sequelize,dataType) => {
     const alias= "Users";
     const cols = {
@@ -41,6 +39,18 @@ module.exports=(sequelize,dataType) => {
         tableName: "user",
         timestamp: false
     }
-    const user = sequelize.define (alias,cols,config);
-    return user;
+    const User = sequelize.define (alias,cols,config);
+
+    User.associate = function(models){
+        User.hasMany(models.Sales,{
+            as:"sales",
+            foreignKey:"userId"
+        });
+        User.hasMany(models.Sales,{
+            as:"user_genres",
+            foreignKey:"userId"
+        })
+    }
+
+    return User;
 }

@@ -22,6 +22,22 @@ module.exports=(sequelize,dataType) => {
         tableName: "sale",
         timestamp: false
     }
-    const sale = sequelize.define (alias,cols,config);
-    return sale;
+    const Sale = sequelize.define (alias,cols,config);
+
+    Sale.associate = function(models){
+        Sale.belongsTo(models.Users,{
+            as:"user",
+            foreignKey:"userId"
+        })
+        Sale.belongsToMany(models.Games,{
+            as:"games",
+            through: "sale_datail",
+            foreignKey: "sailId",
+            otherKey: "gameId",
+            timestamps: false
+        })
+    }
+
+
+    return Sale;
 }

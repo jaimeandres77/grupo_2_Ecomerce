@@ -1,7 +1,7 @@
 const { sequelize } = require("./models");
 
 module.exports = (sequelize,dataType) => {
-    const alias = 'plataform';
+    const alias = 'Plataforms';
     const cols = {
         id: {
             type: dataType.INTEGER,
@@ -19,7 +19,17 @@ module.exports = (sequelize,dataType) => {
         timeTamps: false
     }
 
-    const plataform = sequelize.define(alias,cols, config);
+    const Plataform = sequelize.define(alias,cols, config);
     
-    return plataform;
+    Plataform.associate = function(models){
+        Plataform.belongsToMany(models.Games,{
+            as:"games",
+            through: "games_platforms",
+            foreignKey: "platformId",
+            otherKey: "gameId",
+            timestamps: false
+        })
+    }
+
+    return Plataform;
 }

@@ -19,6 +19,17 @@ module.exports=(sequelize,dataType) =>{
         tableName: "genre",
         timestamp: false
     }
-    const user= sequelize.define (alias,cols,config);
-    return user;
+    const Genre= sequelize.define (alias,cols,config);
+
+    Genre.associate = function(models){
+        Genre.belongsToMany(models.Games,{
+            as:"games",
+            through:"games_genres",
+            foreignKey:"genreId",
+            otherKey:"gameId",
+            timestamps: false
+        })
+    }
+
+    return Genre;
 }
