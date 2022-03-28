@@ -114,3 +114,11 @@ body div  button .create {
 .container tr td a button:hover{
     box-shadow: var(--negro);
 }
+
+.page{
+    display: flex;
+    justify-content: center;
+    font-size: 1.6em;
+    column-gap: 10px;
+    margin-bottom: 20px;
+}

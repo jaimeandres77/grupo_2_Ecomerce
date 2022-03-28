@@ -16,17 +16,17 @@ module.exports = {
 
     show: async (req, res) => {
         try {
-            const page = parseInt(req.query.page);
-            const inicio = isNaN(page) || page === 1 ? 0 : (page - 1) * 10;
+            const limit = 10;
             const count = await db.Games.count();
+            const page = isNaN(req.query.page) || parseInt(req.query.page) <= 1 || parseInt(req.query.page) > parseInt(count / limit) ? 1 : parseInt(req.query.page);
             const games = await db.Games.findAll({
                 attributes: ['id', 'name', 'price', 'image'],
                 order: [['name', 'ASC']],
                 include: ['genres', 'platforms'],
-                limit: 10,
-                offset: inicio
+                limit,
+                offset: (page - 1) * 10
             });
-            res.render("product/show", { games, count });
+            res.render("product/show", { games, count, page, limit });
         } catch (error) {
             console.log(error);
         }
@@ -34,11 +34,8 @@ module.exports = {
 
     create: async (req, res) => {
         try {
-            // const game = await db.Games.findOne({where: {id: 1}});
-            // await game.setGenres([1]);
-            // await game.removeGenres([1]);
-            const genres = await db.Genres.findAll();
-            const platforms = await db.Platforms.findAll();
+            const genres = await db.Genres.findAll({ order: [['name', 'ASC']] });
+            const platforms = await db.Platforms.findAll({ order: [['name', 'ASC']] });
             res.render('product/createProduct', { genres, platforms });
         } catch (error) {
             console.log(error);
@@ -51,7 +48,7 @@ module.exports = {
             if (errors.errors.length > 0) {
                 const genres = await db.Genres.findAll();
                 const platforms = await db.Platforms.findAll();
-                const oldData = {... req.body,platform: [... req.body?.platform || []],genre: [... req.body?.genre || []]};
+                const oldData = { ...req.body, platform: [...req.body?.platform || []], genre: [...req.body?.genre || []] };
                 return res.render('product/createProduct', { errors: errors.mapped(), oldData, genres, platforms });
             }
             const { name, sku, price, discount, stock, description, genre, platform } = req.body;
@@ -76,13 +73,15 @@ module.exports = {
     edit: async (req, res) => {
         try {
             const id = parseInt(req.params.id);
-            const game = await db.Games.findByPk(id, { include: [
-                {association: 'genres', attributes: ['id']},
-                {association: 'platforms', attributes: ['id']}
-            ]});
-            const genres = await db.Genres.findAll();
-            const platforms = await db.Platforms.findAll();
-        res.render('product/editProduct', { game, genres, platforms });
+            const game = await db.Games.findByPk(id, {
+                include: [
+                    { association: 'genres', attributes: ['id'] },
+                    { association: 'platforms', attributes: ['id'] }
+                ]
+            });
+            const genres = await db.Genres.findAll({ order: [['name', 'ASC']] });
+            const platforms = await db.Platforms.findAll({ order: [['name', 'ASC']] });
+            res.render('product/editProduct', { game, genres, platforms });
         } catch (error) {
             console.log(error);
             res.status(500);
@@ -93,17 +92,19 @@ module.exports = {
             const errors = validationResult(req);
             const id = parseInt(req.params.id);
             if (errors.errors.length > 0) {
-                const game = await db.Games.findByPk(id, { include: [
-                    {association: 'genres', attributes: ['id']},
-                    {association: 'platforms', attributes: ['id']}
-                ]});
+                const game = await db.Games.findByPk(id, {
+                    include: [
+                        { association: 'genres', attributes: ['id'] },
+                        { association: 'platforms', attributes: ['id'] }
+                    ]
+                });
                 const genres = await db.Genres.findAll();
                 const platforms = await db.Platforms.findAll();
-                const oldData = {... req.body,platform: [... req.body?.platform || []],genre: [... req.body?.genre || []]};
+                const oldData = { ...req.body, platform: [...req.body?.platform || []], genre: [...req.body?.genre || []] };
                 return res.render('product/editProduct', { errors: errors.mapped(), oldData, genres, platforms, game });
             }
             const { name, sku, price, discount, stock, description, genre, platform, sas } = req.body;
-            const game = await db.Games.findByPk(id,{include: ['genres',{association: 'platforms',attributes: ['id']}]});
+            const game = await db.Games.findByPk(id, { include: ['genres', { association: 'platforms', attributes: ['id'] }] });
             const relaciones = JSON.parse(JSON.stringify(sas)).split('/');
             game.removePlatforms(relaciones[0].split(','));
             game.setPlatforms(platform);
@@ -117,7 +118,7 @@ module.exports = {
                 stock,
                 description,
                 image: req.file?.filename || relaciones[2]
-            },{where: {id}});
+            }, { where: { id } });
             res.redirect('/product/show');
         } catch (error) {
             console.log(error);
@@ -132,10 +133,17 @@ module.exports = {
         res.render('product/deleteProduct', { product });
     },
 
-    destroy: (req, res) => {
-        const id = parseInt(req.params.id);
-        const finalProducts = products.filter(product => product.id !== id);
-        fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
-        res.redirect('/product/show');
+    destroy: async (req, res) => {
+        try {
+            const id = parseInt(req.params.id);
+            const game = await db.Games.findByPk(id, { include: ['genres', { association: 'platforms', attributes: ['id'] }] });
+            await game.removeGenres(game.dataValues.genres);
+            await game.removePlatforms(game.dataValues.platforms);
+            await game.destroy();
+            res.redirect('/product/show');
+        } catch (error) {
+            console.log(error);
+            res.send(500);
+        }
     }
 }

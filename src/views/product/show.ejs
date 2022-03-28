@@ -16,7 +16,7 @@
     <div class="button_edit">
       <button type="type"><a href="/product/create" class="create">Crear</a></button>
     </div>
-    <% if (locals.games && games.length > 0) { %>
+    <% if (locals.games && games.length> 0) { %>
       <div class="container">
         <table class="table_container">
           <tr>
@@ -25,14 +25,16 @@
             <th><i class="far fa-edit"></i></th>
             <th><i class="far fa-trash-alt"></i></th>
           </tr>
-          <% games.forEach((game,index) => { %>
+          <% games.forEach((game,index)=> { %>
             <tr>
               <td>
-                <%= index + 1 %>
+                <%= ((page - 1) * 10) + index + 1 %>
               </td>
               <!-- <td><img src="/img/games/<%= game.image %>" alt="<%= game.name %>"></td> -->
               <td>
-                <a href="/product/detail/<%= game.id %>"><%= game.name %></a>
+                <a href="/product/detail/<%= game.id %>">
+                  <%= game.name %>
+                </a>
               </td>
               <td>
                 <button type="submit">
@@ -41,20 +43,45 @@
               </td>
               <td>
                 <button type="submit">
-                  <a href="/product/delete/<%= game.id %>">Eliminar</a>
+                  <form action="/product/delete/<%= game.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
                 </button>
               </td>
             </tr>
             <% }); %>
         </table>
+        <div class="page">
+          <% if (page !== 1) { %>
+              <a href="/product/show?page=<%= page - 1 %>" class="btn btn-primary">
+                  <i class="fas fa-angle-left"></i>
+              </a>
+          <% } %>
+          <% if (page <= 1) { %>
+              <a href="/product/show" class="btn btn-secondary"><%= page %></a>
+              <a href="/product/show?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+          <% } else if(page === (count / limit)) { %>
+              <a href="/product/show?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+              <a href="/product/show?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+          <% } else { %>
+              <a href="/product/show?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+              <a href="/product/show?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+              <a href="/product/show?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+          <% } %>
+          <% if (page < (count / limit)) { %>
+              <a href="/product/show?page=<%= page + 1 %>" class="btn btn-primary">
+                  <i class="fas fa-angle-right"></i>
+              </a>
+          <% } %>
       </div>
-    <% } else { %>
-      <h2>No hay juegos registrados, ingresa un nuevo juego</h1>
-    <% } %>
+      </div>
+      <% } else { %>
+        <h2>No hay juegos registrados, ingresa un nuevo juego</h1>
+          <% } %>
 
-    <!-- footer -->
-    <%- include('../partials/footer') %>
-      <!-- footer end -->
+            <!-- footer -->
+            <%- include('../partials/footer') %>
+              <!-- footer end -->
 
 
 </body>

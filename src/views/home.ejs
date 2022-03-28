@@ -9,166 +9,59 @@
 </head>
 
 <body>
-    <%- include('partials/header') %> 
-    
+    <%- include('partials/header') %>
     <section class="banner">
         <img src="https://gameshopvideojuegos.com/wp-content/uploads/2021/08/Banner-web-768x234.png" alt="banner">
     </section>
-
     <main>
-        <section>
-            <h2>Los más vendidos</h2>
-            <div class="article-container">
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/fzlyVIq_350x200_1x-0.jpg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Dark Souls III Deluxe Edition</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$6,54</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/s29Db6ZBVLneuD0t66qnYRamvGDP3p8chLz-3IomxcU_350x200_1x-0.jpeg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Grand Theft Auto V RockStar</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$10,54</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/YBCy32T_350x200_1x-0.jpg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Naruto Shippuden: Ultimate Ninja Storm 3</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$3,93</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/DOdRq7lZsQiMY2SmrRWlq3zaj_Y0ybguIf5CLwU28eQ_350x200_1x-0.jpeg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Trial Rising(Xbox One) Xbox Live</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$8,99</h5>
-                        </div>
-                    </div>
-                </article>
+        <div class="container games">
+            <section class="sale">
+                <h2 class="sale__title">Listado de Juegos</h2>
+                <% if (games && games.length > 1) { %>
+                    <% games.forEach(game => { %>
+                        <article class="game">
+                            <a href="/product/detail/<%= game.id %>">
+                                <picture class="game__image">
+                                    <img src="img/games/<%= game.image %>" alt="imagen">
+                                </picture>
+                                <div class="game__container">
+                                    <p class="game__name"><%= game.name %></p>
+                                    <div class="game__button">
+                                        <button type="button" class="game__carrito">Enviar al carrito</button>
+                                    </div>
+                                    <p class="game__price">$ <%= game.price %></p>
+                                </div>
+                            </a>
+                        </article>
+                    <% }) %>
+                <% } %>
+            </section>
+            <div class="page">
+                <% if (page !== 1) { %>
+                    <a href="/?page=<%= page - 1 %>" class="btn btn-primary">
+                        <i class="fas fa-angle-left"></i>
+                    </a>
+                <% } %>
+                <% if (page <= 1) { %>
+                    <a href="/" class="btn btn-secondary"><%= page %></a>
+                    <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+                <% } else if(page === (count / limit)) { %>
+                    <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+                    <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+                <% } else { %>
+                    <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+                    <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+                    <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+                <% } %>
+                <% if (page < (count / limit)) { %>
+                    <a href="/?page=<%= page + 1 %>" class="btn btn-primary">
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                <% } %>
             </div>
-        </section>
-
-        <section>
-            <h2>Próximos Juegos</h2>
-            <div class="article-container">
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/uwxYfGoEGO6-5an7Pp7ArHipE1moW-DnAeiexPKY0Xw_350x200_1x-0.jpeg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Dying Light 2 Stay Human Steam</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$38,95</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/TvrcNgjXeQn0cH4QmJVpJWvDHPAYDJzAxITa2p-CgIk_350x200_1x-0.jpeg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Expeditions: Rome (PC) Steam</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$33,99</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/LkfZvOubCEzreZAqS1pQxWPrEKxXqDS5lI2zsuynnwI_350x200_1x-0.png" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Tom Clancy's Rainbow Six: Extraction</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$47,00</h5>
-                        </div>
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container">
-                        <img src="https://cdn-products.eneba.com/resized-products/VxJkoxKF5VhPzOyrAWwJa4yO2kSdnufHDRwrMUT3hsQ_350x200_1x-0.jpeg" alt="">
-                    </div>
-                    <div class="article-info-container">
-                        <h3>Trial Rising(Xbox One) Xbox Live</h3>
-                        <h6>GLOBAL</h6>
-                        <button>Eviar al Carrito<i class="fas fa-truck"></i></button>
-                        <div class="article-subInfo-container">
-                            <h4>Desde</h4>
-                            <h5 class="price-article">$8,99</h5>
-                        </div>
-                    </div>
-                </article>
-                
-            </div>
-        </section>
-
-        <section>
-            <h2>Categorías</h2>
-            <div class="article-container-categories">
-                <article>
-                    <div class="article-img-container-categories">
-                        <img src="https://cdn-products.eneba.com/tag/v2/action.svg" alt="">
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container-categories">
-                        <img src="https://cdn-products.eneba.com/tag/v2/adventure.svg" alt="">
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container-categories">
-                        <img src="https://cdn-products.eneba.com/tag/v2/simulation.svg" alt="">
-                    </div>
-                </article>
-                <article>
-                    <div class="article-img-container-categories">
-                        <img src="https://cdn-products.eneba.com/tag/v2/rpg.svg" alt="">
-                    </div>
-                </article>
-            </div>
-        </section>
+        </div>
     </main>
-
-    <section class="banner2">
+    <section class="banner" style="margin-bottom: 0;">
         <img src="https://www.npd.com/wp-content/uploads/2021/05/video-games-banner-1440x480.jpeg" alt="banner">
     </section>
     <%- include('partials/footer') %> 
