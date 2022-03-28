@@ -8,6 +8,7 @@
 </head>
 <body>
     <%- include('../partials/header') %>
+    <%= locals.oldData && oldData.genre ? oldData.genre : '' %>
     <main>
         <div class="container form__game">
             <form action="/product/create" method="POST" enctype="multipart/form-data">
@@ -47,14 +48,18 @@
                 </div>
                 <div class="campo">
                     <label for="description" class="label-100">Descripción</label>
-                    <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="5"><%= locals.oldData && oldData.price ? oldData.price : '' %></textarea>
                 </div>
                 <div class="campo">
                     <p>Plataformas:</p>
                     <% if (locals.platforms && platforms.length > 0) { %>
                         <% platforms.forEach(platform => { %>
                             <label for="<%= platform.name %>">
-                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= locals.oldData && oldData.platform && oldData.platform.includes(platform.name) ? 'checked' : '' %>><%= platform.name %>
+                                <% if(locals.oldData && oldData.platform){ %>
+                                    <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= oldData.platform.includes(platform.id.toString()) ? 'checked' : '' %> /><%= platform.name %>
+                                <% } else { %>
+                                    <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>"><%= platform.name %>
+                                <% } %>
                             </label>
                         <% }) %>
                     <% } else { %>
@@ -66,7 +71,11 @@
                     <% if (locals.genres && genres.length > 0) { %>
                         <% genres.forEach(genre => { %>
                             <label for="<%= genre.name %>">
-                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= locals.oldData && oldData.genre && oldData.genre.includes(genre.name) ? 'checked' : '' %>><%= genre.name %>
+                            <% if(locals.oldData && oldData.genre){ %>
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= oldData.genre.includes(genre.id.toString()) ? 'checked' : '' %> /><%= genre.name %>
+                            <% } else { %>
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>"><%= genre.name %>
+                            <% } %>
                             </label>
                         <% }) %>
                     <% } else { %>

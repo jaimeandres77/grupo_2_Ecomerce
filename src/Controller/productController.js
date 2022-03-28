@@ -34,6 +34,9 @@ module.exports = {
 
     create: async (req, res) => {
         try {
+            // const game = await db.Games.findOne({where: {id: 1}});
+            // await game.setGenres([1]);
+            // await game.removeGenres([1]);
             const genres = await db.Genres.findAll();
             const platforms = await db.Platforms.findAll();
             res.render('product/createProduct', { genres, platforms });
@@ -48,14 +51,15 @@ module.exports = {
             if (errors.errors.length > 0) {
                 const genres = await db.Genres.findAll();
                 const platforms = await db.Platforms.findAll();
-                return res.render('product/createProduct', { errors: errors.mapped(), oldData: req.body, genres, platforms });
+                const oldData = {... req.body,platform: [... req.body?.platform || []],genre: [... req.body?.genre || []]};
+                return res.render('product/createProduct', { errors: errors.mapped(), oldData, genres, platforms });
             }
             const { name, sku, price, discount, stock, description, genre, platform } = req.body;
             const game = await db.Games.create({
                 name,
                 sku,
                 price,
-                discount,
+                discount: !isNaN(discount) ? discount : 0,
                 stock,
                 description,
                 status: 1,
@@ -63,7 +67,7 @@ module.exports = {
             });
             const relationGenres = await game.setGenres(genre);
             const relationPlatforms = await game.setPlatforms(platform);
-            res.redirect('/product/create');
+            res.redirect('/product/show');
         } catch (error) {
             console.log(error);
             res.status(500);
@@ -72,7 +76,10 @@ module.exports = {
     edit: async (req, res) => {
         try {
             const id = parseInt(req.params.id);
-            const game = db.Games.findByPk(id, { include: ['genres', 'platforms'] });
+            const game = await db.Games.findByPk(id, { include: [
+                {association: 'genres', attributes: ['id']},
+                {association: 'platforms', attributes: ['id']}
+            ]});
             const genres = await db.Genres.findAll();
             const platforms = await db.Platforms.findAll();
         res.render('product/editProduct', { game, genres, platforms });
@@ -81,25 +88,41 @@ module.exports = {
             res.status(500);
         }
     },
-    editUpdate: (req, res) => {
-        const id = parseInt(req.params.id);
-        const productToEdit = products.find(product => product.id === id);
-
-        const product = {
-            id,
-            ...req.body,
-            imagen: productToEdit.imagen,
-        };
-
-        const newProducts = products.map(producto => {
-            if (producto.id === id) {
-                return product;
+    editUpdate: async (req, res) => {
+        try {
+            const errors = validationResult(req);
+            const id = parseInt(req.params.id);
+            if (errors.errors.length > 0) {
+                const game = await db.Games.findByPk(id, { include: [
+                    {association: 'genres', attributes: ['id']},
+                    {association: 'platforms', attributes: ['id']}
+                ]});
+                const genres = await db.Genres.findAll();
+                const platforms = await db.Platforms.findAll();
+                const oldData = {... req.body,platform: [... req.body?.platform || []],genre: [... req.body?.genre || []]};
+                return res.render('product/editProduct', { errors: errors.mapped(), oldData, genres, platforms, game });
             }
-            return producto;
-        });
-
-        fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-        res.redirect('/product/show');
+            const { name, sku, price, discount, stock, description, genre, platform, sas } = req.body;
+            const game = await db.Games.findByPk(id,{include: ['genres',{association: 'platforms',attributes: ['id']}]});
+            const relaciones = JSON.parse(JSON.stringify(sas)).split('/');
+            game.removePlatforms(relaciones[0].split(','));
+            game.setPlatforms(platform);
+            game.removeGenres(relaciones[1].split(','));
+            game.setGenres(genre);
+            const updateGame = await db.Games.update({
+                name,
+                sku,
+                price,
+                discount: !isNaN(discount) ? discount : 0,
+                stock,
+                description,
+                image: req.file?.filename || relaciones[2]
+            },{where: {id}});
+            res.redirect('/product/show');
+        } catch (error) {
+            console.log(error);
+            res.status(500);
+        }
     },
 
     delete: (req, res) => {

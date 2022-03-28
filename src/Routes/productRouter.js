@@ -11,11 +11,11 @@ router.get("/show",productController.show);
 
 router.get('/create',productController.create);
 
-router.post('/create', multer.single('imagen'),validation, productController.createSend);
+router.post('/create', multer.single('image'),validation, productController.createSend);
 
 router.get('/edit/:id', productController.edit);
 
-router.patch('/edit/:id',productController.editUpdate);
+router.patch('/edit/:id',multer.single('image'),validation,productController.editUpdate);
 
 router.get('/delete/:id',productController.delete);
 
