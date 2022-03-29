@@ -4,7 +4,7 @@ const path = require('path');
 const validationMiddleware = [
     body('fullname').notEmpty().withMessage('Tienes que escribir un nombre'),
     body('username').notEmpty().withMessage('Tienes que escribir un nombre de usuario'),
-    body('date').notEmpty().withMessage('Selecciona una fecha de nacimiento'),
+    body('date_of_birth').notEmpty().withMessage('Selecciona una fecha de nacimiento'),
     body('domicilio').notEmpty().withMessage('Tienes que escribir una direccion de domicilio'),
     body("perfil").notEmpty().withMessage('Tienes que seleccionar un Genero'),
     body("categories").notEmpty().withMessage('selecciona 1 o más intereses'),

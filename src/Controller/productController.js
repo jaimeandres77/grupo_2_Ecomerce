@@ -1,11 +1,6 @@
-const path = require('path');
-const fs = require('fs');
 const { validationResult } = require('express-validator');
 
 const db = require('../database/models');
-
-const productsFilePath = path.resolve(__dirname, '../databases/productos.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 module.exports = {
     detail: async (req, res) => {
@@ -124,13 +119,6 @@ module.exports = {
             console.log(error);
             res.status(500);
         }
-    },
-
-    delete: (req, res) => {
-        const id = parseInt(req.params.id);
-        const product = products.find(product => product.id === id);
-        console.log(product);
-        res.render('product/deleteProduct', { product });
     },
 
     destroy: async (req, res) => {

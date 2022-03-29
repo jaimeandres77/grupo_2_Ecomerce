@@ -4,8 +4,8 @@
     <%- include('../partials/head/meta') %>
     <title>Página de registro</title>
     <%- include('../partials/head/css') %>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/register.css" />
 </head>
 <body>
     <!-- header -->
@@ -31,9 +31,9 @@
                         </div>
                         <div class="campo">
                             <label for="date"><b>Fecha de Nacimiento</b></label>
-                            <input type="date" name ='date' id="date" placeholder="" value="<%= locals.oldData ? oldData.date : null %>" />
-                            <% if(locals.errors && errors.date){ %>
-                                <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;"><%= errors.date.msg %></p>
+                            <input type="date" name ='date_of_birth' id="date" placeholder="" value="<%= locals.oldData ? oldData.date : null %>" />
+                            <% if(locals.errors && errors.date_of_birth){ %>
+                                <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;"><%= errors.date_of_birth.msg %></p>
                             <% } %>
                         </div>
                         <div class="campo">
@@ -46,8 +46,8 @@
                         <div class="campo">
                             <label for="perfil" style="display: block;"><b>Perfil de usuario</b></label>
                             <div>
-                                <input type="radio" name="perfil" value="hombre" <%= locals.oldData && oldData.perfil === 'hombre' ? 'checked' : null %> />Hombre
-                                <input type="radio" name="perfil" value="mujer" <%= locals.oldData && oldData.perfil === 'mujer' ? 'checked' : null %> />Mujer
+                                <input type="radio" name="perfil" value="male" <%= locals.oldData && oldData.perfil === 'male' ? 'checked' : null %> />Hombre
+                                <input type="radio" name="perfil" value="female" <%= locals.oldData && oldData.perfil === 'female' ? 'checked' : null %> />Mujer
                             </div>
                             <% if(locals.errors && errors.perfil){ %>
                                 <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;"><%= errors.perfil.msg %></p>
@@ -112,35 +112,25 @@
                                 <% let countries = ['Argentina','Bolivia','Brasil','Colombia','Chile','Ecuador','Paraguay','Perú','Uruguay','Venezuela']; %>
                                 <% for (const oneCountry of countries) { %>
                                     <option value="<%= oneCountry %>" <%= locals.oldData && (oldData.country === oneCountry) ? 'selected' : null %>> <%= oneCountry %> </option>
-                                <% } %> 
+                                <% } %>
                             </select>
                             <% if(locals.errors && errors.country){ %>
                                 <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;"><%= errors.country.msg %></p>
                             <% } %>
                         </div>
-                            
                            <div class="text_register">
 
                                <p class="p-info">Se enviará una contraseña a tu dirección de correo electrónico.</p>
-       
                                <p class="p-info">Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.</p>
-                              
                                <p class="p-info"><a href="#">¿Ya tengo una cuenta?</a></p>
                            </div>
-                           
-
-
                         <div class="button">
                             <button type="submit">Enviar</button>
-                        
                             <button type="reset">Borrar</button>
                         </div>
                     </div>
                 </main>
-                
-            
         </form>
-    
     </section>
 
 <%- include ("../partials/footer")  %>

@@ -6,16 +6,13 @@ module.exports=(sequelize,dataType) => {
             primaryKey:true,
             autoIncrement: true,
         },
-        name: {
-            type: dataType.STRING
-        },
-        lastName: {
+        fullname: {
             type: dataType.STRING
         },
         email: {
             type: dataType.STRING
         },
-        userName: {
+        username: {
             type: dataType.STRING
         },
         password: {
@@ -24,7 +21,7 @@ module.exports=(sequelize,dataType) => {
         country: {
             type: dataType.STRING
         },
-        profileImage: {
+        profileimage: {
             type: dataType.STRING
         },
         isAdmin: {
@@ -37,7 +34,7 @@ module.exports=(sequelize,dataType) => {
     };
     const config = {
         tableName: "user",
-        timestamp: false
+        timestamps: false
     }
     const user = sequelize.define (alias,cols,config);
     return user;
