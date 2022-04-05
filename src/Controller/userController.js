@@ -67,7 +67,7 @@ module.exports = {
           }
           req.session.userLogged = user;
           if (req.body.recordar) {
-            res.cookie('userEmail', user.email, { maxAge: (1000 * 60) * 1 });
+            res.cookie('userEmail', user.email, { maxAge: null/* (1000 * 60) * 1 */ });
           }
           return res.redirect('/user/profile');
         }

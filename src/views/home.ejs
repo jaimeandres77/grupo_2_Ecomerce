@@ -45,7 +45,7 @@
                 <% if (page <= 1) { %>
                     <a href="/" class="btn btn-secondary"><%= page %></a>
                     <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
-                <% } else if(page === (count / limit)) { %>
+                <% } else if(page === Math.ceil(count / limit)) { %>
                     <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
                     <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
                 <% } else { %>

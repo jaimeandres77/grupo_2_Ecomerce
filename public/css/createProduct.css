@@ -37,8 +37,12 @@ form .alert-danger ul{
     padding: 10px;
     width: 45%;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.campo-50 label{
+    width: 100%;
 }
 
 .campo-50 input{
@@ -47,6 +51,27 @@ form .alert-danger ul{
     border: none;
     border-bottom: 1px solid var(--azul);
     background-color: transparent;
+    margin-bottom: 5px;
+}
+
+input.form--valid{
+    border-bottom: 1px solid var(--azul);
+}
+
+input.form--invalid{
+    border: 2px solid var(--rojo);
+    border-radius: 5px;
+}
+
+.form__message{
+    display: none;
+}
+
+.form__message--visible{
+    display: block;
+    width: 100%;
+    font-size: .725em;
+    color: var(--rojo);
 }
 
 .campo-50 input:focus{
@@ -72,10 +97,6 @@ form .alert-danger ul{
 form .campo p{
     width: 100%;
 }
-form .campo label{
-    display: flex;
-    column-gap: 5px;
-}
 
 form .campo .label-100{
     width: 100%;
@@ -94,6 +115,15 @@ form .campo textarea:focus{
     border: none;
     outline: none;
     box-shadow: 0 0 5px var(--purpura);
+}
+
+form .campo textarea.form--valid{
+    border: 1px solid var(--azul);
+}
+
+form .campo textarea.form--invalid{
+    border: 2px solid var(--rojo);
+    border-radius: 5px;
 }
 
 form .button{

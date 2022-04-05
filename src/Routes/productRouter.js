@@ -15,7 +15,7 @@ router.get('/create',authMiddleware,productController.create);
 
 router.post('/create',authMiddleware, multer.single('image'),validation, productController.createSend);
 
-router.get('/edit/:id',authMiddleware, productController.edit);
+router.get('/edit/:id',/* authMiddleware, */ productController.edit);
 
 router.patch('/edit/:id',authMiddleware,multer.single('image'),validation,productController.editUpdate);
 
