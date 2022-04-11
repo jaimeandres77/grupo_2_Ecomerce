@@ -1,17 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../partials/head/meta') %>
-    <title>Perfil de Usuario</title>
-    <%- include('../partials/head/css') %>
-</head>
-<body>
-    <%- include('../partials/header'); %>
-    Hola <%= user.username %>
-    <div>
-        <img src="/img/Avatars/<%= user.profileimage %>" width="100px" alt="Imagen Perfil">
+<% const styles = ['/css/profile.css'] %>
+<%- include('../layout/startPage',{title: user.username ||'Perfil de Usuario',styles}); %>
+<main>
+    <div class="container profile">
+        <div class="profile__image">
+            <picture class="profile__image--avatar">
+                <img src="/img/Avatars/<%= user.profileimage %>" alt="Avatar">
+            </picture>
+            <div class="profile__name"><%= user.username %></div>
+        </div>
+        <div class="profile__data">
+            <h2 class="profile__data--title">Datos de Perfil</h2>
+            <form id="formulario" class="form" action="" method="POST" enctype="multipart/form-data">
+                <div class="campo-50">
+                    <label for="fullname">Nombre completo</label>
+                    <input type="text" name="fullname" id="fullname" value="<%= user.fullname %>" readonly>
+                </div>
+                <div class="campo-50">
+                    <label for="username">Nombre de Usuario</label>
+                    <input type="text" name="username" id="username" value="<%= user.username %>" readonly>
+                </div>
+                <div class="campo-100">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" name="email" id="email" value="<%= user.email %>" readonly>
+                </div>
+                <div class="campo-50">
+                    <label for="country">Pais</label>
+                    <input type="text" name="country" id="country" value="<%= user.country || 'No esta definido' %>" readonly>
+                </div>
+                <div class="campo-50">
+                    <label for="sex">Sexo del usuario</label>
+                    <input type="text" name="sex" id="sex" value="<%= user?.sex ? user.sex === 'male' ? 'Hombre' : 'Mujer' : 'No esta definido' %>" readonly>
+                </div>
+                <div class="campo-100 button">
+                    <a href="#" class="btn btn-primary">Volver a la pagina de inicio</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <%= user.email %>
-    <div><a href="/user/logout">Cerrar Sesion</a></div>
-</body>
-</html>
+</main>
+<%- include('../layout/endPage') %>

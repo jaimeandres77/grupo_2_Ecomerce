@@ -3,13 +3,13 @@ const inputs = document.querySelectorAll('#formulario input');
 const selects = document.querySelectorAll('#formulario select');
 
 const expresiones = {
-	usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
+    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+    password: /^.{4,12}$/, // 4 a 12 digitos.
+    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
     fecha: /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/,
-    domicilio:/^[a-z0-9\s,'-]*$/i, 
+    domicilio: /^[a-z0-9\s,'-]*$/i,
 }
 
 const campos = {
@@ -23,10 +23,8 @@ const campos = {
     categories: 0
 }
 
-console.log(campos.country);
-
-const validacionesCampo = (expresion,input,campo) => {
-    if(expresion.test(input.value)){
+const validacionesCampo = (expresion, input, campo) => {
+    if (expresion.test(input.value)) {
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
         document.querySelector(`#grupo__${campo} i`).classList.add('fa-circle-check');
@@ -47,14 +45,14 @@ const validarPassword2 = () => {
     const inputPassword1 = document.getElementById('password');
     const inputPassword2 = document.getElementById('password_repeat');
 
-    if(inputPassword1.value !== inputPassword2.value){
+    if (inputPassword1.value !== inputPassword2.value) {
         document.getElementById(`grupo__password_repeat`).classList.add('formulario__grupo-incorrecto');
         document.getElementById(`grupo__password_repeat`).classList.remove('formulario__grupo-correcto');
         document.querySelector(`#grupo__password_repeat i`).classList.add('fa-circle-xmark');
         document.querySelector(`#grupo__password_repeat i`).classList.remove('fa-circle-check');
         document.querySelector(`#grupo__password_repeat .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos[password] = false;
-    }else{
+    } else {
         document.getElementById(`grupo__password_repeat`).classList.remove('formulario__grupo-incorrecto');
         document.getElementById(`grupo__password_repeat`).classList.add('formulario__grupo-correcto');
         document.querySelector(`#grupo__password_repeat i`).classList.remove('fa-circle-xmark');
@@ -77,8 +75,8 @@ const validarCheckbox = (input, campo) => {
     }
 };
 
-const validarSelect = (select,campo) => {
-    if(select.name === campo && select.value !== ''){
+const validarSelect = (select, campo) => {
+    if (select.name === campo && select.value !== '') {
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
         campos.country = true;
     } else {
@@ -87,8 +85,8 @@ const validarSelect = (select,campo) => {
     }
 };
 
-const validarRadio = (radio,campo) => {
-    if(radio.name === campo && radio.value){
+const validarRadio = (radio, campo) => {
+    if (radio.name === campo && radio.value) {
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
         campos.perfil = true;
     } else {
@@ -102,32 +100,32 @@ const validarRadio = (radio,campo) => {
 const validarFormulario = e => {
     switch (e.target.name) {
         case 'fullname':
-            validacionesCampo(expresiones.nombre,e.target,'fullname');
-        break;
+            validacionesCampo(expresiones.nombre, e.target, 'fullname');
+            break;
         case 'username':
-            validacionesCampo(expresiones.usuario,e.target,'username');
-        break;
+            validacionesCampo(expresiones.usuario, e.target, 'username');
+            break;
         case 'domicilio':
-            validacionesCampo(expresiones.domicilio,e.target,'domicilio');
-        break;
+            validacionesCampo(expresiones.domicilio, e.target, 'domicilio');
+            break;
         case 'perfil':
-            validarRadio(e.target,'perfil');
-        break;
+            validarRadio(e.target, 'perfil');
+            break;
         case 'categories':
             validarCheckbox(e.target, 'categories');
-        break;
+            break;
         case 'password':
-            validacionesCampo(expresiones.password,e.target,'password');
-        break;
+            validacionesCampo(expresiones.password, e.target, 'password');
+            break;
         case 'password_repeat':
             validarPassword2();
-        break;
+            break;
         case 'email':
-            validacionesCampo(expresiones.correo,e.target,'email');
-        break;
+            validacionesCampo(expresiones.correo, e.target, 'email');
+            break;
         case 'country':
             validarSelect(e.target, 'country');
-        break;
+            break;
     }
 }
 
@@ -143,19 +141,17 @@ selects.forEach(input => {
 
 formulario.addEventListener('submit', e => {
     e.preventDefault();
-
-
-    if(campos.fullname && campos.username  && campos.domicilio && campos.perfil  && campos.categories && campos.password && campos.email && campos.country) {
+    if (campos.fullname && campos.username && campos.domicilio && campos.perfil && campos.categories && campos.password && campos.email && campos.country) {
+        document.getElementById('formulario').submit();
         formulario.reset();
-            
-        } else {
-            for (const key in campos) {
-                if (isNaN(parseInt(campos[key])) && campos[key] === false) {
-                    document.querySelector(`#grupo__${key} .formulario__input-error`).classList.add('formulario__input-error-activo');
-                } else if (!isNaN(parseInt(campos[key])) && parseInt(campos[key]) <= 0) {
-                    document.querySelector(`#grupo__${key} .formulario__input-error`).classList.add('formulario__input-error-activo');
-                }
-            } 
-    
+    } else {
+        for (const key in campos) {
+            if (isNaN(parseInt(campos[key])) && campos[key] === false) {
+                document.querySelector(`#grupo__${key} .formulario__input-error`).classList.add('formulario__input-error-activo');
+            } else if (!isNaN(parseInt(campos[key])) && parseInt(campos[key]) <= 0) {
+                document.querySelector(`#grupo__${key} .formulario__input-error`).classList.add('formulario__input-error-activo');
+            }
+        }
+
     }
 });

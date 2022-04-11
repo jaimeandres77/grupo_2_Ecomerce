@@ -1,79 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../partials/head/meta') %>
-    <title><%= typeof product !== 'undefined' ? product.nombre : 'Detalle' %> | GamesProShop</title>
-    <%- include('../partials/head/css') %>
-    <link rel="stylesheet" href="/css/productdetail.css">
-</head>
-<body>
-    <%- include('../partials/header') %>
-    <main>
-        <div class="container">
-            <% if (locals.game) { %>
-                <h1 class="detail__title--primary"><%= game.name %></h1>
-                <section class="detail__game">
-                    <div class="detail__game--gallery">
-                        <picture class="detail__picture">
-                            <img src="/img/games/<%= game.image %>" width="100%" alt="<%= game.name %>">
-                        </picture>
-                    </div>
-                    <article class="detail__game--detail">
-                        <div class="detail">
-                            <p class="detail__state">Nuevo | 30 vendidos</p>
-                            <h2 class="detail__title"><%= game.name %></h2>
-                            <p class="detail__price">$ <%= game.price %></p>
-                            <p class="detail__description"><%= game.description %></p>
-                            <div class="detail__categories">
-                                <% if (locals.game.platforms) { %>
-                                    <div class="detail__category--platforms">
-                                    <span>Plataformas:</span>
-                                    <% game.platforms.forEach(platform => { %>
-                                        <p class="detail__platform"><%= platform.name %></p>
+<% const styles = ['/css/productdetail.css'] %>
+<%- include('../layout/startPage',{title: game.name || 'Detalle',styles}) %>
+<main>
+    <div class="container">
+        <% if (locals.game) { %>
+            <h1 class="detail__title--primary"><%= game.name %></h1>
+            <section class="detail__game">
+                <div class="detail__game--gallery">
+                    <picture class="detail__picture">
+                        <img src="/img/games/<%= game.image %>" width="100%" alt="<%= game.name %>">
+                    </picture>
+                </div>
+                <article class="detail__game--detail">
+                    <div class="detail">
+                        <p class="detail__state">Nuevo | 30 vendidos</p>
+                        <h2 class="detail__title"><%= game.name %></h2>
+                        <p class="detail__price">$ <%= game.price %></p>
+                        <p class="detail__description"><%= game.description %></p>
+                        <div class="detail__categories">
+                            <% if (locals.game.platforms) { %>
+                                <div class="detail__category--platforms">
+                                <span>Plataformas:</span>
+                                <% game.platforms.forEach(platform => { %>
+                                    <p class="detail__platform"><%= platform.name %></p>
+                                <% }) %>
+                            </div>
+                            <% } %>
+                            <% if (locals.game.genres) { %>
+                                <div class="detail__category--genres">
+                                    <span>Generos:</span>
+                                    <% game.genres.forEach(genre => { %>
+                                        <div class="detail__genre"><%= genre.name %></div>
                                     <% }) %>
                                 </div>
-                                <% } %>
-                                <% if (locals.game.genres) { %>
-                                    <div class="detail__category--genres">
-                                        <span>Generos:</span>
-                                        <% game.genres.forEach(genre => { %>
-                                            <div class="detail__genre"><%= genre.name %></div>
-                                        <% }) %>
-                                    </div>
-                                <% } %>
-                            </div>
-                            <p class="detail__state">Disponible: <%= game.stock %> unidades</p>
-                            <div class="detail__count">
-                                <label for="count">Cantidad:</label>
-                                <button type="button" class="btn btn-secondary">-</button>
-                                <input type="number" class="detail__count--number" value="1" placeholder="cantidad" min="1" max="20">
-                                <button type="button" class="btn btn-secondary">+</button>
-                            </div>
-                            <button type="button" data-id="<%= game.id %>" class="btn btn-primary btn-block btn__shopping">Agregar al Carrito</button>
+                            <% } %>
                         </div>
-                    </article>
-                </section>
-            <% } %>
-        </div>
-    </main>
-    <!-- Detalle Final -->
-    <section class="container games">
-        <div class="games__title">
-            <h3>Juegos Similares</h3>
-        </div>
-        <article class="games__detail">
-            <a href="">
-                <picture class="games__image">
-                    <img src="img/1-Hor-zer-gam.jpg" alt="Juego 1">
-                </picture>
-                <div class="games__content">
-                    <h4 class="games__name">Hola Mundo</h4>
-                    <div class="games__price">$352.000</div>
-                    <div class="games__categories">Accion, aventura | PC</div>
-                </div>
-            </a>
-        </article>
-    </section>
-    <%- include('./../partials/footer') %>
-</body>
-</html>
+                        <p class="detail__state">Disponible: <%= game.stock %> unidades</p>
+                        <div class="detail__count">
+                            <label for="count">Cantidad:</label>
+                            <button type="button" class="btn btn-secondary">-</button>
+                            <input type="number" class="detail__count--number" value="1" placeholder="cantidad" min="1" max="20">
+                            <button type="button" class="btn btn-secondary">+</button>
+                        </div>
+                        <button type="button" data-id="<%= game.id %>" class="btn btn-primary btn-block btn__shopping">Agregar al Carrito</button>
+                    </div>
+                </article>
+            </section>
+        <% } %>
+    </div>
+</main>
+<!-- Detalle Final -->
+<section class="container games">
+    <div class="games__title">
+        <h3>Juegos Similares</h3>
+    </div>
+    <article class="games__detail">
+        <a href="">
+            <picture class="games__image">
+                <img src="img/1-Hor-zer-gam.jpg" alt="Juego 1">
+            </picture>
+            <div class="games__content">
+                <h4 class="games__name">Hola Mundo</h4>
+                <div class="games__price">$352.000</div>
+                <div class="games__categories">Accion, aventura | PC</div>
+            </div>
+        </a>
+    </article>
+</section>
+<%- include('../layout/endPage') %>

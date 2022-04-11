@@ -59,7 +59,7 @@ module.exports = {
         const isOkThePassword = findEmail ? bcrypt.compareSync(password, findEmail.password) : findUsername ? bcrypt.compareSync(password, findUsername.password) : false;
         if (isOkThePassword) {
           let user;
-          const attributes = ['fullname','username','email','profileimage']
+          const attributes = ['fullname','username','email','profileimage','country','sex']
           if (findEmail) {
             user = await db.Users.findByPk(findEmail.id, { attributes });
           } else if (findUsername) {
@@ -67,9 +67,9 @@ module.exports = {
           }
           req.session.userLogged = user;
           if (req.body.recordar) {
-            res.cookie('userEmail', user.email, { maxAge: null/* (1000 * 60) * 1 */ });
+            res.cookie('userEmail', user.email, { maxAge: (1000 * 60) * 60 });
           }
-          return res.redirect('/user/profile');
+          return res.redirect('/product/show');
         }
       } else {
         console.log('no se encuentra registrado');
@@ -79,21 +79,6 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
-    // const userToLogin = User.findByField('email', req.body.email);
-    // if (userToLogin) {
-    //   const isOkThePassword = req.body.password !== undefined ? bcrypt.compareSync(req.body.password, userToLogin.password) : false;
-    //   if (isOkThePassword) {
-    //     delete userToLogin.password;
-    //     req.session.userLogged = userToLogin;
-
-    //     if (req.body.recordar) {
-    //       res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 1 });
-    //     }
-
-    //     return res.redirect('/user/profile');
-    //   }
-    // }
-    // return res.render('user/login', { errors: { email: { msg: 'No se encuentra este email en nuestra Base de Datos o la contraseña es incorrecta' } }, oldData: req.body });
   },
   profile: (req, res) => {
     res.render('user/profile', { user: req.session.userLogged });

@@ -1,70 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <%- include('partials/head/meta') %>
-    <title>HomePage</title>
-    <%- include('partials/head/css') %>
-    <link rel="stylesheet" href="/css/home.css">
-</head>
-
-<body>
-    <%- include('partials/header') %>
-    <section class="banner">
-        <img src="https://gameshopvideojuegos.com/wp-content/uploads/2021/08/Banner-web-768x234.png" alt="banner">
-    </section>
-    <main>
-        <div class="container games">
-            <section class="sale">
-                <h2 class="sale__title">Listado de Juegos</h2>
-                <% if (games && games.length > 1) { %>
-                    <% games.forEach(game => { %>
-                        <article class="game">
-                            <a href="/product/detail/<%= game.id %>">
-                                <picture class="game__image">
-                                    <img src="img/games/<%= game.image %>" alt="imagen">
-                                </picture>
-                                <div class="game__container">
-                                    <p class="game__name"><%= game.name %></p>
-                                    <div class="game__button">
-                                        <button type="button" class="game__carrito">Enviar al carrito</button>
-                                    </div>
-                                    <p class="game__price">$ <%= game.price %></p>
+<% const styles = ['/css/home.css'] %>
+<%- include('layout/startPage',{title: 'HomePage',styles}) %>
+<section class="banner">
+    <img src="https://gameshopvideojuegos.com/wp-content/uploads/2021/08/Banner-web-768x234.png" alt="banner">
+</section>
+<main>
+    <div class="container games">
+        <section class="sale">
+            <h2 class="sale__title">Listado de Juegos</h2>
+            <% if (games && games.length > 1) { %>
+                <% games.forEach(game => { %>
+                    <article class="game">
+                        <a href="/product/detail/<%= game.id %>">
+                            <picture class="game__image">
+                                <img src="img/games/<%= game.image %>" alt="imagen">
+                            </picture>
+                            <div class="game__container">
+                                <p class="game__name"><%= game.name %></p>
+                                <div class="game__button">
+                                    <button type="button" class="game__carrito">Enviar al carrito</button>
                                 </div>
-                            </a>
-                        </article>
-                    <% }) %>
-                <% } %>
-            </section>
-            <div class="page">
-                <% if (page !== 1) { %>
-                    <a href="/?page=<%= page - 1 %>" class="btn btn-primary">
-                        <i class="fas fa-angle-left"></i>
-                    </a>
-                <% } %>
-                <% if (page <= 1) { %>
-                    <a href="/" class="btn btn-secondary"><%= page %></a>
-                    <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
-                <% } else if(page === Math.ceil(count / limit)) { %>
-                    <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
-                    <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
-                <% } else { %>
-                    <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
-                    <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
-                    <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
-                <% } %>
-                <% if (page < (count / limit)) { %>
-                    <a href="/?page=<%= page + 1 %>" class="btn btn-primary">
-                        <i class="fas fa-angle-right"></i>
-                    </a>
-                <% } %>
-            </div>
+                                <p class="game__price">$ <%= game.price %></p>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>
+            <% } %>
+        </section>
+        <div class="page">
+            <% if (page !== 1) { %>
+                <a href="/?page=<%= page - 1 %>" class="btn btn-primary">
+                    <i class="fas fa-angle-left"></i>
+                </a>
+            <% } %>
+            <% if (page <= 1) { %>
+                <a href="/" class="btn btn-secondary"><%= page %></a>
+                <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+            <% } else if(page === Math.ceil(count / limit)) { %>
+                <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+                <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+            <% } else { %>
+                <a href="/?page=<%= page - 1 %>" class="btn btn-secondary"><%= page - 1 %></a>
+                <a href="/?page=<%= page %>" class="btn btn-secondary"><%= page %></a>
+                <a href="/?page=<%= page + 1 %>" class="btn btn-secondary"><%= page + 1 %></a>
+            <% } %>
+            <% if (page < (count / limit)) { %>
+                <a href="/?page=<%= page + 1 %>" class="btn btn-primary">
+                    <i class="fas fa-angle-right"></i>
+                </a>
+            <% } %>
         </div>
-    </main>
-    <section class="banner" style="margin-bottom: 0;">
-        <img src="https://www.npd.com/wp-content/uploads/2021/05/video-games-banner-1440x480.jpeg" alt="banner">
-    </section>
-    <%- include('partials/footer') %> 
-</body>
-
-</html>
+    </div>
+</main>
+<section class="banner" style="margin-bottom: 0;">
+    <img src="https://www.npd.com/wp-content/uploads/2021/05/video-games-banner-1440x480.jpeg" alt="banner">
+</section>
+<%- include('layout/endPage') %>

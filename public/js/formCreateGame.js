@@ -123,7 +123,7 @@ const validarFormulario = e => {
 inputs.forEach(input => {
     input.addEventListener('click', validarFormulario);
     input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur', validarFormulario);
+    // input.addEventListener('blur', validarFormulario);
 });
 
 selects.forEach(select => {
