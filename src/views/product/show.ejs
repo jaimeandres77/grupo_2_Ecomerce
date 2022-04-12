@@ -1,62 +1,82 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <%- include('../partials/head/meta') %>
-  <title>Productos</title>
-  <%- include('../partials/head/css') %>
-  <link rel="stylesheet" href="/css/tablaProducto.css">
-</head>
-
-<body>
-  <!-- header -->
-  <%- include ("../partials/header") %>
-    <!-- header end -->
-    <h1>Listado de productos</h1>
-    <div class="button_edit">
-      <button type="submit"><a href="product/create" class="create">Crear</a></button>
-    </div>
+<% styles=['/css/tablaProducto.css'] %>
+<%- include ("../layout/startPage",{title: 'Listado de Juegos' ,styles}) %>
+  <h1>Listado de productos</h1>
+  <div class="button_edit">
+    <button type="type"><a href="/product/create" class="create">Crear</a></button>
+  </div>
+  <% if (locals.games && games.length> 0) { %>
     <div class="container">
-      <table class="table_container">
+    <table class="table_container">
+      <tr>
+        <th>Id</th>
+        <th>Nombre del producto</th>
+        <th><i class="far fa-edit"></i></th>
+        <th><i class="far fa-trash-alt"></i></th>
+      </tr>
+      <% games.forEach((game,index)=> { %>
         <tr>
-          <th>Id</th>
-          <th>imagen</th>
-          <th>Nombre del producto</th>
-          <th><i class="far fa-edit"></i></th>
-          <th><i class="far fa-trash-alt"></i></th>
+          <td>
+            <%= ((page - 1) * 10) + index + 1 %>
+          </td>
+          <td>
+            <a href="/product/detail/<%= game.id %>">
+              <%= game.name %>
+            </a>
+          </td>
+          <td>
+            <button type="submit">
+              <a href="/product/edit/<%= game.id %>">Editar</a>
+            </button>
+          </td>
+          <td>
+            <button type="submit">
+              <form action="/product/delete/<%= game.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>
+            </button>
+          </td>
         </tr>
-
-        <% products.forEach(function(product) { %>
-          <tr>
-            <td>
-              <%= product.id %>
-            </td>
-            <td><img src=" <%= product.imagen %>" alt="producto"></td>
-            <td>
-              <%= product.nombre %>
-            </td>
-            <td>
-              <button type="submit">
-                <a href="/product/edit/<%= product.id %>">Editar</a>
-              </button>
-            </td>
-            <td>
-              <button type="submit">
-                <a href="/product/delete/<%= product.id %>">Eliminar</a>
-              </button>
-            </td>
-          </tr>
-          <% }); %>
-
-      </table>
-
+        <% }); %>
+    </table>
+    <div class="page">
+      <% if (page !==1) { %>
+        <a href="/product/show?page=<%= page - 1 %>" class="btn btn-primary">
+          <i class="fas fa-angle-left"></i>
+        </a>
+      <% } %>
+        <% if (page <=1) { %>
+          <a href="/product/show" class="btn btn-secondary">
+            <%= page %>
+          </a>
+          <a href="/product/show?page=<%= page + 1 %>" class="btn btn-secondary">
+            <%= page + 1 %>
+          </a>
+        <% } else if(page === Math.ceil(count / limit)) { %>
+          <a href="/product/show?page=<%= page - 1 %>" class="btn btn-secondary">
+            <%= page - 1 %>
+          </a>
+          <a href="/product/show?page=<%= page %>" class="btn btn-secondary">
+            <%= page %>
+          </a>
+        <% } else { %>
+          <a href="/product/show?page=<%= page - 1 %>" class="btn btn-secondary">
+            <%= page - 1 %>
+          </a>
+          <a href="/product/show?page=<%= page %>" class="btn btn-secondary">
+            <%= page %>
+          </a>
+          <a href="/product/show?page=<%= page + 1 %>" class="btn btn-secondary">
+            <%= page + 1 %>
+          </a>
+        <% } %>
+        <% if (page < (count / limit)) { %>
+          <a href="/product/show?page=<%= page + 1 %>" class="btn btn-primary">
+            <i class="fas fa-angle-right"></i>
+          </a>
+        <% } %>
     </div>
-
-    <!-- footer -->
-    <%- include('../partials/footer') %>
-      <!-- footer end -->
-
-
-</body>
-
-</html>
+  </div>
+  <% } else { %>
+    <h2>No hay juegos registrados, ingresa un nuevo juego</h1>
+  <% } %>
+<%- include('../layout/endPage') %>

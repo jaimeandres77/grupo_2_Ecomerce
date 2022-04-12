@@ -35,10 +35,101 @@ section main .form-register div.campo{
   padding: 15px;
 }
 
+.formulario__label {
+  display: block;
+  font-weight: 700px; 
+  padding: 10px;
+  cursor: pointer;
+}
+
+
 section main .form-register label{
   margin-bottom: 2px;
   padding: 5px;
 }
+
+.formulario__grupo-input {
+  position: relative;
+}
+
+.formulario__input {
+  width: 100%;
+  background: #fff;
+  border: 3px solid transparent;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 40px 0 10px ;
+  transition: .3s ease all;
+  -webkit-transition: .3s ease all;
+  -moz-transition: .3s ease all;
+  -ms-transition: .3s ease all;
+  -o-transition: .3s ease all;
+}
+
+.formulario__input:focus{
+  border: 3px solid #0075ff;
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+  background: #bb2929;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.formulario__input-error-activo{
+  display: block;
+}
+
+.formulario__validacion-estado {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  z-index: 100;
+  font-size: 16px;
+  opacity: 0;
+}
+
+
+
+.formulario__mensaje {
+  width: 100%;
+  height:  45px;
+  line-height: 45px;
+  background: #f66060 ;
+  padding:  0 15px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  text-align: center;
+  justify-content: center;
+  display: none;
+}
+
+.formulario__mensaje-exito{
+  display: none;
+}
+
+.formulario__grupo-btn-enviar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 main .form-register .campo input,
 main .form-register .campo select
@@ -75,7 +166,29 @@ section main .form-register .button button{
 section main .form-register .button button:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-  
+
+/* ---------------------------- Estilos de validación ---------------------------- */
+
+.formulario__grupo-correcto .formulario__validacion-estado{
+  color:#1ed12d ;
+  opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+  color:#bb2929 ;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+  color:#bb2929 ;
+  opacity: 1;
+} 
+
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929 ;
+}
+
+
+
 @media screen and (min-width: 360px){
   header div.top-header{
     flex-wrap: nowrap;

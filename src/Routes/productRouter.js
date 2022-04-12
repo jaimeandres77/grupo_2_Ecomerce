@@ -2,23 +2,22 @@ const express = require('express');
 const router = express.Router();
 const multer = require('../middlewares/multerProductMiddleware');
 const validation = require('../middlewares/validationProductMiddleware');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const productController = require('../Controller/productController');
 
 router.get('/detail/:id',productController.detail);
 
-router.get("/show",productController.show);
+router.get("/show",authMiddleware,productController.show);
 
-router.get('/create',productController.create);
+router.get('/create',authMiddleware,productController.create);
 
-router.post('/create', multer.single('imagen'),validation, productController.createSend);
+router.post('/create',authMiddleware, multer.single('image'),validation, productController.createSend);
 
-router.get('/edit/:id', productController.edit);
+router.get('/edit/:id',authMiddleware, productController.edit);
 
-router.patch('/edit/:id',productController.editUpdate);
+router.patch('/edit/:id',authMiddleware,multer.single('image'),validation,productController.editUpdate);
 
-router.get('/delete/:id',productController.delete);
-
-router.delete('/delete/:id',productController.destroy);
+router.delete('/delete/:id',authMiddleware,productController.destroy);
 
 module.exports = router;

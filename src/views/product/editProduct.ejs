@@ -1,62 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../partials/head/meta') %>
-    <title>Document</title>
-    <%- include('../partials/head/css') %>
-    <link rel="stylesheet" href="/css/createProduct.css">
-</head>
-<body>
-    <%- include('../partials/header') %> 
-    <main>
-        <div class="form-container">
-            <h1>Formulario de edición de Producto</h1>
-            <form method="POST" action="/product/edit/<%= product.id %>?_method=PATCH">
-                 <div class="formContent-container">
-                    <label for="nombre">Nombre Producto:</label>
-                    <input type="text" id="nombre" name="nombre" value="<%= product.nombre %>">
+<% const styles = ['/css/createProduct.css'] %>
+<%- include('../layout/startPage',{title: 'Registrar Juego',styles}) %>
+<% const plataformas = []; %>
+<% const generos = []; %>
+<% game.platforms.forEach(platform => { %>
+    <% plataformas.push(platform.id) %>
+<% }) %>
+<% game.genres.forEach(genre => { %>
+    <% generos.push(genre.id) %>
+<% }) %>
+<main>
+    <div class="container form__game">
+        <form id="formulario" action="/product/edit/<%= game.id %>?_method=PATCH" method="POST" enctype="multipart/form-data">
+            <h1 class="">Editar <%= game.name %></h1>
+            <% if (locals.errors) { %>
+                <div class="alert alert-danger">
+                    <ul>
+                    <% Object.values(errors).forEach((error,index) => { %>
+                        <li><%= index + 1 %>. <%= error.msg %></li>
+                    <% }) %>
+                    </ul>
                 </div>
-                <div class="formContent-container">
-                    <label for="categoria">Categoría:</label>
-                    <select name="categoria">
-                        <option value="value1">Categoría 1</option>
-                        <option value="value2" selected>Categoría 2</option>
-                        <option value="value3">Categoría 3</option>
-                    </select>
+            <% } %>
+            <input type="hidden" name="sas" value="<%= plataformas %>/<%= generos %>/<%= game.image %>">
+            <div class="campo-50" id="group__name">
+                <label for="name">Nombre:</label>
+                <% if (locals.oldData && oldData.name) { %>
+                    <input type="text" name="name" id="name" placeholder="Nombre" value="<%= oldData.name %>">
+                <% } else { %>
+                    <input type="text" name="name" id="name" placeholder="Nombre" value="<%= game.name %>">
+                <% } %>
+                <div class="form__message">
+                    El nombre del juego debe tener minimo 5 caracteres
                 </div>
-                <div class="formContent-containerMed">
-                    <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" value="<%= product.precio %>">
+            </div>
+            <div class="campo-50" id="group__sku">
+                <label for="sku">SKU:</label>
+                <% if (locals.oldData && oldData.sku) { %>
+                    <input type="text" name="sku" id="sku" placeholder="SKU" value="<%= oldData.sku %>">
+                <% } else { %>
+                    <input type="text" name="sku" id="sku" placeholder="SKU" value="<%= game.sku %>">
+                <% } %>
+                <div class="form__message">
+                    El SKU del juego debe tener minimo 5 caracteres y maximo 50 caracteres
                 </div>
-                <div class="formContent-container">
-                    <label for="clasifProducto">ClasificaciónESRB:</label>
-                    <select name="clasifProducto">
-                        <option value="value1">Clasificación 1</option>
-                        <option value="value2">Clasificación 2</option>
-                        <option value="value3" selected>Clasificación 3</option>
-                    </select>
+            </div>
+            <div class="campo-50" id="group__price">
+                <label for="price">Precio:</label>
+                <% if (locals.oldData && oldData.price) { %>
+                    <input type="number" name="price" id="price" placeholder="50000" min="0" value="<%= oldData.price %>">
+                <% } else { %>
+                    <input type="number" name="price" id="price" placeholder="50000" min="0" value="<%= game.price %>">
+                <% } %>
+                <div class="form__message">
+                    El precio debe tener minimo el valor de 1
                 </div>
-                <div class="formContent-containerArea">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea name="descripcion" id="textArea" cols="25" rows="6"><%= product.descripcion %></textarea>
+            </div>
+            <div class="campo-50" id="group__discount">
+                <label for="discount">Descuento:</label>
+                <% if (locals.oldData && oldData.discount) { %>
+                    <input type="number" name="discount" id="discount" placeholder="0 - 100" min="0" max="100" value="<%= oldData.discount %>">
+                <% } else { %>
+                    <input type="number" name="discount" id="discount" placeholder="0 - 100" min="0" max="100" value="<%= game.discount %>">
+                <% } %>
+                <div class="form__message">
+                    El descuento debe estar entre 0 y 100
                 </div>
-                <div class="formContent-containerMed">
-                    <label for="sku">Sku:</label>
-                    <input type="text" id="sku" name="sku" value="<%= product.sku %>">
+            </div>
+            <div class="campo-50" id="group__stock">
+                <label for="stock">Stock:</label>
+                <% if (locals.oldData && oldData.stock) { %>
+                    <input type="number" name="stock" id="stock" placeholder="0" min="0" value="<%= oldData.stock %>">
+                <% } else { %>
+                    <input type="number" name="stock" id="stock" placeholder="0" min="0" value="<%= game.stock %>">
+                <% } %>
+                <div class="form__message">
+                    El stock debe ser minimo de 0
                 </div>
-                <div class="formContent-containerFile">
-                    <label for="imagen">Imágen producto:</label>
-                    <input type="file" id="imagen" name="imagen">
+            </div>
+            <div class="campo-50">
+                <label for="image">Imagen:</label>
+                <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg">
+            </div>
+            <div class="campo" id="group__description">
+                <label for="description" class="label-100">Descripción</label>
+                <% if (locals.oldData && oldData.description) { %>
+                    <textarea name="description" id="description" cols="30" rows="5"><%= oldData.description %></textarea>
+                <% } else { %>
+                    <textarea name="description" id="description" cols="30" rows="5"><%= game.description %></textarea>
+                <% } %>
+                <div class="form__message">
+                    La descripcion del juego debe tener minimo 20 caracteres y maximo 500 caracteres
                 </div>
-                <div class="formContent-containerBotons">
-                    <input class="submit" type="submit" value="Editar Producto">
-                    <input class="reset" type="reset" value="Limpiar Campos">
-                </div>
-            </form>
-        </div>
-    </main>
-
-
-    <%- include('./../partials/footer') %>
-</body>
-</html>
+            </div>
+            <div class="campo" id="group__platform">
+                <p>Plataformas:</p>
+                <% if (locals.platforms && platforms.length > 0) { %>
+                    <% platforms.forEach(platform => { %>
+                        <label for="<%= platform.name %>">
+                            <% if(locals.oldData && oldData.platform){ %>
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= oldData.platform.includes(platform.id.toString()) ? 'checked' : '' %> /><%= platform.name %>
+                            <% } else { %>
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= plataformas.includes(platform.id) ? 'checked' : '' %> /><%= platform.name %>
+                            <% } %>
+                        </label>
+                    <% }) %>
+                    <div class="form__message">
+                        Debe seleccionar como minimo 1 plataforma
+                    </div>
+                <% } else { %>
+                    No hay plataformas registradas.
+                <% } %>
+            </div>
+            <div class="campo" id="group__genre">
+                <p>Generos:</p>
+                <% if (locals.genres && genres.length > 0) { %>
+                    <% genres.forEach(genre => { %>
+                        <label for="<%= genre.name %>">
+                            <% if(locals.oldData && oldData.genre){ %>
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= oldData.genre.includes(genre.id.toString()) ? 'checked' : '' %> /><%= genre.name %>
+                            <% } else { %>
+                                <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= generos.includes(genre.id) ? 'checked' : '' %>><%= genre.name %>
+                            <% } %>
+                        </label>
+                    <% }) %>
+                    <div class="form__message">
+                        Debe seleccionar como minimo 1 genero
+                    </div>
+                <% } else { %>
+                    No hay generos registrados.
+                <% } %>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Registrar Juego</button>
+            </div>
+        </form>
+    </div>
+</main>
+<% const scripts = ['/js/formEditGame.js'] %>
+<%- include('../layout/endPage',{scripts}) %>

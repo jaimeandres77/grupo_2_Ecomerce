@@ -1,200 +1,226 @@
-main.product-detail{
+.detail__title--primary{
+    margin-top: 15px;
+    font-size: 4.2em;
+    text-align: center;
+}
+
+.detail__game{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+    font-style: inherit;
+}
+
+.detail__game--gallery{
+    width: 100%;
     display: flex;
     justify-content: center;
-    font-size: var(--text-md);
-    margin-top: 1em;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-main.product-detail > .ubication{
-    font-size: var(--text-lg);
-    font-weight: bold;
-    padding: 10px;
-    border-bottom: 1px solid #e7e7e7;
-}
-
-main.product-detail > .categories{
-    padding: 10px;
-    display: none;
-}
-
-main.product-detail > .product{
+.detail__game--gallery .detail__picture{
+    max-width: 650px;
     width: 100%;
-    max-width: 900px;
-    padding: 10px;
-    text-align: center;
+    padding: 20px;
+}
+.detail__game--gallery .detail__picture img{
+    width: 100%;
+}
+
+.detail__game--detail{
+    width: 100%;
+    padding: 15px;
+    border-top: 1px solid var(--azul);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail__game--detail .detail__title{
+    font-size: 2.8em;
     margin-bottom: 10px;
-    /* border-bottom: 1px solid var(--purpura); */
 }
 
-main.product-detail > .product picture.img{
+.detail__game--detail .detail__price{
+    font-size: 3.6em;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.detail__game--detail .detail__description{
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 7px 0;
+}
+
+.detail__game--detail .detail__categories{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+
+.detail__category--platforms span,
+.detail__category--genres span{
+    color: var(--negro);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.detail__game--detail .detail__categories .detail__category--platforms,
+.detail__game--detail .detail__categories .detail__category--genres{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    color: var(--blanco);
     width: 100%;
-    height: 360px;
-    padding: 10px;
+}
+
+.detail__category--platforms .detail__platform{
+    font-size: 1.2em;
+    background-color: var(--purpura);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.detail__category--genres .detail__genre{
+    font-size: 1.2em;
+    background-color: var(--azul);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.detail__game--detail .detail__state{
+    font-style: italic;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.detail__game--detail .detail__count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    margin: 10px 0;
+}
+
+.detail__game--detail .detail__count label{
+    margin-right: 10px;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+.detail__game--detail .detail__count .detail__count--number{
+    max-width: 100px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid var(--negro);
+    background-color: transparent;
+    padding: 10px 0;
+    font-size: 1.2em;
+    margin: 0 10px;
+}
+
+.detail__game--detail .detail__count .detail__count--number:focus{
+    outline: none;
+    border: none;
+    box-shadow: 0 0 5px var(--azul);
+    border-radius: 20px;
+}
+
+.detail__game--detail .btn__shopping{
+    margin: 5px 0;
+    padding: 15px 0;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
+.games{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.games__title{
+    width: 100%;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.games__detail{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid #e1e1e1;
+    border-radius: 7px;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: var(--blanco);
+}
+
+.games__detail:hover{
+    border: none;
+    box-shadow: 0 0 10px var(--purpura);
+    cursor: pointer;
+}
+
+.games__detail a{
+    text-decoration: none;
+}
+
+.games__image{
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
 
-main.product-detail > .product img{
-    width: unset;
+.games__image img{
     height: 100%;
-    border-radius: 5px;
 }
 
-main.product-detail > .product article{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 1rem;
-    gap: 1rem;
+.games__content{
+    padding: 15px;
 }
 
-main.product-detail > .product .price{
-    font-size: var(--title-md);
-    font-weight: bold;
+.games__content .games__name{
+    font-size: 2em;
 }
 
-main.product-detail > .product .description{
-    font-size: var(--text-md);
+.games__content .games__price{
+    font-size: 2.2em;
 }
 
-main.product-detail > .product .categories{
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 1rem;
-    margin-bottom: 1rem;
+.games__content .games__categories{
+    font-style: italic;
+    font-size: 1.2em;
 }
 
-main.product-detail > .product .categories .categories__title {
-    width: 100%;
-    display: block;
-    font-size: var(--text-sm);
-    text-align: left;
-}
-
-main.product-detail > .product .categories p{
-    width: 100%;
-    text-align: initial;
-    font-size: var(--text-md);
-    font-weight: bold;
-    padding: 5px 0;
-}
-
-main.product-detail > .product .categories ul{
-    display: flex;
-    list-style-type: none;
-    column-gap: 5px;
-    font-size: var(--text-sm);
-}
-
-main.product-detail > .product .categories ul li{
-    text-transform: capitalize;
-    border-radius: 10px;
-    color: var(--blanco);
-    padding: 5px 10px;
-}
-main.product-detail > .product .categories ul.plataform li{
-    background-color: var(--purpura);
-}
-
-main.product-detail > .product .categories ul.genero li{
-    background-color: var(--azul);
-}
-
-main.product-detail > .product .categories ul.estado li{
-    background-color: var(--verde);
-}
-
-main.product-detail > .product .count{
-    display: flex;
-    justify-content: center;
-    /* align-items: stretch; */
-    /* height: 50px; */
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-main.product-detail > .product .count button{
-    display: block;
-    padding: 10px 15px;
-    font-size: var(--text-md);
-    border: none;
-    background-color: var(--azul);
-    border-radius: 5px;
-    color: var(--blanco);
-}
-
-main.product-detail > .product .count input{
-    /* padding: 6px 12px; */
-    width: 100px;
-    text-align: center;
-    font-size: var(--text-md);
-    border: none;
-    border-bottom: 2px solid #e1e1e1;
-}
-
-main.product-detail > .product .send button{
-    width: 100%;
-    padding: 15px 0;
-    background-color: var(--verde);
-    color: var(--blanco);
-    border: none;
-    border-radius: 5px;
-    font-size: var(--text-md);
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-main.product-detail > .detail{
-    padding: 10px;
-}
-
-main.product-detail > .detail .description h2{
-    border-bottom: 1px solid #e1e1e1;
-    margin-bottom: 10px;
-}
-
-main.product-detail > .detail .description p{
-    font-size: var(--text-md);
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-
-main.product-detail > .detail .valoration{
-    margin-bottom: 10px;
-}
-
-main.product-detail > .detail .valoration i{
-    font-size: var(--text-lg);
-}
-main.product-detail > .detail .valoration i:hover{
-    color: var(--purpura);
-}
-
-main.product-detail > .comment{
-    margin-bottom: 10px;
-}
-
-@media screen and (min-width: 576px) {
-    main.product-detail > .product{
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        align-items: center;
-        gap: 20px;
+@media screen and (min-width: 576) {
+    .detail__game--gallery{
+        width: 50%;
     }
-    main.product-detail > .product picture.img{
-        width: 40%;
+    .detail__game--detail{
+        width: 50%;
     }
-    main.product-detail > .product article{
+}
+
+@media screen and (min-width: 769px) {
+    .detail__game--gallery{
         width: 60%;
     }
-}
-
-@media screen and (min-width: 992px) {
-    main.product-detail > .product{
-        justify-content: space-between;
+    .detail__game--detail{
+        width: 40%;
+        border: none;
+        border-left: 1px solid var(--azul);
     }
 }

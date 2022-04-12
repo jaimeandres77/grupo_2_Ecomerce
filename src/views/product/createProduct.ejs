@@ -1,74 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%- include('../partials/head/meta') %>
-    <title>Registrar Producto</title>
-    <%- include('../partials/head/css') %>
-    <link rel="stylesheet" href="/css/createProduct.css">
-</head>
-<body>
-    <%- include('../partials/header') %>
-    <main>
-        <div class="form-container">
-            <h1>Formulario de creación de Producto</h1>
-            <form method="POST" action="/product/create" enctype="multipart/form-data">
-                <div class="formContent-container">
-                    <label for="nombre">Nombre Producto:</label>
-                    <input type="text" id="nombre" name="nombre" value="<%= locals.oldData && oldData.nombre ? oldData.nombre : null %>" >
+<% const styles = ['/css/createProduct.css'] %>
+<%- include('../layout/startPage',{title: 'Registrar Juego',styles}) %>
+<main>
+    <div class="container form__game">
+        <form id="formulario" action="/product/create" method="POST" enctype="multipart/form-data">
+            <h1 class="">Registro de Juego</h1>
+            <% if (locals.errors) { %>
+                <div class="alert alert-danger">
+                    <ul>
+                    <% Object.values(errors).forEach((error,index) => { %>
+                        <li><%= index + 1 %>. <%= error.msg %></li>
+                    <% }) %>
+                    </ul>
                 </div>
-                <% if(locals.errors && errors.nombre){ %>
-                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.nombre.msg %></div>
+            <% } %>
+            <div class="campo-50" id="group__name">
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.oldData && oldData.name ? oldData.name : '' %>">
+                <div class="form__message">
+                    El nombre del juego debe tener minimo 5 caracteres
+                </div>
+            </div>
+            <div class="campo-50" id="group__sku">
+                <label for="sku">SKU:</label>
+                <input type="text" name="sku" id="sku" placeholder="SKU" value="<%= locals.oldData && oldData.sku ? oldData.sku : '' %>">
+                <div class="form__message">
+                    El SKU del juego debe tener minimo 5 caracteres y maximo 50 caracteres
+                </div>
+            </div>
+            <div class="campo-50" id="group__price">
+                <label for="price">Precio:</label>
+                <input type="number" name="price" id="price" placeholder="50000" min="0" value="<%= locals.oldData && oldData.price ? oldData.price : '' %>">
+                <div class="form__message">
+                    El precio debe tener minimo el valor de 1
+                </div>
+            </div>
+            <div class="campo-50" id="group__discount">
+                <label for="discount">Descuento:</label>
+                <input type="number" name="discount" id="discount" placeholder="0 - 100" min="0" max="100" value="<%= locals.oldData && oldData.discount ? oldData.discount : 0 %>">
+                <div class="form__message">
+                    El descuento debe estar entre 0 y 100
+                </div>
+            </div>
+            <div class="campo-50" id="group__stock">
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" id="stock" placeholder="0" min="0" value="<%= locals.oldData && oldData.stock ? oldData.stock : '0' %>">
+                <div class="form__message">
+                    El stock debe ser como minimo de 0
+                </div>
+            </div>
+            <div class="campo-50">
+                <label for="image">Imagen:</label>
+                <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg">
+            </div>
+            <div class="campo" id="group__description">
+                <label for="description" class="label-100">Descripción</label>
+                <textarea name="description" id="description" cols="30" rows="5"><%= locals.oldData && oldData.price ? oldData.price : '' %></textarea>
+                <div class="form__message">
+                    La descripcion del juego debe tener minimo 20 caracteres y maximo 500 caracteres
+                </div>
+            </div>
+            <div class="campo" id="group__platform">
+                <p>Plataformas:</p>
+                <% if (locals.platforms && platforms.length > 0) { %>
+                    <% platforms.forEach(platform => { %>
+                        <label for="<%= platform.name %>">
+                            <% if(locals.oldData && oldData.platform){ %>
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>" <%= oldData.platform.includes(platform.id.toString()) ? 'checked' : '' %> /><%= platform.name %>
+                            <% } else { %>
+                                <input type="checkbox" name="platform" id="<%= platform.name %>" value="<%= platform.id %>"><%= platform.name %>
+                            <% } %>
+                        </label>
+                    <% }) %>
+                    <div class="form__message">
+                        Debe seleccionar como minimo 1 plataforma
+                    </div>
+                <% } else { %>
+                    No hay plataformas registradas.
                 <% } %>
-                <div class="formContent-container">
-                    <label for="categoriaProducto">Categoría:</label>
-                    <select name="categoria">
-                        <option value="value1">Categoría 1</option>
-                        <option value="value2" selected>Categoría 2</option>
-                        <option value="value3">Categoría 3</option>
-                    </select>
-                </div>
-                <div class="formContent-containerMed">
-                    <label for="precio">Precio:</label>
-                    <input type="text" id="precio" name="precio" value="<%= locals.oldData && oldData.precio ? oldData.precio : null %>" >
-                </div>
-                <% if(locals.errors && errors.precio){ %>
-                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.precio.msg %></div>
+            </div>
+            <div class="campo" id="group__genre">
+                <p>Generos:</p>
+                <% if (locals.genres && genres.length > 0) { %>
+                    <% genres.forEach(genre => { %>
+                        <label for="<%= genre.name %>">
+                        <% if(locals.oldData && oldData.genre){ %>
+                            <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>" <%= oldData.genre.includes(genre.id.toString()) ? 'checked' : '' %> /><%= genre.name %>
+                        <% } else { %>
+                            <input type="checkbox" name="genre" id="<%= genre.name %>" value="<%= genre.id %>"><%= genre.name %>
+                        <% } %>
+                        </label>
+                    <% }) %>
+                    <div class="form__message">
+                        Debe seleccionar como minimo 1 genero
+                    </div>
+                <% } else { %>
+                    No hay generos registrados.
                 <% } %>
-                <div class="formContent-container">
-                    <label for="clasifProducto">ClasificaciónESRB:</label>
-                    <select name="clasifProducto">
-                        <option value="value1">Clasificación 1</option>
-                        <option value="value2">Clasificación 2</option>
-                        <option value="value3" selected>Clasificación 3</option>
-                    </select>
-                </div>
-                <div class="formContent-containerArea">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea name="descripcion" id="descripcion" cols="25" rows="6" minlength="10" ><%= locals.oldData && oldData.descripcion ? oldData.descripcion : '' %></textarea>
-                </div>
-                <div class="formContent-containerMed">
-                    <label for="sku">Sku:</label>
-                    <input type="text" id="sku" name="sku" value="<%= locals.oldData && oldData.precio ? oldData.precio : null %>" >
-                </div>
-                <% if(locals.errors && errors.sku){ %>
-                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.sku.msg %></div>
-                <% } %>
-                <div class="formContent-containerFile">
-                    <label for="imagen">Imágen producto:</label>
-                    <input type="file" id="imagen" name="imagen">
-                </div>
-                <% if(locals.errors && errors.imagen){ %>
-                    <div style="color: rgb(214, 34, 34); transform: translateX(67%); font-size: 12px; background-color: rgba(240, 128, 128, 0.445); padding: 4px; width: 60%;"><%= errors.imagen.msg %></div>
-                <% } %>
-                <div class="formContent-containerBotons">
-                    <input class="submit" type="submit" value="Crear Producto">
-                    <input class="reset" type="reset" value="Limpiar Campos">
-                </div>
-            </form>
-        </div>
-    </main>
-
-
-    <%- include('./../partials/footer') %>
-</body>
-</html>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Registrar Juego</button>
+            </div>
+        </form>
+    </div>
+</main>
+<!-- <% const scripts = ['/js/formCreateGame.js'] %> -->
+<%- include('../layout/endPage',{scripts}) %>

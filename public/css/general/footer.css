@@ -53,7 +53,7 @@ footer{
         flex-wrap: wrap;
         padding: 2%;
     }
-    
+
     .footer-img-container{
         width: 25%;
         display: flex;
@@ -62,7 +62,7 @@ footer{
     .footer-img-container img{
         width: 80%;
     }
-    
+
     .footer-lists{
         width: 50%;
         display: flex;
@@ -70,13 +70,13 @@ footer{
         align-items: center;
         justify-content: space-around;
     }
-    
+
     .footer-lists ul{
         list-style: none;
         font-size: var(--text-lg); 
         line-height: 30px;
     }
-    
+
     .copyright{
         display: flex;
         align-items: flex-end;

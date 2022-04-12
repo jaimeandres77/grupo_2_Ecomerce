@@ -1,0 +1,8 @@
+    <%- include ("../partials/footer") %>
+    <% if (locals.scripts && scripts.length > 0) { %>
+        <% scripts.forEach(script => { %>
+            <script src="<%= script %>"></script>
+        <% }) %>
+    <% } %>
+</body>
+</html>
