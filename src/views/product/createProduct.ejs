@@ -29,28 +29,28 @@
             </div>
             <div class="campo-50" id="group__price">
                 <label for="price">Precio:</label>
-                <input type="number" name="price" id="price" placeholder="50000" value="<%= locals.oldData && oldData.price ? oldData.price : '' %>">
+                <input type="number" name="price" id="price" placeholder="50000" min="0" value="<%= locals.oldData && oldData.price ? oldData.price : '' %>">
                 <div class="form__message">
-                    El precio debe tener minimo 500
+                    El precio debe tener minimo el valor de 1
                 </div>
             </div>
             <div class="campo-50" id="group__discount">
                 <label for="discount">Descuento:</label>
-                <input type="number" name="discount" id="discount" placeholder="0 - 100" value="<%= locals.oldData && oldData.discount ? oldData.discount : 0 %>">
+                <input type="number" name="discount" id="discount" placeholder="0 - 100" min="0" max="100" value="<%= locals.oldData && oldData.discount ? oldData.discount : 0 %>">
                 <div class="form__message">
                     El descuento debe estar entre 0 y 100
                 </div>
             </div>
             <div class="campo-50" id="group__stock">
                 <label for="stock">Stock:</label>
-                <input type="number" name="stock" id="stock" placeholder="0" value="<%= locals.oldData && oldData.stock ? oldData.stock : '' %>">
+                <input type="number" name="stock" id="stock" placeholder="0" min="0" value="<%= locals.oldData && oldData.stock ? oldData.stock : '0' %>">
                 <div class="form__message">
-                    El stock debe ser minimo de 1+
+                    El stock debe ser como minimo de 0
                 </div>
             </div>
             <div class="campo-50">
                 <label for="image">Imagen:</label>
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" accept=".jpg, .png, .jpeg">
             </div>
             <div class="campo" id="group__description">
                 <label for="description" class="label-100">Descripción</label>
@@ -103,5 +103,5 @@
         </form>
     </div>
 </main>
-<% const scripts = ['/js/formCreateGame.js'] %>
+<!-- <% const scripts = ['/js/formCreateGame.js'] %> -->
 <%- include('../layout/endPage',{scripts}) %>

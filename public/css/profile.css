@@ -11,7 +11,7 @@ a{
 }
 
 .profile .profile__image{
-    width: 30%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,15 +41,17 @@ a{
 }
 
 .profile .profile__data{
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .profile .profile__data .profile__data--title{
     width: 100%;
     font-size: 3.6em;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .profile .profile__data .form{
@@ -90,4 +92,16 @@ a{
 
 .button{
     padding: 20px 0;
+}
+
+@media screen and (min-width: 960px) {
+    .profile .profile__image{
+        width: 30%;
+    }
+    .profile .profile__data{
+        width: 70%;
+    }
+    .profile__data .form .campo-50{
+        width: 45%;
+    }
 }

@@ -4,11 +4,9 @@ const textarea = document.getElementById('description');
 const selects = document.querySelectorAll('#formulario select');
 
 const expresiones = {
-    usuario: /^[a-zA-Z0-9\_\-]{4,19}$/,
     name: /^[a-zA-Z0-9À-ÿ\s]{5,40}$/,
     description: /^[a-zA-Z0-9À-ÿ\s]{20,500}$/,
     sku: /^[a-zA-Z0-9\_\-]{5,50}$/,
-    password: /^.{4,12}$/,
 }
 
 const validacion = {
