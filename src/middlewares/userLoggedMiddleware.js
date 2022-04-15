@@ -8,7 +8,7 @@ const userLoggedMiddleware = async (req,res,next) => {
     if(emailInCookie){
         const userFromCookies = await db.Users.findOne({
             where: {email: emailInCookie},
-            attributes: ['fullname','email','username','profileimage','sex','country']
+            attributes: ['fullname','email','username','profileimage','sex','country','isAdmin']
         });
         if(userFromCookies){
             req.session.userLogged = userFromCookies;

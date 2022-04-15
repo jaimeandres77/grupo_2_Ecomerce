@@ -1,7 +1,6 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 
-const User = require('../models/User');
 const db = require('../database/models');
 
 module.exports = {
@@ -59,7 +58,7 @@ module.exports = {
         const isOkThePassword = findEmail ? bcrypt.compareSync(password, findEmail.password) : findUsername ? bcrypt.compareSync(password, findUsername.password) : false;
         if (isOkThePassword) {
           let user;
-          const attributes = ['fullname','username','email','profileimage','country','sex']
+          const attributes = ['fullname','username','email','profileimage','country','sex','isAdmin']
           if (findEmail) {
             user = await db.Users.findByPk(findEmail.id, { attributes });
           } else if (findUsername) {
@@ -89,4 +88,3 @@ module.exports = {
     return res.redirect('/user/login');
   }
 }
-

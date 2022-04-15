@@ -121,6 +121,7 @@ const validarFormulario = e => {
 inputs.forEach(input => {
     input.addEventListener('click', validarFormulario);
     input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('change', validarFormulario);
     // input.addEventListener('blur', validarFormulario);
 });
 

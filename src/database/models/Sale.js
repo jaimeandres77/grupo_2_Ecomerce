@@ -1,9 +1,9 @@
-module.exports=(sequelize,dataType) => {
-    const alias= "Sales";
+module.exports = (sequelize, dataType) => {
+    const alias = "Sales";
     const cols = {
         id: {
             type: dataType.INTEGER,
-            primaryKey:true,
+            primaryKey: true,
             autoIncrement: true,
         },
         userId: {
@@ -18,8 +18,23 @@ module.exports=(sequelize,dataType) => {
     };
     const config = {
         tableName: "sale",
-        timestamp: false
+        timestamps: false
     }
-    const sale = sequelize.define (alias,cols,config);
-    return sale;
+    const Sale = sequelize.define(alias, cols, config);
+
+    Sale.associate = models => {
+        Sale.belongsTo(models.Users, {
+            as: 'user',
+            foreignKey: 'userId'
+        });
+        Sale.belongsToMany(models.Games, {
+            as: 'games',
+            through: 'sale_detail',
+            foreignKey: 'saleId',
+            otherKey: 'gameId',
+            timestamps: false
+        });
+    }
+
+    return Sale;
 }

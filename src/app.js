@@ -8,6 +8,9 @@ const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
 const userRouter = require('./Routes/userRouter');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+// Routes API
+const userApiRoutes = require('./Routes/api/userApiRouter');
+const productApiRoutes = require('./Routes/api/productApiRouter');
 
 const port = process.env.PORT || 3000;
 
@@ -28,6 +31,9 @@ app.set('views', 'src/views');
 app.use('/', mainRouter);
 app.use('/product', productRouter);
 app.use('/user',userRouter);
+
+app.use('/api/users',userApiRoutes);
+app.use('/api/products',productApiRoutes);
 
 app.use((req,res,next)=>{
     res.status(404).render('not-found')

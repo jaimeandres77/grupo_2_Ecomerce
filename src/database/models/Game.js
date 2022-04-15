@@ -54,6 +54,13 @@ module.exports = (sequelize, dataType) => {
             otherkey: 'platformId',
             timestamps: false
         });
+        Game.belongsToMany(models.Sales, {
+            as: 'sales',
+            through: 'sale_detail',
+            foreignKey: 'gameId',
+            otherkey: 'saleId',
+            timestamps: false
+        });
     }
 
     return Game;
