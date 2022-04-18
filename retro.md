@@ -33,3 +33,14 @@
 2. hacer trabajos en conjunto cada vez se hace más necesario para hacer avances coordinados.
 3. La parte de definición de tareas cada vez se esta volviendo mas rutinaria y nos ponemos de acuerdo mucho mas rapido.
 4. La division del trabajo del proyecto se ha mejorado bastante y se tabaja de una manera mas coordinada,ademas del trabajo en grupo ha crecido bastante ya que cualquiern duda o inquietud se intenta solucionar de una manera mucho mas rapida. 
+
+
+## Principales Conclusiones del Sprint6:
+
+1. Individualmente se aprendido bastante,pero en lo grupal todavia hay muchas cosas por aprender realmente ha sido muy dificil por temas de tiempo pero se ha logrado cumplir con los objetivos.
+2. 
+
+
+## Principales Conclusiones del Sprint7:
+
+1. Cada tema nuevo que se aprendey que se tenga alguna duda con el tema se socializa con elgrupo para salir de las dudas para su implementación.
