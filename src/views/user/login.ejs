@@ -24,20 +24,22 @@
                     </a>
                 </button>
             </div>
-            <form action="/user/login" method="POST">
+            <form action="/user/login" method="POST"  class="login" id="login">
                 <h2>ACCEDER</h2>
                 <% if(locals.errors && errors.email){ %>
                     <p style="color:#f90808;background-color:#ed191942;border-radius:8px;text-align:center; font-size: 16px; padding: 5px;"><%= errors.email.msg %></p>
                 <% } %>
-                <div class="mb-2">
+                <div class="mb-2 login__grupo" id="login-email">
                     <label class="form-label" for="email">Nombre de usuario o correo electronico</label>
                     <input class="form-control" type="text" name="email" id="email" placeholder="usuario" value="<%= locals.oldData && oldData.email ? oldData.email : '' %>">
+                    <div class="form-control-error">Por favor ingresa un nombre de usuario o correo registrado</div>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 login__grupo" id="login-password">
                     <label class="form-label" for="contrasena">Contraseña</label>
                     <input class="form-control" type="password" name="password" id="password" placeholder="contraseña">
+                    <div class="form-control-error">Contraseña Incorrecta</div>
                 </div>
-                <div class="mb-2">
+                <div class="mb-2 login__grupo" id="login-recordar">
                     <label class="form-label" for="recordar">
                         <input type="checkbox" name="recordar" id="recordar"> Recordar mi usuario
                     </label>
@@ -53,6 +55,7 @@
     </section>
 
     <%- include ("../partials/footer")  %>
+    <script src="/js/validacionLogin.js"></script>
 </body>
 
 </html>
