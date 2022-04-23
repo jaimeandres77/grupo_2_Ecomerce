@@ -56,7 +56,7 @@ module.exports = (sequelize, dataType) => {
         });
         Game.belongsToMany(models.Sales, {
             as: 'sales',
-            through: 'sale_detail',
+            through: models.Sale_Detail,
             foreignKey: 'gameId',
             otherkey: 'saleId',
             timestamps: false

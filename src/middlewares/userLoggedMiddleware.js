@@ -18,6 +18,7 @@ const userLoggedMiddleware = async (req,res,next) => {
     if(req.session.userLogged){
         res.locals.isLogged = true;
         res.locals.user = req.session.userLogged;
+        res.cookie('userEmail', res.locals.user.email, { maxAge: (1000 * 60) * 60 });
     }
     next();
 }

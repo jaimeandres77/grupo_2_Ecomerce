@@ -2,10 +2,11 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const textarea = document.getElementById('description');
 const selects = document.querySelectorAll('#formulario select');
+const checks = document.querySelectorAll('input[type=checkbox]');
 
 const expresiones = {
     name: /^[a-zA-Z0-9À-ÿ\s]{5,40}$/,
-    description: /^[a-zA-Z0-9À-ÿ\s]{20,500}$/,
+    description: /^[a-zA-Z0-9À-ÿ-.,\s]{20,500}$/,
     sku: /^[a-zA-Z0-9\_\-]{5,50}$/,
 }
 
@@ -53,7 +54,7 @@ const validarRango = (input, campo, min = 0, max) => {
 const validarCheckbox = (input, campo) => {
     if (input.name === campo && input.checked) {
         validacion[campo] += 1;
-    } else if (input.name === campo) {
+    } else if (input.name === campo && input.checked === false) {
         validacion[campo] -= 1;
     }
     if (validacion[campo] > 0) {
@@ -83,6 +84,17 @@ const validarRadio = (radio,campo) => {
     }
 }
 
+const validarFormularioCheck = e => {
+    switch(e.target.name) {
+        case 'platform':
+            validarCheckbox(e.target, 'platform');
+            break;
+        case 'genre':
+            validarCheckbox(e.target, 'genre');
+            break;
+    }
+}
+
 const validarFormulario = e => {
     switch (e.target.name) {
         case 'name':
@@ -103,12 +115,6 @@ const validarFormulario = e => {
         case 'stock':
             validarRango(e.target, 'stock', 0);
             break;
-        case 'platform':
-            validarCheckbox(e.target, 'platform');
-            break;
-        case 'genre':
-            validarCheckbox(e.target, 'genre');
-            break;
         case 'country':
             validarSelect(e.target,'country');
             break;
@@ -122,12 +128,15 @@ inputs.forEach(input => {
     input.addEventListener('click', validarFormulario);
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('change', validarFormulario);
-    // input.addEventListener('blur', validarFormulario);
 });
 
 selects.forEach(select => {
     select.addEventListener('click',validarFormulario);
     select.addEventListener('change',validarFormulario);
+});
+
+checks.forEach(check => {
+    check.addEventListener('change', validarFormularioCheck);
 });
 
 textarea.addEventListener('click', validarFormulario);

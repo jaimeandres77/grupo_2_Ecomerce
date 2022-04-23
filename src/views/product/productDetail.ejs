@@ -12,36 +12,45 @@
                 </div>
                 <article class="detail__game--detail">
                     <div class="detail">
-                        <p class="detail__state">Nuevo | 30 vendidos</p>
-                        <h2 class="detail__title"><%= game.name %></h2>
-                        <p class="detail__price">$ <%= game.price %></p>
-                        <p class="detail__description"><%= game.description %></p>
-                        <div class="detail__categories">
-                            <% if (locals.game.platforms) { %>
-                                <div class="detail__category--platforms">
-                                <span>Plataformas:</span>
-                                <% game.platforms.forEach(platform => { %>
-                                    <p class="detail__platform"><%= platform.name %></p>
-                                <% }) %>
-                            </div>
-                            <% } %>
-                            <% if (locals.game.genres) { %>
-                                <div class="detail__category--genres">
-                                    <span>Generos:</span>
-                                    <% game.genres.forEach(genre => { %>
-                                        <div class="detail__genre"><%= genre.name %></div>
+                        <form action="/sale/save" method="post">
+                            <!-- <p class="detail__state">Nuevo | 30 vendidos</p> -->
+                            <h2 class="detail__title"><%= game.name %></h2>
+                            <p class="detail__price">$ <%= game.price %></p>
+                            <p class="detail__description"><%= game.description %></p>
+                            <div class="detail__categories">
+                                <% if (locals.game.platforms) { %>
+                                    <div class="detail__category--platforms">
+                                    <span>Plataformas:</span>
+                                    <% game.platforms.forEach(platform => { %>
+                                        <p class="detail__platform"><%= platform.name %></p>
                                     <% }) %>
                                 </div>
+                                <% } %>
+                                <% if (locals.game.genres) { %>
+                                    <div class="detail__category--genres">
+                                        <span>Generos:</span>
+                                        <% game.genres.forEach(genre => { %>
+                                            <div class="detail__genre"><%= genre.name %></div>
+                                        <% }) %>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <p class="detail__state">Disponible: <%= game.stock %> unidades</p>
+                            <div class="detail__count">
+                                <label for="count">Cantidad:</label>
+                                <button type="button" class="btn btn-secondary disminuir">-</button>
+                                <input type="number" name="amount" class="detail__count--number" value="1" placeholder="cantidad" min="1" max="<%= game.stock %>" readonly>
+                                <button type="button" class="btn btn-secondary aumentar">+</button>
+                            </div>
+                            <% if (locals.user) { %>
+                                <input type="hidden" id="data" value="<%= game.id %>/<%= game.stock %>/1">
+                                <input type="hidden" name="game" id="game" value="<%= game.id %>">
+                                <input type="hidden" name="price" id="price" value="<%= game.price %>">
+                                <button type="submit" data-id="<%= game.id %>" class="btn btn-primary btn-block btn__shopping">Agregar al Carrito</button>
+                            <% } else { %>
+                                <p class="message">Inicie Sesion para poder agregar el producto al carrito</p>
                             <% } %>
-                        </div>
-                        <p class="detail__state">Disponible: <%= game.stock %> unidades</p>
-                        <div class="detail__count">
-                            <label for="count">Cantidad:</label>
-                            <button type="button" class="btn btn-secondary">-</button>
-                            <input type="number" class="detail__count--number" value="1" placeholder="cantidad" min="1" max="20">
-                            <button type="button" class="btn btn-secondary">+</button>
-                        </div>
-                        <button type="button" data-id="<%= game.id %>" class="btn btn-primary btn-block btn__shopping">Agregar al Carrito</button>
+                        </form>
                     </div>
                 </article>
             </section>
@@ -66,4 +75,5 @@
         </a>
     </article>
 </section>
-<%- include('../layout/endPage') %>
+<% const scripts = ['/js/productDetail.js'] %>
+<%- include('../layout/endPage', {scripts}) %>

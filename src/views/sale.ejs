@@ -1,0 +1,74 @@
+<% const styles = ['/css/sale.css'] %>
+<%- include('layout/startPage',{title: 'Carrito de Compras',styles}) %>
+<% const games = [] %>
+<div class="container shoppingCard">
+    <div class="shoppingCard__container">
+        <header class="shoppingCard__header">
+            <ul>
+                <li>Carrito (<%= sales?.games?.length || 0 %>)</li>
+            </ul>
+        </header>
+        <% if (!userId) { %>
+            <div class="shoppingCard__empty">
+                <h3 class="shoppingCard__title">Tu carrito está vacío</h3>
+                <p class="shoppingCard__subtitle">¿No sabes que comprar?, dirigete a nuestra <a href="/">Pagina de Inicio</a> y seleccione algun Video Juego pero primero <a href="/user/login">Inicia Sesión</a></p>
+            </div>
+        <% } else { %>
+            <% if (!sales || sales.games.length === 0) { %>
+                <div class="shoppingCard__empty">
+                    <h3 class="shoppingCard__title">Tu carrito está vacío</h3>
+                    <p class="shoppingCard__subtitle">¿No sabes que comprar?, dirigete a nuestra <a href="/">Pagina de Inicio</a> y seleccione algun Video Juego</p>
+                </div>
+            <% } else { %>
+                <div class="shoppingCard__list">
+                    <section class="shoppingCard__products">
+                        <% let total = 0 %>
+                        <% sales.games.forEach((game,index) => { %>
+                            <article class="product__container">
+                                <picture class="product__container--image">
+                                    <img src="/img/games/<%= game.image %>" alt="<%= game.name %>">
+                                </picture>
+                                <section class="product__container--detail">
+                                    <header class="product__header">
+                                        <div class="product__header--title">
+                                            <p class="product__header--name"><%= game.name %></p>
+                                            <p class="product__header--price">$ <%= game.price * game.Sale_Detail.amount %></p>
+                                        </div>
+                                        <div class="product__header--action">
+                                            <form action="/sale/<%= game.id %>?_method=DELETE" method="POST">
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fas fa-trash-alt" style="font-weight: 200;"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </header>
+                                    <article class="product__body"><%= game.description %></article>
+                                    <footer class="product__count">
+                                        <button type="button" class="btn btn-secondary product__count--down disminuir">-</button>
+                                        <input type="number" class="product__count--number"  min="1" max="<%= game.stock %>" name="<%= index %>" value="<%= game.Sale_Detail.amount %>" readonly>
+                                        <button type="button" class="btn btn-secondary product__count--up aumentar">+</button>
+                                    </footer>
+                                </section>
+                            </article>
+                            <% games.push({position: index,game: game.id,amount: game.Sale_Detail.amount, price: game.price, stock: game.stock}) %>
+                            <% total += (game.price * game.Sale_Detail.amount) %>
+                        <% }) %>
+                    </section>
+                    <div class="shoppingCard__total">
+                        <form id="form" action="/sale/send" method="post">
+                            <div class="shoppingCard__total--container">
+                                <p class="shoppingCard__total--title">TOTAL A PAGAR</p>
+                                <p class="shoppingCard__total--price">$ <%= total %></p>
+                                <button type="submit" class="btn btn-primary btn-block">FINALIZAR PEDIDO</button>
+                                <input type="hidden" name="info" id="info" value="<%= JSON.stringify(games) %>">
+                                <input type="hidden" name="data" value="<%= total %>">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+<% const scripts = ['/js/sale.js'] %>
+<%- include('layout/endPage', {scripts}) %>

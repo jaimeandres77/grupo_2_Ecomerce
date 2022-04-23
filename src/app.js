@@ -7,6 +7,7 @@ const cookies = require('cookie-parser');
 const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
 const userRouter = require('./Routes/userRouter');
+const SaleRouter = require('./Routes/SaleRouter');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 // Routes API
 const userApiRoutes = require('./Routes/api/userApiRouter');
@@ -31,6 +32,7 @@ app.set('views', 'src/views');
 app.use('/', mainRouter);
 app.use('/product', productRouter);
 app.use('/user',userRouter);
+app.use('/sale',SaleRouter);
 
 app.use('/api/users',userApiRoutes);
 app.use('/api/products',productApiRoutes);

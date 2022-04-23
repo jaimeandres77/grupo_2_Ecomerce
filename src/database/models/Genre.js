@@ -12,6 +12,9 @@ module.exports = (sequelize, dataType) => {
         description: {
             type: dataType.TEXT
         },
+        state: {
+            type: dataType.BOOLEAN
+        }
     }
     const config = {
         tableName: "genre",
