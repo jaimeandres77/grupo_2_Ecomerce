@@ -97,6 +97,12 @@ a{
     color: var(--blanco);
 }
 
+.noStock{
+    padding: 60px 15px;
+    text-align: center;
+    font-size: 3.2em;
+}
+
 .page{
     display: flex;
     justify-content: center;

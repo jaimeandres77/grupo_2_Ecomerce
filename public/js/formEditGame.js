@@ -2,10 +2,11 @@ const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 const textarea = document.getElementById('description');
 const selects = document.querySelectorAll('#formulario select');
+const checks = document.querySelectorAll('input[type=checkbox]');
 
 const expresiones = {
     name: /^[a-zA-Z0-9À-ÿ\s]{5,40}$/,
-    description: /^[a-zA-Z0-9À-ÿ\s]{20,500}$/,
+    description: /^[a-zA-Z0-9À-ÿ-.,\s]{20,500}$/,
     sku: /^[a-zA-Z0-9\_\-]{5,50}$/,
 }
 
@@ -25,7 +26,6 @@ const validacion = {
 const relaciones = document.querySelector('#formulario input[name=sas]').value.split('/');
 validacion.platform = relaciones[0].split(',').length;
 validacion.genre = relaciones[1].split(',').length;
-console.log(validacion);
 
 const validarCampos = (expresion, input, campo) => {
     if (expresion.test(input.value)) {
@@ -58,7 +58,7 @@ const validarRango = (input, campo, min = 0, max) => {
 const validarCheckbox = (input, campo) => {
     if (input.name === campo && input.checked) {
         validacion[campo] = validacion[campo] + 1;
-    } else if (input.name === campo) {
+    } else if (input.name === campo && input.checked === false) {
         validacion[campo] = validacion[campo] - 1;
     }
     if (validacion[campo] > 0) {
@@ -88,6 +88,17 @@ const validarRadio = (radio,campo) => {
     }
 }
 
+const validarFormularioCheck = e => {
+    switch(e.target.name) {
+        case 'platform':
+            validarCheckbox(e.target, 'platform');
+            break;
+        case 'genre':
+            validarCheckbox(e.target, 'genre');
+            break;
+    }
+}
+
 const validarFormulario = e => {
     switch (e.target.name) {
         case 'name':
@@ -107,12 +118,6 @@ const validarFormulario = e => {
             break;
         case 'stock':
             validarRango(e.target, 'stock', 1);
-            break;
-        case 'platform':
-            validarCheckbox(e.target, 'platform');
-            break;
-        case 'genre':
-            validarCheckbox(e.target, 'genre');
             break;
         case 'country':
             validarSelect(e.target,'country');
@@ -136,6 +141,10 @@ selects.forEach(select => {
 textarea.addEventListener('click', validarFormulario);
 textarea.addEventListener('keyup', validarFormulario);
 textarea.addEventListener('blur', validarFormulario);
+
+checks.forEach(check => {
+    check.addEventListener('change', validarFormularioCheck);
+});
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();

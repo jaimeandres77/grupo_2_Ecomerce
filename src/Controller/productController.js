@@ -12,9 +12,10 @@ module.exports = {
     show: async (req, res) => {
         try {
             const limit = 10;
-            const count = await db.Games.count();
+            const count = await db.Games.count({where: {status: 1}});
             const page = isNaN(req.query.page) || parseInt(req.query.page) <= 1 || parseInt(req.query.page) > Math.ceil(count / limit) ? 1 : parseInt(req.query.page);
             const games = await db.Games.findAll({
+                where: {status: 1},
                 attributes: ['id', 'name', 'price', 'image'],
                 order: [['name', 'ASC']],
                 include: ['genres', 'platforms'],
@@ -124,10 +125,7 @@ module.exports = {
     destroy: async (req, res) => {
         try {
             const id = parseInt(req.params.id);
-            const game = await db.Games.findByPk(id, { include: ['genres', { association: 'platforms', attributes: ['id'] }] });
-            await game.removeGenres(game.dataValues.genres);
-            await game.removePlatforms(game.dataValues.platforms);
-            await game.destroy();
+            const game = await db.Games.update({status: 0},{where: {id}});
             res.redirect('/product/show');
         } catch (error) {
             console.log(error);

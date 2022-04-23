@@ -15,6 +15,9 @@ module.exports = (sequelize, dataType) => {
         totalPrice: {
             type: dataType.DOUBLE
         },
+        state: {
+            type: dataType.STRING
+        }
     };
     const config = {
         tableName: "sale",
@@ -29,7 +32,7 @@ module.exports = (sequelize, dataType) => {
         });
         Sale.belongsToMany(models.Games, {
             as: 'games',
-            through: 'sale_detail',
+            through: models.Sale_Detail,
             foreignKey: 'saleId',
             otherKey: 'gameId',
             timestamps: false

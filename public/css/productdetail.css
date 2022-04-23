@@ -205,6 +205,16 @@
     font-size: 1.2em;
 }
 
+.message{
+    margin-top: 15px;
+    display: block;
+    font-size: 1.6em;
+    font-weight: 700;
+    text-align: center;
+    color: var(--rojo);
+    padding: 15px;
+}
+
 @media screen and (min-width: 576) {
     .detail__game--gallery{
         width: 50%;
