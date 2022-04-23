@@ -47,7 +47,7 @@ module.exports = {
             } else if(sale && sale.length > 0){
                 const findGame = await db.Sale_Detail.findOne({where: {saleId: sale[0].dataValues.id,gameId: game}});
                 if(findGame){
-                    await db.Sale_Detail.update({amount, subTotalPrice: amount * price},{where: {saleId: sale[0].dataValues.id,gameId: game}});
+                    await db.Sale_Detail.update({amount, subTotalPrice: amount * price, state: 1},{where: {saleId: sale[0].dataValues.id,gameId: game}});
                 } else {
                     await db.Sale_Detail.create({gameId: game, amount, subTotalPrice: amount * price, saleId: sale[0].dataValues.id});
                 }
@@ -80,7 +80,6 @@ module.exports = {
                 }
                 const result = await db.Sales.update({state: 'finalized', totalPrice: total},{where: {userId: userId.dataValues.id, state: 'in process'}});
                 return res.redirect('/');
-                return res.send(result);
             }
         } catch (error) {
             console.log(error);

@@ -2,7 +2,7 @@ const login = document.getElementById('login');
 const inputs = document.querySelectorAll('#login input');
 
 const validarCuenta = {
-    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    correo: /^.{4,45}$/,
     password:/^.{4,12}$/,
 }
 
@@ -33,27 +33,27 @@ const validarlogin = (e) =>{
         case "password":
             validacionCampo(validarCuenta.password, e.target, 'password');
         break;
-        case "password":
-        console.log('funciona');
-        break;
     }
 }
 
-
 inputs.forEach((input) => {
-    input.addEventListener('Keyup',validarlogin );
+    input.addEventListener('keyup',validarlogin );
+    input.addEventListener('change',validarlogin );
     input.addEventListener('blur',validarlogin );
-    });
-    
-    
-
+    input.addEventListener('click',validarlogin );
+});
 
 login.addEventListener('submit', (e) => {
     e.preventDefault();
-    
-    const recordar = document.getElementById('login-recordar');
 
-    if(campos.email && campos.password && recordar.checked ) {
+    if(campos.email && campos.password) {
+        document.querySelector('#login').submit();
         login.reset();
+    } else {
+        for (const key in campos) {
+            if(campos[key] === false){
+                document.querySelector(`#login-${key} .form-control-error`).classList.add('form-control-error-activo');
+            }
+        }
     }
 });
