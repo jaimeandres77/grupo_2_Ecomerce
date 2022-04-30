@@ -1,15 +1,12 @@
 <% styles=['/css/tablaProducto.css'] %>
-  <%- include ("../layout/startPage",{title: 'Listado de Usuarios',styles}) %>
+  <%- include ("../layout/startPage",{title: 'Listado de Usuarios' ,styles}) %>
     <h1>Listado de Usuario</h1>
-    <div class="button_edit">
-      <button type="type"><a href="/product/create" class="create">Crear</a></button>
-    </div>
     <% if (locals.users && users.length> 0) { %>
       <div class="container">
         <table class="table_container">
           <tr>
             <th>Id</th>
-            <th>Nombre del Usuario<th>
+            <th>Nombre del Usuario</th>
             <th><i class="far fa-edit"></i></th>
             <th><i class="far fa-trash-alt"></i></th>
           </tr>
@@ -19,13 +16,13 @@
                 <%= ((page - 1) * 5) + index + 1 %>
               </td>
               <td>
-                <a href="/product/detail/<%= user.id %>">
-                  <%= user.name %>
+                <a href="/user/detail/<%= user.id %>">
+                  <%= user%>
                 </a>
               </td>
               <td>
                 <button type="submit">
-                  <a href="/product/edit/<%= user.id %>">Editar</a>
+                  <a href="/user/edit/<%= user.id %>">Editar</a>
                 </button>
               </td>
               <td>

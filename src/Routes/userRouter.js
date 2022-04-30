@@ -9,6 +9,11 @@ const multer = require('../middlewares/multerRegisterMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
 
+//Detalle Usuario
+router.get('/detail/:id',userController.detail);
+
+//Formulario Edición
+router.get('/edit/:id',userController.editUser);
 
 // Formulario registro
 router.get('/register', guestMiddleware, userController.register);
@@ -16,7 +21,7 @@ router.get('/register', guestMiddleware, userController.register);
 // Procesar el registro
 router.post('/register', multer.single('avatar'), validation, userController.processRegister);
 
-//Formulario Edicion
+//Listado Usuario
 router.get("/showUsers",userController.showUser);
 
 //Formulario de login

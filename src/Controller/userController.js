@@ -4,6 +4,11 @@ const bcrypt = require("bcryptjs");
 const db = require("../database/models");
 
 module.exports = {
+  detail: async (req,res) => {
+    const id = parseInt(req.params.id);
+    const user = await db.Users.findByPk(id);
+    res.render('user/profile', {user});
+  },
   showUser: async (req, res) => {
     try {
       const limit = 10;
@@ -25,6 +30,11 @@ module.exports = {
     } catch (error) {
       console.log(error);
     }
+  },
+  editUser: async(req,res) =>{
+      const id = parseInt(req.params.id);
+      const user = await db.Users.findByPk(id);
+      res.render('user/editUser', {user});
   },
   register: async (req, res) => {
     try {
