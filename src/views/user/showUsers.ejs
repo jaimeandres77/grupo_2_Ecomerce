@@ -1,5 +1,5 @@
 <% styles=['/css/tablaProducto.css'] %>
-  <%- include ("../layout/startPage",{title: 'Listado de Usuarios,styles}) %>
+  <%- include ("../layout/startPage",{title: 'Listado de Usuarios',styles}) %>
     <h1>Listado de Usuario</h1>
     <div class="button_edit">
       <button type="type"><a href="/product/create" class="create">Crear</a></button>
@@ -9,7 +9,7 @@
         <table class="table_container">
           <tr>
             <th>Id</th>
-            <th>Nombre del producto</th>
+            <th>Nombre del Usuario<th>
             <th><i class="far fa-edit"></i></th>
             <th><i class="far fa-trash-alt"></i></th>
           </tr>
@@ -42,7 +42,7 @@
         <div id="page" class="page"></div>
       </div>
       <% } else { %>
-        <h2 class="noStock">No hay juegos registrados, ingresa un nuevo juego</h1>
+        <h2 class="noStock">No hay Usuarios registrados actualmente</h1>
           <% } %>
             <% const scripts=['/js/pagination.js'] %>
               <%- include('../layout/endPage',{scripts}) %>

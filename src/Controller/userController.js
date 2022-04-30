@@ -6,8 +6,8 @@ const db = require("../database/models");
 module.exports = {
   showUser: async (req, res) => {
     try {
-      const limit = 5;
-      const count = await db.Users.count({ where: { status: 1 } });
+      const limit = 10;
+      const count = await db.Users.count({ where: { state: 1 } });
       const page =
         isNaN(req.query.page) ||
         parseInt(req.query.page) <= 1 ||
@@ -15,12 +15,11 @@ module.exports = {
           ? 1
           : parseInt(req.query.page);
       const users = await db.Users.findAll({
-        where: { status: 1 },
+        where: { state: 1 },
         attributes: ["id", "fullName", "userName", "email"],
         order: [["fullName", "ASC"]],
-        // include: ["genres", "platforms"],
         limit,
-        offset: (page - 1) * 5,
+        offset: (page - 1) * 10,
       });
       res.render("user/showUsers", { users, count, page, limit });
     } catch (error) {
