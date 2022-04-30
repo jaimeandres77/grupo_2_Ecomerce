@@ -1,10 +1,10 @@
 <% styles=['/css/tablaProducto.css'] %>
-  <%- include ("../layout/startPage",{title: 'Listado de Juegos' ,styles}) %>
-    <h1>Listado de productos</h1>
+  <%- include ("../layout/startPage",{title: 'Listado de Usuarios,styles}) %>
+    <h1>Listado de Usuario</h1>
     <div class="button_edit">
       <button type="type"><a href="/product/create" class="create">Crear</a></button>
     </div>
-    <% if (locals.games && games.length> 0) { %>
+    <% if (locals.users && users.length> 0) { %>
       <div class="container">
         <table class="table_container">
           <tr>
@@ -13,24 +13,24 @@
             <th><i class="far fa-edit"></i></th>
             <th><i class="far fa-trash-alt"></i></th>
           </tr>
-          <% games.forEach((game,index)=> { %>
+          <% users.forEach((user,index)=> { %>
             <tr>
               <td>
-                <%= ((page - 1) * 10) + index + 1 %>
+                <%= ((page - 1) * 5) + index + 1 %>
               </td>
               <td>
-                <a href="/product/detail/<%= game.id %>">
-                  <%= game.name %>
+                <a href="/product/detail/<%= user.id %>">
+                  <%= user.name %>
                 </a>
               </td>
               <td>
                 <button type="submit">
-                  <a href="/product/edit/<%= game.id %>">Editar</a>
+                  <a href="/product/edit/<%= user.id %>">Editar</a>
                 </button>
               </td>
               <td>
                 <button type="submit">
-                  <form action="/product/delete/<%= game.id %>?_method=DELETE" method="POST">
+                  <form action="/product/delete/<%= user.id %>?_method=DELETE" method="POST">
                     <button type="submit" class="btn btn-danger">Eliminar</button>
                   </form>
                 </button>

@@ -1,0 +1,265 @@
+<% const styles=['/css/editUser.css'] %>
+    <%- include("../layout/startPage",{title: 'Edición de Usuario' ,styles}) %>
+        <section class="section">
+            <main>
+                <div class="form_register">
+                    <form class="form-register formulario" id="formulario" action="/user/register" method="POST"
+                        enctype="multipart/form-data">
+                        <h1>Formulario de Registro</h1>
+
+                        <!-- Grupo Nombre-->
+                        <div class="campo formulario__grupo" id="grupo__fullname">
+                            <label for="fullname" class="formulario__label"><b>Nombre y Apellido</b></label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" name="fullname" class="formulario__input" id="fullname"
+                                    placeholder="Nombre y Apellido"
+                                    value="<%= locals.oldData ? oldData.fullname : null %>" />
+                                <% if(locals.errors && errors.fullname){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.fullname.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">El nombre debe ser de 4 a 16 digitos y solo puede
+                                contener numeros, letras y guion bajo.</p>
+                        </div>
+
+                        <!-- Grupo Usuario-->
+                        <div class="campo formulario__grupo" id="grupo__username">
+                            <label for="username" class="formulario__label"><b>Nombre de Usuario</b></label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" name='username' class="formulario__input" id="username"
+                                    placeholder="Nombre de usuario"
+                                    value="<%= locals.oldData ? oldData.username : null %>" />
+                                <% if(locals.errors && errors.username){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.username.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">El usuario debe ser de 4 a 16 digitos y solo puede
+                                contener numeros, letras y guion bajo.</p>
+                        </div>
+
+                        <!-- Grupo Fecha-->
+                        <div class="campo formulario__grupo" id="grupo__date_of_birth">
+                            <label for="date_of_birth" class="formulario__label"><b>Fecha de Nacimiento</b></label>
+                            <div class="formulario__grupo-input">
+                                <input type="date" name='date_of_birth' class="formulario__input" id="date"
+                                    placeholder="" min="1900-01-01" max="2022-12-31"
+                                    value="<%= locals.oldData ? oldData.date : null %>" required />
+                                <% if(locals.errors && errors.date_of_birth){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.date_of_birth.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Por favor selecciona una fecha de nacimiento.
+                            <p>
+                        </div>
+
+                        <!-- Grupo Domicilio-->
+                        <div class="campo formulario__grupo" id="grupo__domicilio">
+                            <label for="domicilio" class="formulario__label"><b>Domicilio</b></label>
+                            <div class="formulario__grupo-input">
+                                <input type="text" name='domicilio' class="formulario__input" id="domicilio"
+                                    placeholder="Domicilio" value="<%= locals.oldData ? oldData.domicilio: null %>" />
+                                <% if(locals.errors && errors.domicilio){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.domicilio.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Ingresa una dirección de domicilio.</p>
+                        </div>
+
+                        <!-- Grupo perfil-->
+                        <div class="campo formulario__grupo" id="grupo__perfil">
+                            <label for="perfil" class="formulario__label" style="display: block;"><b>Perfil de
+                                    usuario</b></label>
+                            <div class="formulario__grupo-input">
+                                <input type="radio" name="perfil" value="male" <%=locals.oldData &&
+                                    oldData.perfil==='male' ? 'checked' : null %> />Hombre
+                                <input type="radio" name="perfil" value="female" <%=locals.oldData &&
+                                    oldData.perfil==='female' ? 'checked' : null %> />Mujer
+                            </div>
+                            <% if(locals.errors && errors.perfil){ %>
+                                <p
+                                    style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                    <%= errors.perfil.msg %>
+                                </p>
+                                <% } %>
+                                    <p class="formulario__input-error">Selecciona un perfil</p>
+                        </div>
+
+                        <!-- Grupo Intereses-->
+                        <div class="campo formulario__grupo" id="grupo__categories">
+                            <h4>Intereses</h4>
+                            <label for="accion">
+                                <input type="checkbox" name="categories" id="accion" value="accion" <%=locals.oldData &&
+                                    oldData.categories?.includes('accion') ? 'checked' : null %>/>Acción
+                            </label>
+                            <label for="De rol">
+                                <input type="checkbox" name="categories" id="De_rol" value="rol" <%=locals.oldData &&
+                                    oldData.categories?.includes('rol') ? 'checked' : null %> />De rol
+                            </label>
+                            <label for="Estrategia">
+                                <input type="checkbox" name="categories" id="Estrategia" value="estrategia"
+                                    <%=locals.oldData && oldData.categories?.includes('estrategia') ? 'checked' : null
+                                    %> />Estrategía
+                            </label>
+                            <label for="Aventura_Y_Casual">
+                                <input type="checkbox" name="categories" id="Aventura" value="aventura"
+                                    <%=locals.oldData && oldData.categories?.includes('aventura') ? 'checked' : null %>
+                                />Aventura y Casual
+                            </label>
+                            <label for="simulacion">
+                                <input type="checkbox" name="categories" id="simulacion" value="simulacion"
+                                    <%=locals.oldData && oldData.categories?.includes('simulacion') ? 'checked' : null
+                                    %> />Simulación
+                            </label>
+                            <label for="Deportes_Y_Carreras">
+                                <input type="checkbox" name="categories" id="Deportes_Y_Carreras"
+                                    value="deportesYCarreras" <%=locals.oldData &&
+                                    oldData.categories?.includes('deportesYCarreras') ? 'checked' : null %> />Deportes y
+                                Carreras
+                            </label>
+                            <% if(locals.errors && errors.categories){ %>
+                                <p
+                                    style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                    <%= errors.categories.msg %>
+                                </p>
+                                <% } %>
+                                    <div class='formulario__input-error'>
+                                        <p>Selecciona al menos un interes.</p>
+                                    </div>
+                        </div>
+
+                        <!-- Grupo Avatar-->
+                        <div class="campo block formulario__grupo" id="grupo__avatar">
+                            <label for="avatar" class="formulario__label"><b>Elegí tu foto de usuario</b></label>
+                            <input type="file" name="avatar" class="formulario__input">
+                            <% if(locals.errors && errors.avatar){ %>
+                                <p
+                                    style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                    <%= errors.avatar.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <!-- Grupo password-->
+                        <div class="campo formulario__grupo" id="grupo__password">
+                            <label for="password" class="formulario__label">Contraseña <b></b> </label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" name="password" class="formulario__input" id="password"
+                                    placeholder="Contraseña" value="">
+                                <% if(locals.errors && errors.password){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.password.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 digitos.</p>
+                        </div>
+
+                        <!-- Grupo password 2-->
+                        <div class="campo formulario__grupo" id="grupo__password_repeat">
+                            <label for="password_repeat" class="formulario__label">Repetir Contraseña <b></b> </label>
+                            <div class="formulario__grupo-input">
+                                <input type="password" name="password_repeat" class="formulario__input"
+                                    id="password_repeat" placeholder="Repetir Contraseña" value="">
+                                <% if(locals.errors && errors.password_repeat){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.password_repeat.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+                        </div>
+
+                        <!-- Grupo Correo electronico-->
+                        <div class="campo formulario__grupo" id="grupo__email">
+                            <label for="form__register--email" class="formulario__label">Dirección de correo electrónico
+                                *</label>
+                            <div class="formulario__grupo-input">
+                                <input class="controls formulario__input" type="email" name="email" id="correo"
+                                    placeholder="example@email.com"
+                                    value="<%= locals.oldData ? oldData.email : null %>">
+                                <% if(locals.errors && errors.email){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.email.msg %>
+                                    </p>
+                                    <% } %>
+                                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                            </div>
+                            <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos,
+                                guiones y guion bajo.</p>
+                        </div>
+
+                        <!-- Grupo Pais de Nacimiento-->
+                        <div class="campo formulario__grupo" id="grupo__country">
+                            <label for="country" class="formulario__label"><b>Pais de nacimiento</b></label>
+                            <div class="formulario__grupo-input">
+                                <select name="country" class="form-select formulario__input" id="form-select">
+                                    <option value="" selected disabled>Elige un pais</option>
+                                    <% let
+                                        countries=['Argentina','Bolivia','Brasil','Colombia','Chile','Ecuador','Paraguay','Perú','Uruguay','Venezuela'];
+                                        %>
+                                        <% for (const oneCountry of countries) { %>
+                                            <option value="<%= oneCountry %>" <%=locals.oldData &&
+                                                (oldData.country===oneCountry) ? 'selected' : null %>> <%= oneCountry %>
+                                            </option>
+                                            <% } %>
+                                </select>
+                                <% if(locals.errors && errors.country){ %>
+                                    <p
+                                        style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                        <%= errors.country.msg %>
+                                    </p>
+                                    <% } %>
+                            </div>
+                            <div class="formulario__input-error">
+                                Debe seleccionar un pais
+                            </div>
+                        </div>
+
+                        <div class="text_register">
+                            <p class="p-info">Se enviará una contraseña a tu dirección de correo electrónico.</p>
+                            <p class="p-info">Tus datos personales se utilizarán para procesar tu pedido, mejorar tu
+                                experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en
+                                nuestra política de privacidad.</p>
+                            <p class="p-info"><a href="#">¿Ya tengo una cuenta?</a></p>
+                        </div>
+
+                        <!-- Mensaje de error formulario-->
+                        <div class="formulario__mensaje" id="formulario__mensaje">
+                            <p><i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por favor rellena el
+                                formulario correctamente </p>
+                        </div>
+
+                        <div class="button formulario__grupo formulario__grupo-btn-enviar">
+                            <button type="submit" class="formulario__btn">Enviar</button>
+                            <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado con
+                                exito!
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        </section>
+        <script src="https://kit.fontawesome.com/0a9a08cabe.js" crossorigin="anonymous"></script>
+        <% const scripts=['/js/validacionRegister.js'] %>
+            <%- include ("../layout/endPage",{scripts}) %>
