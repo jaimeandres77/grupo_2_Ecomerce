@@ -38,9 +38,10 @@
 ## Principales Conclusiones del Sprint6:
 
 1. Individualmente se aprendido bastante,pero en lo grupal todavia hay muchas cosas por aprender realmente ha sido muy dificil por temas de tiempo pero se ha logrado cumplir con los objetivos.
-2. 
+2. El ritmo de aprendizaje, más el repaso de los temas, ha dificultado que el aporte al proyecto sea disparejo, he tenido un grupo que se apoya mutuamente.
 
 
 ## Principales Conclusiones del Sprint7:
 
-1. Cada tema nuevo que se aprendey que se tenga alguna duda con el tema se socializa con elgrupo para salir de las dudas para su implementación.
+1. Cada tema nuevo que se aprende y que se tenga alguna duda con el tema se socializa con elgrupo para salir de las dudas para su implementación.
+2. Si bien las reuniones se intensificaron, todavía necetamos apoyo de los compañeros que más saben para avanzar.
