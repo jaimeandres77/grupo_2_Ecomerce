@@ -18,16 +18,18 @@
                         <a href="/user/register" class="nav__link">Registrarse</a>
                     </li>
                 <% } else { %>
-                    <li class="nav__item">
-                        <a href="/product/show" class="nav__link">Juegos</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="/user/showUsers" class="nav__link">Usuarios</a>
-                    </li>
+                    <% if (user.isAdmin) { %>
+                        <li class="nav__item">
+                            <a href="/product/show" class="nav__link">Juegos</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/user/showUsers" class="nav__link">Usuarios</a>
+                        </li>
+                    <% } %>
                     <li class="nav__item nav__item--show">
                         <a class="nav__link">
                             <picture class="nav__avatar">
-                                <img src="/img/Avatars/<%= user.profileimage !== 'default-user.svg' ? user.image : 'default-user.svg' %> " <%= user.image === 'default-user.svg' ? 'height=80%' : null %>  alt="avatar">
+                                <img src="/img/Avatars/<%= user.profileimage !== 'default-user.svg' ? user.profileimage : 'default-user.svg' %> " <%= user.image === 'default-user.svg' ? 'height=80%' : null %>  alt="avatar">
                             </picture>
                             <%= user.username %>
                             <i class="fas fa-angle-down nav__arrow"></i>
@@ -41,6 +43,7 @@
                             </li>
                         </ul>
                     </li>
+                    <% console.log(user.isAdmin) %>
                 <% } %>
                 <li class="nav__item">
                     <a href="/sale" class="nav__link nav__shopping">

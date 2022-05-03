@@ -4,24 +4,19 @@ const bcrypt = require("bcryptjs");
 const db = require("../database/models");
 
 module.exports = {
-  detail: async (req,res) => {
+  detail: async (req, res) => {
     const id = parseInt(req.params.id);
     const user = await db.Users.findByPk(id);
-    res.render('user/profile', {user});
+    res.render('user/profile', { user });
   },
   showUser: async (req, res) => {
     try {
       const limit = 10;
       const count = await db.Users.count({ where: { state: 1 } });
-      const page =
-        isNaN(req.query.page) ||
-        parseInt(req.query.page) <= 1 ||
-        parseInt(req.query.page) > Math.ceil(count / limit)
-          ? 1
-          : parseInt(req.query.page);
+      const page = isNaN(req.query.page) || parseInt(req.query.page) <= 1 || parseInt(req.query.page) > Math.ceil(count / limit) ? 1 : parseInt(req.query.page);
       const users = await db.Users.findAll({
         where: { state: 1 },
-        attributes: ["id", "fullName", "userName", "email"],
+        attributes: ["id", "fullname", "username", "email", "isAdmin"],
         order: [["fullName", "ASC"]],
         limit,
         offset: (page - 1) * 10,
@@ -31,10 +26,10 @@ module.exports = {
       console.log(error);
     }
   },
-  editUser: async(req,res) =>{
-      const id = parseInt(req.params.id);
-      const user = await db.Users.findByPk(id);
-      res.render('user/editUser', {user});
+  editUser: async (req, res) => {
+    const id = parseInt(req.params.id);
+    const user = await db.Users.findByPk(id);
+    res.render('user/editUser', { user });
   },
   register: async (req, res) => {
     try {
@@ -46,56 +41,28 @@ module.exports = {
   },
   processRegister: async (req, res) => {
     try {
+      // Validacion de los errores
       const resultValidation = validationResult(req);
       if (resultValidation.errors.length > 0) {
-        return res.render("user/register", {
-          errors: resultValidation.mapped(),
-          oldData: req.body,
-        });
+        return res.render("user/register", { errors: resultValidation.mapped(), oldData: req.body });
       }
-      const {
-        fullname,
-        username,
-        date_of_birth,
-        domicilio,
-        perfil,
-        categories,
-        password,
-        password_repeat,
-        email,
-        country,
-      } = req.body;
+      // Obtencion de los datos
+      const { fullname, username, date_of_birth, domicilio, perfil, categories, password, password_repeat, email, country } = req.body;
       const verificarEmail = await db.Users.findOne({ where: { email } });
       const verificarUsername = await db.Users.findOne({ where: { username } });
+      // Validacion del Usuario y Email
       if (verificarEmail && verificarUsername) {
-        return res.render("user/register", {
-          errors: resultValidation.mapped(),
-          errors: {
-            email: { msg: "Ya existe este correo electronico" },
-            username: { msg: "Ya existe este nombre de usuario" },
-          },
-          oldData: req.body,
-        });
+        return res.render("user/register", { errors: resultValidation.mapped(), errors: { email: { msg: "Ya existe este correo electronico" }, username: { msg: "Ya existe este nombre de usuario" } }, oldData: req.body });
       } else if (verificarEmail) {
-        return res.render("user/register", {
-          errors: resultValidation.mapped(),
-          errors: { email: { msg: "Ya existe este correo electronico" } },
-          oldData: req.body,
-        });
+        return res.render("user/register", { errors: resultValidation.mapped(), errors: { email: { msg: "Ya existe este correo electronico" } }, oldData: req.body });
       } else if (verificarUsername) {
-        return res.render("user/register", {
-          errors: resultValidation.mapped(),
-          errors: { username: { msg: "Ya existe este nombre de usuario" } },
-          oldData: req.body,
-        });
+        return res.render("user/register", { errors: resultValidation.mapped(), errors: { username: { msg: "Ya existe este nombre de usuario" } }, oldData: req.body });
       }
+      // Validacion de igualdad de las contraseñas
       if (password !== password_repeat) {
-        return res.render("user/register", {
-          errors: resultValidation.mapped(),
-          errors: { password: { msg: "Las contraseñas no son iguales" } },
-          oldData: req.body,
-        });
+        return res.render("user/register", { errors: resultValidation.mapped(), errors: { password: { msg: "Las contraseñas no son iguales" } }, oldData: req.body });
       }
+      // Creacion del usuario
       const user = await db.Users.create({
         fullname,
         email,
@@ -103,6 +70,7 @@ module.exports = {
         password: bcrypt.hashSync(password, 10),
         date_of_birth,
         country,
+        domicilio,
         profileimage: req.file?.filename || "default-user.svg",
         sex: perfil,
       });
@@ -129,8 +97,8 @@ module.exports = {
         const isOkThePassword = findEmail
           ? bcrypt.compareSync(password, findEmail.password)
           : findUsername
-          ? bcrypt.compareSync(password, findUsername.password)
-          : false;
+            ? bcrypt.compareSync(password, findUsername.password)
+            : false;
         if (isOkThePassword) {
           let user;
           const attributes = [
@@ -171,6 +139,16 @@ module.exports = {
   },
   profile: (req, res) => {
     res.render("user/profile", { user: req.session.userLogged });
+  },
+  delete: async (req, res) => {
+    try {
+      const id = Number(req.params.id);
+      const userDelete = await db.Users.update({ state: 0 }, { where: { id } });
+      console.log(userDelete);
+      res.redirect('/user/showUsers');
+    } catch (error) {
+      console.log(error);
+    }
   },
   logout: (req, res) => {
     res.clearCookie("userEmail");

@@ -17,7 +17,7 @@
               </td>
               <td>
                 <a href="/user/detail/<%= user.id %>">
-                  <%= user%>
+                  <%= user.fullname %>
                 </a>
               </td>
               <td>
@@ -26,11 +26,11 @@
                 </button>
               </td>
               <td>
-                <button type="submit">
-                  <form action="/product/delete/<%= user.id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
-                  </form>
-                </button>
+                  <% if (user.id !== 1) { %>
+                    <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST">
+                      <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                  <% } %>
               </td>
             </tr>
             <% }); %>

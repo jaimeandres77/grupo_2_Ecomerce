@@ -8,12 +8,13 @@ const validation = require('../middlewares/validationMiddleware');
 const multer = require('../middlewares/multerRegisterMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 //Detalle Usuario
 router.get('/detail/:id',userController.detail);
 
 //Formulario Edición
-router.get('/edit/:id',userController.editUser);
+router.get('/edit/:id',[adminMiddleware],userController.editUser);
 
 // Formulario registro
 router.get('/register', guestMiddleware, userController.register);
@@ -21,8 +22,11 @@ router.get('/register', guestMiddleware, userController.register);
 // Procesar el registro
 router.post('/register', multer.single('avatar'), validation, userController.processRegister);
 
+// Eliminar Usuario
+router.delete('/delete/:id',[adminMiddleware],userController.delete);
+
 //Listado Usuario
-router.get("/showUsers",userController.showUser);
+router.get("/showUsers",[adminMiddleware],userController.showUser);
 
 //Formulario de login
 router.get('/login', guestMiddleware, userController.login);
