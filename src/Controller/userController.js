@@ -140,6 +140,16 @@ module.exports = {
   profile: (req, res) => {
     res.render("user/profile", { user: req.session.userLogged });
   },
+  userUpdated: async (req, res) => {
+    try {
+      const userId = Number(req.params.id);
+      const { fullname, domicilio } = req.body;
+      const userUpdated = await db.Users.update({ fullname, domicilio, profileimage : req.file?.filename || 'default-user.svg' }, { where: { id: userId } });
+      res.redirect('/user/showUsers');
+    } catch (error) {
+      console.log(error);
+    }
+  },
   delete: async (req, res) => {
     try {
       const id = Number(req.params.id);

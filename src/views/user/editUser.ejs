@@ -3,14 +3,19 @@
 <section class="section">
     <main>
         <div class="form_register">
-            <form class="form-register formulario" id="formulario" action="/user/register" method="POST" enctype="multipart/form-data">
+            <form class="form-register formulario" id="formulario" action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                 <h1>Formulario de Edición Usuario</h1>
 
                 <!-- Grupo Nombre-->
                 <div class="campo formulario__grupo" id="grupo__fullname">
                     <label for="fullname" class="formulario__label"><b>Nombre y Apellido</b></label>
                     <div class="formulario__grupo-input">
-                        <input type="text" name="fullname" class="formulario__input" id="fullname" placeholder="Nombre y Apellido" value="<%= user.fullname %>" />
+                        <% if (locals.oldData && oldData.name) { %>
+                            <input type="text" name="fullname" id="fullname" placeholder="Nombre" value="<%= oldData.fullname %>" class="formulario__input">
+                        <% } else { %>
+                            <input type="text" name="fullname" id="fullname" placeholder="Nombre" value="<%= user.fullname %>" class="formulario__input">
+                        <% } %>
+                        <!-- <input type="text" name="fullname" class="formulario__input" id="fullname" placeholder="Nombre y Apellido" value="<%= user.fullname %>" /> -->
                         <% if(locals.errors && errors.fullname){ %>
                             <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
                                 <%= errors.fullname.msg %>
@@ -18,7 +23,7 @@
                         <% } %>
                         <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
                     </div>
-                    <p class="formulario__input-error">El nombre debe ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.</p>
+                    <p class="formulario__input-error">El nombre debe ser de 4 a 100 digitos y solo puede contener numeros, letras y guion bajo.</p>
                 </div>
 
                 <!-- Grupo Usuario-->
@@ -76,7 +81,7 @@
                 <div class="campo formulario__grupo" id="grupo__email">
                     <label for="form__register--email" class="formulario__label">Dirección de correo electrónico *</label>
                     <div class="formulario__grupo-input">
-                        <input class="controls formulario__input" type="email" name="email" id="correo" placeholder="example@email.com" value="<%= user.email %>">
+                        <input class="controls formulario__input" type="email" name="email" id="correo" placeholder="example@email.com" value="<%= user.email %>" disabled>
                         <% if(locals.errors && errors.email){ %>
                             <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
                                 <%= errors.email.msg %>
@@ -103,5 +108,5 @@
     </main>
 </section>
 <script src="https://kit.fontawesome.com/0a9a08cabe.js" crossorigin="anonymous"></script>
-<% const scripts=['/js/validacionRegister.js'] %>
+<% const scripts=['/js/validacionEditUsers.js'] %>
 <%- include ("../layout/endPage",{scripts}) %>
