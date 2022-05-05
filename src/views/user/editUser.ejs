@@ -1,0 +1,112 @@
+<% const styles=['/css/editUser.css'] %>
+<%- include("../layout/startPage",{title: 'Edición de Usuario' ,styles}) %>
+<section class="section">
+    <main>
+        <div class="form_register">
+            <form class="form-register formulario" id="formulario" action="/user/edit/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <h1>Formulario de Edición Usuario</h1>
+
+                <!-- Grupo Nombre-->
+                <div class="campo formulario__grupo" id="grupo__fullname">
+                    <label for="fullname" class="formulario__label"><b>Nombre y Apellido</b></label>
+                    <div class="formulario__grupo-input">
+                        <% if (locals.oldData && oldData.name) { %>
+                            <input type="text" name="fullname" id="fullname" placeholder="Nombre" value="<%= oldData.fullname %>" class="formulario__input">
+                        <% } else { %>
+                            <input type="text" name="fullname" id="fullname" placeholder="Nombre" value="<%= user.fullname %>" class="formulario__input">
+                        <% } %>
+                        <!-- <input type="text" name="fullname" class="formulario__input" id="fullname" placeholder="Nombre y Apellido" value="<%= user.fullname %>" /> -->
+                        <% if(locals.errors && errors.fullname){ %>
+                            <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                <%= errors.fullname.msg %>
+                            </p>
+                        <% } %>
+                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">El nombre debe ser de 4 a 100 digitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+
+                <!-- Grupo Usuario-->
+                <div class="campo formulario__grupo" id="grupo__username">
+                    <label for="username" class="formulario__label"><b>Nombre de Usuario</b></label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" name='username' class="formulario__input" id="username" placeholder="Nombre de usuario" value="<%= user.username %>" disabled />
+                        <% if(locals.errors && errors.username){ %>
+                            <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                <%= errors.username.msg %>
+                            </p>
+                        <% } %>
+                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">El usuario debe ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.</p>
+                </div>
+
+                <!-- Grupo Fecha-->
+
+                <!-- Grupo Domicilio-->
+                <div class="campo formulario__grupo" id="grupo__domicilio">
+                    <label for="domicilio" class="formulario__label"><b>Domicilio</b></label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" name='domicilio' class="formulario__input" id="domicilio" placeholder="Domicilio" value="<%= locals.oldData ? oldData.domicilio: user.domicilio %>" />
+                        <% if(locals.errors && errors.domicilio){ %>
+                            <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                <%= errors.domicilio.msg %>
+                            </p>
+                        <% } %>
+                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">Ingresa una dirección de domicilio.</p>
+                </div>
+
+                <!-- Grupo perfil-->
+
+                <!-- Grupo Intereses-->
+
+                <!-- Grupo Avatar-->
+                <div class="campo block formulario__grupo" id="grupo__avatar">
+                    <label for="avatar" class="formulario__label"><b>Elegí tu foto de usuario</b></label>
+                    <input type="file" name="avatar" class="formulario__input" value="/img/Avatars/<%= user.profileimage %>">
+                    <% if(locals.errors && errors.avatar){ %>
+                        <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                            <%= errors.avatar.msg %>
+                        </p>
+                    <% } %>
+                </div>
+
+                <!-- Grupo password-->
+
+                <!-- Grupo password 2-->
+
+                <!-- Grupo Correo electronico-->
+                <div class="campo formulario__grupo" id="grupo__email">
+                    <label for="form__register--email" class="formulario__label">Dirección de correo electrónico *</label>
+                    <div class="formulario__grupo-input">
+                        <input class="controls formulario__input" type="email" name="email" id="correo" placeholder="example@email.com" value="<%= user.email %>" disabled>
+                        <% if(locals.errors && errors.email){ %>
+                            <p style="color: #f90808 ; background-color:#ed191942; border-radius: 8px; text-align:center ;">
+                                <%= errors.email.msg %>
+                            </p>
+                        <% } %>
+                        <i class=" formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                </div>
+
+                <!-- Grupo Pais de Nacimiento-->
+
+                <!-- Mensaje de error formulario-->
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por favor rellena el formulario correctamente </p>
+                </div>
+
+                <div class="button formulario__grupo formulario__grupo-btn-enviar">
+                    <button type="submit" class="formulario__btn">Actualizar</button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado con exito!</p>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+<script src="https://kit.fontawesome.com/0a9a08cabe.js" crossorigin="anonymous"></script>
+<% const scripts=['/js/validacionEditUsers.js'] %>
+<%- include ("../layout/endPage",{scripts}) %>

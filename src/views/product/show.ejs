@@ -1,48 +1,48 @@
 <% styles=['/css/tablaProducto.css'] %>
-<%- include ("../layout/startPage",{title: 'Listado de Juegos' ,styles}) %>
-  <h1>Listado de productos</h1>
-  <div class="button_edit">
-    <button type="type"><a href="/product/create" class="create">Crear</a></button>
-  </div>
-  <% if (locals.games && games.length> 0) { %>
-    <div class="container">
-    <table class="table_container">
-      <tr>
-        <th>Id</th>
-        <th>Nombre del producto</th>
-        <th><i class="far fa-edit"></i></th>
-        <th><i class="far fa-trash-alt"></i></th>
-      </tr>
-      <% games.forEach((game,index)=> { %>
-        <tr>
-          <td>
-            <%= ((page - 1) * 10) + index + 1 %>
-          </td>
-          <td>
-            <a href="/product/detail/<%= game.id %>">
-              <%= game.name %>
-            </a>
-          </td>
-          <td>
-            <button type="submit">
-              <a href="/product/edit/<%= game.id %>">Editar</a>
-            </button>
-          </td>
-          <td>
-            <button type="submit">
-              <form action="/product/delete/<%= game.id %>?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Eliminar</button>
-              </form>
-            </button>
-          </td>
-        </tr>
-        <% }); %>
-    </table>
-    <input type="hidden" name="page" value="<%= locals.page || 0 %>/<%= locals.count || 0 %>">
-    <div id="page" class="page"></div>
-  </div>
-  <% } else { %>
-    <h2 class="noStock">No hay juegos registrados, ingresa un nuevo juego</h1>
-  <% } %>
-<% const scripts = ['/js/pagination.js'] %>
-<%- include('../layout/endPage',{scripts}) %>
+  <%- include ("../layout/startPage",{title: 'Listado de Juegos' ,styles}) %>
+    <h1>Listado de productos</h1>
+    <div class="button_edit">
+      <button type="type"><a href="/product/create" class="create">Crear</a></button>
+    </div>
+    <% if (locals.games && games.length> 0) { %>
+      <div class="container">
+        <table class="table_container">
+          <tr>
+            <th>Id</th>
+            <th>Nombre del producto</th>
+            <th><i class="far fa-edit"></i></th>
+            <th><i class="far fa-trash-alt"></i></th>
+          </tr>
+          <% games.forEach((game,index)=> { %>
+            <tr>
+              <td>
+                <%= ((page - 1) * 10) + index + 1 %>
+              </td>
+              <td>
+                <a href="/product/detail/<%= game.id %>">
+                  <%= game.name %>
+                </a>
+              </td>
+              <td>
+                <button type="submit">
+                  <a href="/product/edit/<%= game.id %>">Editar</a>
+                </button>
+              </td>
+              <td>
+                <button type="submit">
+                  <form action="/product/delete/<%= game.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                  </form>
+                </button>
+              </td>
+            </tr>
+            <% }); %>
+        </table>
+        <input type="hidden" name="page" value="<%= locals.page || 0 %>/<%= locals.count || 0 %>">
+        <div id="page" class="page"></div>
+      </div>
+      <% } else { %>
+        <h2 class="noStock">No hay juegos registrados, ingresa un nuevo juego</h1>
+          <% } %>
+            <% const scripts=['/js/pagination.js'] %>
+              <%- include('../layout/endPage',{scripts}) %>

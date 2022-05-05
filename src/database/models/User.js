@@ -21,6 +21,9 @@ module.exports=(sequelize,dataType) => {
         country: {
             type: dataType.STRING
         },
+        domicilio: {
+            type: dataType.STRING
+        },
         profileimage: {
             type: dataType.STRING
         },
@@ -31,6 +34,9 @@ module.exports=(sequelize,dataType) => {
             type: dataType.ENUM,
             values: ['male','female']
         },
+        state: {
+            type: dataType.BOOLEAN
+        }
     };
     const config = {
         tableName: "user",

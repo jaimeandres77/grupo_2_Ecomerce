@@ -2,7 +2,7 @@ const {body} = require('express-validator');
 const path = require('path');
 
 const validationMiddleware = [
-    body('fullname').notEmpty().withMessage('Tienes que escribir un nombre').bail().isLength({min: 4,max: 16}).withMessage('El nombre debe ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.'),
+    body('fullname').notEmpty().withMessage('Tienes que escribir un nombre').bail().isLength({min: 4,max: 100}).withMessage('El nombre debe ser de 4 a 100 digitos y solo puede contener numeros, letras y guion bajo.'),
     body('username').notEmpty().withMessage('Tienes que escribir un nombre de usuario').bail().isLength({min: 4,max: 16}).withMessage('El usuario debe ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.'),
     body('date_of_birth').notEmpty().withMessage('Selecciona una fecha de nacimiento'),
     body('domicilio').notEmpty().withMessage('Tienes que escribir una direccion de domicilio'),

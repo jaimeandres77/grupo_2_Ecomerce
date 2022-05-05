@@ -4,7 +4,7 @@
     <div class="container profile">
         <div class="profile__image">
             <picture class="profile__image--avatar">
-                <img src="/img/Avatars/<%= user.profileimage %>" alt="Avatar">
+                <img src="/img/avatars/<%= user.profileimage %>" alt="Avatar">
             </picture>
             <div class="profile__name"><%= user.username %></div>
         </div>
@@ -32,7 +32,7 @@
                     <input type="text" name="sex" id="sex" value="<%= user?.sex ? user.sex === 'male' ? 'Hombre' : 'Mujer' : 'No esta definido' %>" readonly>
                 </div>
                 <div class="campo-100 button">
-                    <a href="/" class="btn btn-primary">Volver a la pagina de inicio</a>
+                    <a href="/user/showUsers" class="btn btn-primary">Volver</a>
                 </div>
             </form>
         </div>

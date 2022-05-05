@@ -3,6 +3,8 @@ const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const cors = require('cors');
+
 // Rutas
 const mainRouter = require('./Routes/mainRouter');
 const productRouter = require('./Routes/productRouter');
@@ -13,7 +15,7 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const userApiRoutes = require('./Routes/api/userApiRouter');
 const productApiRoutes = require('./Routes/api/productApiRouter');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.use(session({
     secret: "Shh, it's a secret",
@@ -26,6 +28,7 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', 'src/views');
 
