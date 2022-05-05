@@ -45,3 +45,8 @@
 
 1. Cada tema nuevo que se aprende y que se tenga alguna duda con el tema se socializa con elgrupo para salir de las dudas para su implementación.
 2. Si bien las reuniones se intensificaron, todavía necetamos apoyo de los compañeros que más saben para avanzar.
+3. Coordinar mejor los trabajos que dependen de otros integrantes
+
+## Principales Conclusiones del Sprint8:
+
+1. Mejorar comunicacion con el equipo en la distribucion de trabajo
